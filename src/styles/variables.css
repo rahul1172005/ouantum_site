@@ -1,0 +1,36 @@
+:root {
+  /* Colors */
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --text-primary: #ffffff;
+  --text-secondary: #aaaaaa;
+  --text-muted: #666666;
+  --accent-white: #ffffff;
+  --accent-white-glow: rgba(255, 255, 255, 0.08);
+  --line-color: rgba(255, 255, 255, 0.1);
+  --line-active: #444444;
+
+  /* Fonts */
+  --font-main: 'Montserrat', sans-serif;
+  --font-mono: 'Montserrat', sans-serif;
+  --font-adieu: 'Adieu', 'Montserrat', sans-serif;
+
+  /* Spacing */
+  --container-width: 1600px;
+  --section-padding: 60px;
+  --header-height: 90px;
+
+  /* Radius */
+  --card-radius: 32px;
+  --card-radius-sm: 24px;
+
+  /* Transitions */
+  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-medium: 0.4s var(--transition-smooth);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 60px;
+  }
+}

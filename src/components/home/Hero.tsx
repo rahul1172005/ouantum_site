@@ -1,0 +1,574 @@
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, Send } from 'lucide-react';
+import { WordHover } from '@/components/common/WordHover';
+
+
+const Hero: React.FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Adjust background image scale, X-axis position, and Y-axis position directly here
+  const heroImageScaleDesktop = 0.90;
+  const heroImageXDesktop = 0; // in pixels
+  const heroImageYDesktop = 0; // in pixels
+
+  const heroImageScaleMobile = 1.00;
+  const heroImageXMobile = 0; // in pixels
+  const heroImageYMobile = 0; // in pixels
+
+  const heroImageScale = isMobile ? heroImageScaleMobile : heroImageScaleDesktop;
+  const heroImageX = isMobile ? heroImageXMobile : heroImageXDesktop;
+  const heroImageY = isMobile ? heroImageYMobile : heroImageYDesktop;
+
+  // Adjust direct contact logo configurations (background, scale, X, and Y positions)
+  const whatsappLogoBg = 'transparent';
+  const whatsappLogoScale = 1.0;
+  const whatsappLogoX = 0; // in pixels
+  const whatsappLogoY = 0; // in pixels
+
+  const callLogoBg = 'transparent';
+  const callLogoScale = 1.0;
+  const callLogoX = 0; // in pixels
+  const callLogoY = 0; // in pixels
+
+  const emailLogoBg = 'transparent';
+  const emailLogoScale = 1.0;
+  const emailLogoX = 0; // in pixels
+  const emailLogoY = 0; // in pixels
+
+  const linkedinLogoBg = 'transparent';
+  const linkedinLogoScale = 1.0;
+  const linkedinLogoX = 0; // in pixels
+  const linkedinLogoY = 0; // in pixels
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email) return;
+
+    setIsSubmitting(true);
+
+    try {
+      const tgToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
+      const tgChatId = import.meta.env.VITE_TELEGRAM_CHAT_ID;
+      const tgChatId2 = import.meta.env.VITE_TELEGRAM_CHAT_ID_2;
+
+      if (tgToken && tgChatId) {
+        const text = `🚨 *New Website Lead (Hero Form)*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Phone:* ${formData.phone || 'N/A'}\n*Message:* ${formData.message || 'N/A'}`;
+
+        const sendTo = (chatId: string) =>
+          fetch(`https://api.telegram.org/bot${tgToken}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: chatId, text, parse_mode: 'Markdown' }),
+          }).catch(() => { });
+
+        await sendTo(tgChatId);
+        if (tgChatId2) await sendTo(tgChatId2);
+      }
+
+      setIsSuccess(true);
+      setTimeout(() => {
+        setIsModalOpen(false);
+        setIsSuccess(false);
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      }, 3000);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <section id="hero" className="hero">
+      <div
+        className="container hero-content"
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+          height: '100%',
+          minHeight: 'calc(100vh - 160px)',
+          paddingTop: '40px',
+          paddingBottom: '20px',
+          zIndex: 10,
+        }}
+      >
+        {/* Main Content Stack */}
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+            textAlign: 'left',
+            marginTop: 'auto',
+            marginBottom: 'auto',
+          }}
+        >
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{
+              fontFamily: 'var(--font-adieu)',
+              fontSize: 'clamp(2rem, 6.5vw, 4.8rem)',
+              fontWeight: 400,
+              lineHeight: 1.05,
+              color: '#ffffff',
+              margin: '0 0 1.5rem 0',
+              textAlign: 'left',
+              letterSpacing: '-0.02em',
+              textTransform: 'uppercase',
+            }}
+          >
+            Innovation that<br />Drives Impact.
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            style={{
+              fontFamily: 'var(--font-main)',
+              fontSize: 'clamp(1rem, 1.8vw, 1.2rem)',
+              lineHeight: 1.6,
+              color: 'rgba(255, 255, 255, 0.7)',
+              maxWidth: '650px',
+              margin: '0 0 2.5rem 0',
+              textAlign: 'left',
+              fontWeight: 400,
+            }}
+          >
+            <WordHover text="Ouantum empowers teams to build, scale, and transform with technology that drives real results." />
+          </motion.p>
+
+          <motion.button
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            onClick={() => setIsModalOpen(true)}
+            style={{
+              fontFamily: 'var(--font-adieu)',
+              fontSize: '0.85rem',
+              letterSpacing: '0.1em',
+              textTransform: 'uppercase',
+              fontWeight: 600,
+              color: '#000000',
+              backgroundColor: '#ffffff',
+              border: 'none',
+              borderRadius: '9999px',
+              padding: '0.8rem 0.8rem 0.8rem 2.5rem',
+              cursor: 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '2rem',
+              transition: 'all 0.25s ease',
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.opacity = '0.9';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.opacity = '1';
+            }}
+          >
+            Start Conversation
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: '#000000',
+                color: '#ffffff',
+                borderRadius: '50%',
+                width: '42px',
+                height: '42px',
+                flexShrink: 0,
+              }}
+            >
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </div>
+          </motion.button>
+        </div>
+
+        {/* Bottom Partner Logos */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.0, delay: 0.5 }}
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            gap: 'clamp(2rem, 5vw, 4rem)',
+            width: '100%',
+            marginTop: 'auto',
+            paddingTop: '4rem',
+          }}
+        >
+          {/* Amith */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+              color: '#ffffff',
+              opacity: 0.8,
+              fontSize: 'clamp(0.8rem, 1.2vw, 1rem)',
+              fontFamily: 'var(--font-adieu)',
+            }}
+          >
+            <span>Amith</span>
+          </div>
+
+          {/* Cybercom */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+              color: '#ffffff',
+              opacity: 0.8,
+              fontSize: 'clamp(0.8rem, 1.2vw, 1rem)',
+              fontFamily: 'var(--font-adieu)',
+            }}
+          >
+            <img
+              src="/assets/images/logo/cybercom-logo-white.png"
+              alt="Cybercom"
+              style={{
+                height: 'clamp(1.2rem, 2vw, 1.8rem)',
+                width: 'auto',
+                display: 'block',
+                transform: 'scale(1) translate(0px, -0.9px)',
+              }}
+            />
+            <span>Cybercom</span>
+          </div>
+
+          {/* Zapsters */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+              color: '#ffffff',
+              opacity: 0.8,
+              fontSize: 'clamp(0.8rem, 1.2vw, 1rem)',
+              fontFamily: 'var(--font-adieu)',
+            }}
+          >
+            <img
+              src="/assets/images/logo/zapsters logo.png"
+              alt="Zapsters"
+              style={{
+                height: 'clamp(1.2rem, 2vw, 1.8rem)',
+                width: 'auto',
+                display: 'block',
+                transform: 'scale(3.5) translate(-2px, 0px)',
+              }}
+            />
+            <span>Zapsters</span>
+          </div>
+
+          {/* Etherence */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '10px',
+              color: '#ffffff',
+              opacity: 0.8,
+              fontSize: 'clamp(0.8rem, 1.2vw, 1rem)',
+              fontFamily: 'var(--font-adieu)',
+            }}
+          >
+            <img
+              src="/assets/images/logo/E2-logo.png"
+              alt="Etherence"
+              style={{
+                height: 'clamp(1.2rem, 2vw, 1.8rem)',
+                width: 'auto',
+                display: 'block',
+                transform: 'scale(2) translate(-2px, -0.5px)',
+              }}
+            />
+            <span>Etherence</span>
+          </div>
+        </motion.div>
+      </div>
+
+      <motion.div
+        className="hero-image-container"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+      >
+        <motion.img
+          src="/assets/images/0deda3f3-08be-4515-af7b-2e1b6c2d97d8.png"
+          alt="Ouantum Architecture"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            transform: `scale(${heroImageScale}) translate(${heroImageX}px, ${heroImageY}px)`,
+            display: 'block'
+          }}
+        />
+        <div className="overlay-gradient"></div>
+      </motion.div>
+
+      {/* Modal Overlay */}
+      <AnimatePresence>
+        {isModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            style={{
+              position: 'fixed',
+              top: 0, left: 0, right: 0, bottom: 0,
+              background: 'rgba(0, 0, 0, 0.85)',
+              backdropFilter: 'blur(10px)',
+              zIndex: 9999,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '20px'
+            }}
+          >
+            <motion.div
+              initial={{ y: 40, opacity: 0, scale: 0.95 }}
+              animate={{ y: 0, opacity: 1, scale: 1 }}
+              exit={{ y: 20, opacity: 0, scale: 0.95 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              className="contact-modal-grid"
+              style={{
+                background: '#000',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                borderRadius: '24px',
+                width: '100%',
+                maxWidth: '900px',
+                maxHeight: '90vh',
+                overflowY: 'auto',
+                position: 'relative',
+                boxShadow: '0 30px 60px rgba(0, 0, 0, 0.12)',
+              }}
+            >
+              <button
+                onClick={() => setIsModalOpen(false)}
+                style={{
+                  position: 'absolute',
+                  top: '20px',
+                  right: '20px',
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  border: 'none',
+                  color: '#fff',
+                  width: '32px', height: '32px',
+                  borderRadius: '50%',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  cursor: 'pointer',
+                  zIndex: 10,
+                }}
+              >
+                <X size={16} />
+              </button>
+
+              {/* Left Column - Form */}
+              <div style={{ padding: '40px', background: '#000' }}>
+                <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '1.5rem', marginBottom: '10px', textTransform: 'uppercase' }}>Send us a message</h3>
+                <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '30px' }}>Fill out the form below and we'll get back to you.</p>
+
+                {isSuccess ? (
+                  <div style={{ background: '#111', border: '1px solid rgba(255,255,255,0.15)', padding: '20px', borderRadius: '12px', color: '#ffffff', fontFamily: 'var(--font-mono)', fontSize: '0.9rem' }}>
+                    Message sent successfully! We'll be in touch soon.
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    <input
+                      type="text"
+                      placeholder="Name"
+                      required
+                      value={formData.name}
+                      onChange={e => setFormData({ ...formData, name: e.target.value })}
+                      style={{ width: '100%', boxSizing: 'border-box', background: '#111', border: '1px solid rgba(255, 255, 255, 0.12)', padding: '14px 16px', borderRadius: '8px', color: '#fff', fontFamily: 'var(--font-mono)', outline: 'none' }}
+                    />
+                    <div className="contact-modal-form-row">
+                      <input
+                        type="email"
+                        placeholder="Email"
+                        required
+                        value={formData.email}
+                        onChange={e => setFormData({ ...formData, email: e.target.value })}
+                        style={{ width: '100%', boxSizing: 'border-box', background: '#111', border: '1px solid rgba(255, 255, 255, 0.12)', padding: '14px 16px', borderRadius: '8px', color: '#fff', fontFamily: 'var(--font-mono)', outline: 'none' }}
+                      />
+                      <input
+                        type="tel"
+                        placeholder="Phone (Optional)"
+                        value={formData.phone}
+                        onChange={e => setFormData({ ...formData, phone: e.target.value })}
+                        style={{ width: '100%', boxSizing: 'border-box', background: '#111', border: '1px solid rgba(255, 255, 255, 0.12)', padding: '14px 16px', borderRadius: '8px', color: '#fff', fontFamily: 'var(--font-mono)', outline: 'none' }}
+                      />
+                    </div>
+                    <textarea
+                      placeholder="Project details or message..."
+                      rows={4}
+                      value={formData.message}
+                      onChange={e => setFormData({ ...formData, message: e.target.value })}
+                      style={{ width: '100%', boxSizing: 'border-box', background: '#111', border: '1px solid rgba(255, 255, 255, 0.12)', padding: '14px 16px', borderRadius: '8px', color: '#fff', fontFamily: 'var(--font-mono)', resize: 'vertical', outline: 'none' }}
+                    />
+                    <button
+                      type="submit"
+                      disabled={isSubmitting}
+                      style={{
+                        background: '#fff',
+                        color: '#000',
+                        border: 'none',
+                        padding: '16px',
+                        borderRadius: '8px',
+                        fontFamily: 'var(--font-adieu)',
+                        cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '8px',
+                        opacity: isSubmitting ? 0.7 : 1,
+                        marginTop: '10px',
+                        width: '100%',
+                        fontWeight: 600,
+                        transition: 'opacity 0.3s ease',
+                      }}
+                      onMouseOver={(e) => {
+                        if (!isSubmitting) e.currentTarget.style.opacity = '0.9';
+                      }}
+                      onMouseOut={(e) => {
+                        if (!isSubmitting) e.currentTarget.style.opacity = '1';
+                      }}
+                    >
+                      {isSubmitting ? 'SENDING...' : 'SUBMIT MESSAGE'}
+                      <Send size={16} />
+                    </button>
+                  </form>
+                )}
+              </div>
+
+              {/* Right Column - Direct Links */}
+              <div style={{ padding: '40px', background: '#000', display: 'flex', flexDirection: 'column' }}>
+                <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '1.5rem', marginBottom: '10px', textTransform: 'uppercase' }}>Direct Contact</h3>
+                <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '30px' }}>Or reach out to us instantly via these channels.</p>
+
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', flex: 1, justifyContent: 'center' }}>
+                  <a href="https://api.whatsapp.com/send/?phone=917695827158&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '20px', background: '#000', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '12px', color: '#fff', textDecoration: 'none', transition: 'all 0.2s' }} onMouseEnter={e => e.currentTarget.style.background = '#121212'} onMouseLeave={e => e.currentTarget.style.background = '#0a0a0a'}>
+                    <div style={{ background: whatsappLogoBg, color: '#fff', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
+                      <img
+                        src="/assets/images/whatsapp_logo.png"
+                        alt="WhatsApp"
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          transform: `scale(${whatsappLogoScale}) translate(${whatsappLogoX}px, ${whatsappLogoY}px)`,
+                          display: 'block'
+                        }}
+                      />
+                    </div>
+                    <div>
+                      <div style={{ fontFamily: 'var(--font-adieu)', fontSize: '1.1rem' }}>WhatsApp</div>
+                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.5)', marginTop: '4px' }}>Instant response</div>
+                    </div>
+                  </a>
+
+                  <a href="tel:+917695827158" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '20px', background: '#000', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '12px', color: '#fff', textDecoration: 'none', transition: 'all 0.2s' }} onMouseEnter={e => e.currentTarget.style.background = '#121212'} onMouseLeave={e => e.currentTarget.style.background = '#0a0a0a'}>
+                    <div style={{ background: callLogoBg, color: '#fff', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
+                      <img
+                        src="/assets/images/call_logo.png"
+                        alt="Phone Call"
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          transform: `scale(${callLogoScale}) translate(${callLogoX}px, ${callLogoY}px)`,
+                          display: 'block'
+                        }}
+                      />
+                    </div>
+                    <div>
+                      <div style={{ fontFamily: 'var(--font-adieu)', fontSize: '1.1rem' }}>Phone Call</div>
+                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.5)', marginTop: '4px' }}>+91 76958 27158</div>
+                    </div>
+                  </a>
+
+                  <a href="mailto:contact@ouantum.com" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '20px', background: '#000', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '12px', color: '#fff', textDecoration: 'none', transition: 'all 0.2s' }} onMouseEnter={e => e.currentTarget.style.background = '#121212'} onMouseLeave={e => e.currentTarget.style.background = '#0a0a0a'}>
+                    <div style={{ background: emailLogoBg, color: '#fff', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
+                      <img
+                        src="/assets/images/email_logo.jpg"
+                        alt="Email"
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          transform: `scale(${emailLogoScale}) translate(${emailLogoX}px, ${emailLogoY}px)`,
+                          display: 'block'
+                        }}
+                      />
+                    </div>
+                    <div>
+                      <div style={{ fontFamily: 'var(--font-adieu)', fontSize: '1.1rem' }}>Email</div>
+                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.5)', marginTop: '4px' }}>contact@ouantum.com</div>
+                    </div>
+                  </a>
+
+                  <a href="https://linkedin.com/company/ouantum" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '20px', background: '#000', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '12px', color: '#fff', textDecoration: 'none', transition: 'all 0.2s' }} onMouseEnter={e => e.currentTarget.style.background = '#121212'} onMouseLeave={e => e.currentTarget.style.background = '#0a0a0a'}>
+                    <div style={{ background: linkedinLogoBg, color: '#fff', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
+                      <img
+                        src="/assets/images/linkedin_logo.png"
+                        alt="LinkedIn"
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          transform: `scale(${linkedinLogoScale}) translate(${linkedinLogoX}px, ${linkedinLogoY}px)`,
+                          display: 'block'
+                        }}
+                      />
+                    </div>
+                    <div>
+                      <div style={{ fontFamily: 'var(--font-adieu)', fontSize: '1.1rem' }}>LinkedIn</div>
+                      <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', color: 'rgba(255, 255, 255, 0.5)', marginTop: '4px' }}>Connect professionally</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
+  );
+};
+
+export default Hero;
