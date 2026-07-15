@@ -1,216 +1,324 @@
 import { useState } from 'react';
-import { WordHover } from '@/components/common/WordHover';
+import { useNavigate } from 'react-router-dom';
+import ScrollReveal from '@/components/common/ScrollReveal';
 
 const steps = [
   {
     num: '01',
     title: 'FIELD DATA IN',
     sub: 'MOBILE ENTRY · STRUCTURED INTAKE',
-    description: 'Field engineer opens Ouantum on-site. Selects project → block → structural element. Enters test readings - rebound values, UPV transit times, carbonation depths - tied to the exact location.',
-    detail: 'Works on 4G. No paper. No back-office transcription.',
+    description: 'Field engineer opens OUANTUM on-site. Selects project, block, and structural element. Enters test readings tied to the exact location. Works on 4G. No paper. No back-office transcription.',
     image: '/assets/images/c55952a9-3cc9-47ba-be6d-62e56e0cee61.png',
+    avatar: '/assets/images/ox1_avatar/1.png',
+    anim: { x: -45, y: 25, scale: 0.78 },
+    route: '/how-it-works/field-data-in',
   },
   {
     num: '02',
     title: 'AI ANALYSIS',
     sub: 'IS CODE · MULTI-MODEL CONSENSUS',
-    description: 'Deterministic calculations run instantly - SonReb correlation, carbonation service life, chloride diffusion. Three AI models independently validate against IS codes and structural context.',
-    detail: (
-      <>
-        All three must agree.
-        <br />
-        Disagreement triggers expert review.
-      </>
-    ),
+    description: 'Deterministic calculations run instantly. Three AI models independently validate against IS codes and structural context. All three must agree. Disagreement triggers expert review.',
     image: '/assets/images/df6e20f2-a007-43fa-8723-8944b53f30b6.png',
+    avatar: '/assets/images/ox1_avatar/2.png',
+    anim: { x: 0, y: -45, scale: 0.78 },
+    route: '/how-it-works/ai-analysis',
   },
   {
     num: '03',
     title: 'REPORT OUT',
     sub: 'GOVERNMENT-FORMAT · SAME DAY',
-    description: 'Full government-format PDF auto-generated. Element findings, IS code compliance status, condition grading, and recommendations. Ready for senior engineer review and digital sign-off within the hour.',
-    detail: 'Amaravati format. TNHB format. ADB format. Auto-selected.',
+    description: 'Full government-format PDF auto-generated. Ready for senior engineer review and digital sign-off within the hour. Amaravati format. TNHB format. ADB format. Auto-selected.',
     image: '/assets/images/47766f42-6372-4a45-8a66-6043acfde415.png',
+    avatar: '/assets/images/ox1_avatar/3.png',
+    anim: { x: 45, y: 25, scale: 0.78 },
+    route: '/how-it-works/report-out',
   },
 ];
 
-const FlipCard = ({ step }: { step: typeof steps[0] }) => {
-  const [flipped, setFlipped] = useState(false);
+/* ─────────────────────────────────────────────────────────
+   The small circle button sits top-right.
+   Clicking it triggers a clip-path circle that expands
+   from that exact button position to fill the card.
+   Clicking the × collapses it back.
+───────────────────────────────────────────────────────── */
+const StepCard = ({ step }: { step: typeof steps[0] }) => {
+  const navigate = useNavigate();
+  const [expanded, setExpanded] = useState(false);
+
+  // Clip-path origin (top-right corner of card, reserved for future use)
 
   return (
     <div
-      onClick={() => setFlipped(!flipped)}
       style={{
-        perspective: '1200px',
-        cursor: 'pointer',
+        position: 'relative',
         height: '520px',
+        borderRadius: '20px',
+        overflow: 'hidden',
+        border: '1px solid rgba(255,255,255,0.10)',
       }}
     >
-      {/* Card wrapper — rotates on flip */}
-      <div
+      {/* ── Background image ── */}
+      <img
+        src={step.image}
+        alt={step.title}
+        loading="lazy"
         style={{
-          position: 'relative',
+          position: 'absolute',
+          inset: 0,
           width: '100%',
           height: '100%',
-          transformStyle: 'preserve-3d',
-          transition: 'transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1)',
-          transform: flipped ? 'rotateY(180deg)' : 'rotateY(0deg)',
-          borderRadius: '20px',
+          objectFit: 'cover',
+          objectPosition: 'center top',
+          display: 'block',
+          transition: 'transform 0.6s ease',
+          transform: expanded ? 'scale(1.04)' : 'scale(1)',
+        }}
+      />
+
+      {/* ── Static bottom gradient ── */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: '65%',
+          background: 'linear-gradient(to top, rgba(0,0,0,0.94) 0%, rgba(0,0,0,0.55) 45%, transparent 100%)',
+          transition: 'opacity 0.3s ease',
+          opacity: expanded ? 0 : 1,
+          pointerEvents: 'none',
+          zIndex: 1,
+        }}
+      />
+
+      {/* ── Front content (title / step number) ── */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          padding: '2rem',
+          zIndex: 2,
+          transition: 'opacity 0.2s ease',
+          opacity: expanded ? 0 : 1,
+          pointerEvents: 'none',
         }}
       >
-        {/* ── FRONT FACE ── */}
-        <div
+        <span
           style={{
-            position: 'absolute',
-            inset: 0,
-            backfaceVisibility: 'hidden',
-            WebkitBackfaceVisibility: 'hidden',
-            overflow: 'hidden',
-            border: '1px solid rgba(255,255,255,0.12)',
-            borderRadius: '20px',
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.62rem',
+            letterSpacing: '0.25em',
+            color: 'rgba(255,255,255,0.3)',
+            display: 'block',
+            marginBottom: '0.4rem',
           }}
         >
-          {/* Full image */}
-          <img
-            src={step.image}
-            alt={step.title}
-            loading="lazy"
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              objectPosition: 'center top',
-              display: 'block',
-            }}
-          />
+          {step.num}
+        </span>
+        <h3
+          style={{
+            fontFamily: 'var(--font-adieu)',
+            fontSize: '1.55rem',
+            color: '#fff',
+            margin: '0 0 0.3rem 0',
+            letterSpacing: '0.02em',
+            lineHeight: 1.1,
+          }}
+        >
+          {step.title}
+        </h3>
+        <span
+          style={{
+            fontFamily: 'var(--font-mono)',
+            fontSize: '0.6rem',
+            color: 'rgba(255,255,255,0.28)',
+            letterSpacing: '0.12em',
+          }}
+        >
+          {step.sub}
+        </span>
+      </div>
 
-          {/* Bottom gradient overlay with title */}
-          <div
+      {/* ── DARK CIRCLE OVERLAY ──
+           Expands from the button position via clip-path */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          background: '#000000',
+          clipPath: expanded
+            ? `circle(170% at calc(100% - 1.1rem - 20px) calc(1.1rem + 20px))`
+            : `circle(20px at calc(100% - 1.1rem - 20px) calc(1.1rem + 20px))`,
+          transition: 'clip-path 0.7s cubic-bezier(0.4, 0, 0.2, 1)',
+          zIndex: 3,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'flex-end',
+          padding: '2rem',
+        }}
+      >
+        {/* CARD 01 IMAGE: Adjust scale, translate X (x), and translate Y (y) statically */}
+        {step.num === '01' && (
+          <img
+            src={step.avatar}
+            alt={step.title}
             style={{
               position: 'absolute',
-              bottom: 0,
-              left: 0,
-              right: 0,
-              padding: '2rem 2rem 1.75rem',
-              background: 'linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%)',
+              top: '2.5rem',
+              left: '2.5rem',
+              width: '150px',
+              height: '150px',
+              objectFit: 'contain',
+              transform: 'scale(2.0) translate(50px, 10px)',
             }}
-          >
+          />
+        )}
 
-            <h3 style={{
-              fontFamily: 'var(--font-adieu)',
-              fontSize: '1.6rem',
-              color: '#fff',
-              margin: 0,
-              letterSpacing: '0.02em',
-            }}>
-              {step.title}
-            </h3>
-            <span style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.7rem',
-              color: 'rgba(255,255,255,0.45)',
-              letterSpacing: '0.1em',
-              marginTop: '0.4rem',
-              display: 'block',
-            }}>
-              Click to reveal ↗
-            </span>
-          </div>
-        </div>
+        {/* CARD 02 IMAGE: Adjust scale, translate X (x), and translate Y (y) statically */}
+        {step.num === '02' && (
+          <img
+            src={step.avatar}
+            alt={step.title}
+            style={{
+              position: 'absolute',
+              top: '2.5rem',
+              left: '2.5rem',
+              width: '150px',
+              height: '150px',
+              objectFit: 'contain',
+              transform: 'scale(2.0) translate(50px, 15px)',
+            }}
+          />
+        )}
 
-        {/* ── BACK FACE ── */}
+        {/* CARD 03 IMAGE: Adjust scale, translate X (x), and translate Y (y) statically */}
+        {step.num === '03' && (
+          <img
+            src={step.avatar}
+            alt={step.title}
+            style={{
+              position: 'absolute',
+              top: '2.5rem',
+              left: '2.5rem',
+              width: '150px',
+              height: '150px',
+              objectFit: 'contain',
+              transform: 'scale(2.3) translate(42px, 15px)',
+            }}
+          />
+        )}
+
+        {/* Detail content inside the expanded circle */}
         <div
           style={{
-            position: 'absolute',
-            inset: 0,
-            backfaceVisibility: 'hidden',
-            WebkitBackfaceVisibility: 'hidden',
-            transform: 'rotateY(180deg)',
-            background: '#000000',
-            border: '1px solid rgba(255,255,255,0.12)',
-            borderRadius: '20px',
-            padding: '2.5rem',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'space-between',
+            transition: 'opacity 0.3s ease, transform 0.3s ease',
+            opacity: expanded ? 1 : 0,
+            transform: expanded ? 'translateY(0)' : 'translateY(12px)',
+            transitionDelay: expanded ? '0.4s' : '0s',
           }}
         >
-          {/* Back header */}
-          <div>
-            <span style={{
+          <span
+            style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: '0.7rem',
+              fontSize: '0.62rem',
               letterSpacing: '0.2em',
-              color: 'rgba(255,255,255,0.4)',
+              color: 'rgba(255,255,255,0.32)',
               display: 'block',
-              marginBottom: '0.75rem',
-            }}>
-              {step.sub}
-            </span>
-            <h3 style={{
+              marginBottom: '0.5rem',
+            }}
+          >
+            {step.sub}
+          </span>
+          <h3
+            style={{
               fontFamily: 'var(--font-adieu)',
-              fontSize: '1.5rem',
+              fontSize: '1.45rem',
               color: '#fff',
-              margin: '0 0 1.5rem 0',
+              margin: '0 0 1rem 0',
               letterSpacing: '0.02em',
-            }}>
-              {step.title}
-            </h3>
-            <p style={{
+              lineHeight: 1.1,
+            }}
+          >
+            {step.title}
+          </h3>
+          <p
+            style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: '0.9rem',
-              color: 'rgba(255,255,255,0.7)',
+              fontSize: '0.82rem',
+              color: 'rgba(255,255,255,0.62)',
               lineHeight: 1.7,
-              margin: 0,
-            }}>
-              <WordHover text={step.description} />
-            </p>
-          </div>
-
-          {/* Back footer */}
-          <div style={{
-            borderTop: '1px solid rgba(255,255,255,0.1)',
-            paddingTop: '1.25rem',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'flex-start',
-            gap: '1rem',
-          }}>
-            <span style={{
+              margin: '0 0 1.5rem 0',
+            }}
+          >
+            {step.description}
+          </p>
+          <span
+            onClick={() => navigate(step.route)}
+            style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: '0.8rem',
-              color: 'rgba(255,255,255,0.6)',
-              flex: 1,
-              lineHeight: '1.4',
-            }}>
-              + <WordHover>{step.detail}</WordHover>
-            </span>
-            <span style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.7rem',
-              color: 'rgba(255,255,255,0.4)',
-              letterSpacing: '0.1em',
-              whiteSpace: 'nowrap',
-              flexShrink: 0,
-              marginTop: '0.15rem',
-            }}>
-              ↩ click to flip
-            </span>
-          </div>
+              fontSize: '0.72rem',
+              letterSpacing: '0.14em',
+              color: 'rgba(255,255,255,0.5)',
+              cursor: 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.35rem',
+              transition: 'color 0.2s ease',
+            }}
+            onMouseEnter={e => (e.currentTarget.style.color = '#fff')}
+            onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.5)')}
+          >
+            READ MORE ↗
+          </span>
         </div>
       </div>
+
+      {/* ── TRIGGER BUTTON ──
+           Small circle in top-right. Highest z-index.
+           Toggles ↗ / ✕ and triggers the expand/collapse. */}
+      <button
+        onClick={() => setExpanded(!expanded)}
+        style={{
+          position: 'absolute',
+          top: '1.1rem',
+          right: '1.1rem',
+          width: '40px',
+          height: '40px',
+          borderRadius: '50%',
+          background: '#000000',
+          border: 'none',
+          color: '#fff',
+          fontSize: '0.95rem',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          cursor: 'pointer',
+          zIndex: 10,
+        }}
+        aria-label={expanded ? 'Collapse card' : 'Expand card'}
+      >
+        {expanded ? '✕' : '↗'}
+      </button>
     </div>
   );
 };
 
+/* ─────────────────────────────────────────────────────────
+   Section
+───────────────────────────────────────────────────────── */
 const HowItWorks = () => {
   return (
-    <section id="how-it-works" className="section-padding" style={{ background: '#000' }}>
+    <section id="how-it-works" className="section-padding" style={{ background: '#000000' }}>
       <div className="container">
 
         {/* Header */}
-        <div style={{ marginBottom: '5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', flexWrap: 'wrap', gap: '2rem' }}>
-          <div>
+        <div style={{
+          marginBottom: '5rem',
+          textAlign: 'center',
+        }}>
+          <div style={{ position: 'relative', display: 'inline-block', margin: '0 auto' }}>
             <span style={{
               fontFamily: 'var(--font-mono)',
               fontSize: '0.9rem',
@@ -222,36 +330,55 @@ const HowItWorks = () => {
             }}>
               THE FLOW
             </span>
-            <h2 style={{
-              fontFamily: 'var(--font-adieu)',
-              fontSize: 'clamp(2.5rem, 5vw, 4rem)',
-              fontWeight: 400,
-              lineHeight: 1,
-              color: '#fff',
-              margin: 0
+            <h2 className="section-title" style={{
+              position: 'relative',
+              zIndex: 1,
             }}>
               HOW IT WORKS
             </h2>
+            {/* ILLUSTRATION 06: Adjust scale, translate X, and translate Y statically */}
+            <img
+              src="/assets/images/ox1_avatar/6.png"
+              alt="How it works illustration"
+              className="title-avatar-img"
+              style={{
+                position: 'absolute',
+                zIndex: 2, // Layer above the title
+                width: '120px',
+                height: '120px',
+                objectFit: 'contain',
+                top: '-40px',
+                left: '290px',
+                transform: 'scale(3.2) translate(250px, 13px)',
+                pointerEvents: 'none', // Prevents mouse blockages
+              }}
+            />
           </div>
-          <span style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '0.8rem',
-            color: 'rgba(255,255,255,0.35)',
-            letterSpacing: '0.05em',
-          }}>
-            Click any card to explore ↗
-          </span>
+
+          <ScrollReveal
+            baseOpacity={0.15}
+            style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.8rem',
+              color: 'rgba(255,255,255,0.55)',
+              letterSpacing: '0.05em',
+              marginTop: '1.5rem',
+              textAlign: 'center',
+            }}
+          >
+            Three steps. Zero paper.
+          </ScrollReveal>
         </div>
 
-        {/* Flip Cards Grid */}
+        {/* Cards Grid */}
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
           gap: '2rem',
-          marginBottom: '4rem'
+          marginBottom: '4rem',
         }}>
           {steps.map((step, i) => (
-            <FlipCard key={i} step={step} />
+            <StepCard key={i} step={step} />
           ))}
         </div>
 
@@ -261,3 +388,5 @@ const HowItWorks = () => {
 };
 
 export default HowItWorks;
+
+

@@ -7,18 +7,18 @@ const BASE_URL = 'https://ouantum.com';
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Ouantum',
+  name: 'OUANTUM',
   url: BASE_URL,
   sameAs: ['https://www.linkedin.com/company/ouantum/'],
 };
 
 const PrivacyPolicy: React.FC = () => {
   useSEO({
-    title: 'Privacy Policy | Ouantum Data Collection & Processing',
+    title: 'Privacy Policy | OUANTUM Data Collection & Processing',
     description:
-      'Ouantum\'s privacy policy covering data collection architecture, multi-model processing protocols, data retention and auditability for our deterministic AI platform for civil infrastructure QA.',
+      'OUANTUM\'s privacy policy covering data collection architecture, multi-model processing protocols, data retention and auditability for our deterministic AI platform for civil infrastructure QA.',
     keywords:
-      'Ouantum privacy policy, construction AI data privacy, infrastructure data processing, TPQM data compliance, Ouantum data retention',
+      'OUANTUM privacy policy, construction AI data privacy, infrastructure data processing, TPQM data compliance, OUANTUM data retention',
     canonicalPath: '/privacy',
     jsonLd: [organizationSchema],
   });
@@ -30,7 +30,7 @@ const PrivacyPolicy: React.FC = () => {
   return (
     <main
       className="subpage-wrapper"
-      style={{ background: '#000', color: '#fff', minHeight: '100vh', paddingBottom: '80px' }}
+      style={{ background: '#000000', color: '#fff', minHeight: '100vh', paddingBottom: '80px' }}
     >
       {/* Hero */}
       <section className="hero" style={{ minHeight: '60vh', paddingTop: '120px' }} aria-label="Privacy policy hero">
@@ -58,11 +58,11 @@ const PrivacyPolicy: React.FC = () => {
               >
                 PRIVACY<br/>PROTOCOL
               </h1>
-              <p className="hero-subtext">
-                LAST UPDATED: MAY 2026. Data collection architecture and processing protocols for our deterministic AI platform.
-              </p>
             </motion.div>
           </div>
+          <p className="hero-subtext" style={{ marginTop: '2rem' }}>
+            LAST UPDATED: MAY 2026. Data collection architecture and processing protocols for our deterministic AI platform.
+          </p>
         </div>
 
         <motion.div
@@ -74,7 +74,7 @@ const PrivacyPolicy: React.FC = () => {
         >
           <img
             src="/assets/images/privacy-and-security-page-hero.jpg"
-            alt="Secure data infrastructure — Ouantum privacy and data compliance for civil engineering AI platform"
+            alt="Secure data infrastructure — OUANTUM privacy and data compliance for civil engineering AI platform"
             className="subpage-hero-image"
           />
           <div className="overlay-gradient" aria-hidden="true"></div>
@@ -82,7 +82,7 @@ const PrivacyPolicy: React.FC = () => {
       </section>
 
       {/* Content Section */}
-      <div className="container" style={{ maxWidth: '800px', margin: '0 auto', paddingTop: '4rem' }}>
+      <div className="container" style={{ paddingTop: '4rem' }}>
         <div
           style={{
             fontFamily: 'var(--font-mono)',
@@ -108,7 +108,7 @@ const PrivacyPolicy: React.FC = () => {
               1. DATA COLLECTION ARCHITECTURE
             </h2>
             <p>
-              Ouantum operates as a deterministic AI platform for civil infrastructure QA. We collect technical field data, structural readings, and geolocation metadata necessary for generating government-format compliance reports. Personal data is limited to user authentication and audit trails for digital sign-offs.
+              OUANTUM operates as a deterministic AI platform for civil infrastructure QA. We collect technical field data, structural readings, and geolocation metadata necessary for generating government-format compliance reports. Personal data is limited to user authentication and audit trails for digital sign-offs.
             </p>
           </section>
 
@@ -179,3 +179,5 @@ const PrivacyPolicy: React.FC = () => {
 };
 
 export default PrivacyPolicy;
+
+

@@ -28,7 +28,7 @@ class ErrorBoundary extends Component<Props, State> {
     if (this.state.hasError) {
       return (
         <div style={{ 
-          background: '#000', 
+          background: '#000000', 
           color: '#fff', 
           minHeight: '100vh', 
           display: 'flex', 
@@ -72,3 +72,5 @@ class ErrorBoundary extends Component<Props, State> {
 }
 
 export default ErrorBoundary;
+
+

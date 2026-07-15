@@ -8,18 +8,18 @@ const BASE_URL = 'https://ouantum.com';
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Ouantum',
+  name: 'OUANTUM',
   url: BASE_URL,
   sameAs: ['https://www.linkedin.com/company/ouantum/'],
 };
 
 const CaseStudies: React.FC = () => {
   useSEO({
-    title: 'Case Studies | Ouantum — AI QA in Action at Scale',
+    title: 'Case Studies | OUANTUM — AI QA in Action at Scale',
     description:
-      'Explore how Ouantum has transformed quality assurance for NHAI bridge audits, Amaravati Capital City, coastal infrastructure, and Indian Standard code compliance at scale.',
+      'Explore how OUANTUM has transformed quality assurance for NHAI bridge audits, Amaravati Capital City, coastal infrastructure, and Indian Standard code compliance at scale.',
     keywords:
-      'Ouantum case studies, NHAI bridge audit AI, Amaravati capital city QA, SonReb NDT case study, IS 456 compliance automation, TPQM India, structural audit case study',
+      'OUANTUM case studies, NHAI bridge audit AI, Amaravati capital city QA, SonReb NDT case study, IS 456 compliance automation, TPQM India, structural audit case study',
     canonicalPath: '/case-studies',
     jsonLd: [organizationSchema],
   });
@@ -43,16 +43,16 @@ const CaseStudies: React.FC = () => {
       author: 'RAHUL',
       title: 'Validating the 30-Year Coastal Expansion',
       description:
-        'See how the Ouantum engine redefines structural scaling, removing manual bottlenecks with co-packaged AI models to unlock 50x faster reporting.',
+        'See how the OUANTUM engine redefines structural scaling, removing manual bottlenecks with co-packaged AI models to unlock 50x faster reporting.',
       image: '/assets/images/bg1.jpg',
-      imageAlt: 'Coastal infrastructure expansion project — structural validation using Ouantum AI platform',
+      imageAlt: 'Coastal infrastructure expansion project — structural validation using OUANTUM AI platform',
       link: '#',
     },
     {
       author: 'RAGHU',
       title: 'Getting Started with the SonReb Correlation Engine',
       description:
-        'Run automated NDT analysis on Ouantum. The AI pipeline unifies Rebound Hammer and UPV readings to achieve deterministic consensus on concrete strength.',
+        'Run automated NDT analysis on OUANTUM. The AI pipeline unifies Rebound Hammer and UPV readings to achieve deterministic consensus on concrete strength.',
       image: '/assets/images/bg2.jpg',
       imageAlt: 'SonReb correlation NDT analysis — rebound hammer and UPV combined concrete strength testing',
       link: '#',
@@ -61,9 +61,9 @@ const CaseStudies: React.FC = () => {
       author: 'SABARI RAJA',
       title: 'What Does "Code Compliance" Actually Mean?',
       description:
-        'A deep dive into how Ouantum automatically flags outlier readings and correlates them against Indian Standards without requiring human intervention.',
+        'A deep dive into how OUANTUM automatically flags outlier readings and correlates them against Indian Standards without requiring human intervention.',
       image: '/assets/images/bg3.jpg',
-      imageAlt: 'IS code compliance automation — Ouantum flagging concrete test outliers against IS 456 and IS 13311',
+      imageAlt: 'IS code compliance automation — OUANTUM flagging concrete test outliers against IS 456 and IS 13311',
       link: '#',
     },
   ];
@@ -71,7 +71,7 @@ const CaseStudies: React.FC = () => {
   return (
     <main
       className="subpage-wrapper"
-      style={{ background: '#000', color: '#fff', minHeight: '100vh', paddingBottom: '80px' }}
+      style={{ background: '#000000', color: '#fff', minHeight: '100vh', paddingBottom: '80px' }}
     >
       {/* Header Section */}
       <section style={{ paddingTop: '160px', paddingBottom: '60px', textAlign: 'center' }} aria-label="Case studies header">
@@ -97,7 +97,7 @@ const CaseStudies: React.FC = () => {
               color: '#fff',
             }}
           >
-            The Ouantum Log
+            The OUANTUM Log
           </h1>
         </div>
       </section>
@@ -309,3 +309,5 @@ const CaseStudies: React.FC = () => {
 };
 
 export default CaseStudies;
+
+

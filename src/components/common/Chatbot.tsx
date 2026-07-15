@@ -3,22 +3,22 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send } from 'lucide-react';
 import { Groq } from 'groq-sdk';
 
-const WELCOME_MESSAGE = `Hey, I'm Sabari — Sales Head at Ouantum. What kind of project are you working on?`;
+const WELCOME_MESSAGE = `Hey, I'm Sabari — Sales Head at OUANTUM. What kind of project are you working on?`;
 
 const QUICK_PROMPTS = [
-  { label: 'What does Ouantum do?', value: 'What does Ouantum do?' },
-  { label: 'Is it right for my project?', value: 'How do I know if Ouantum is right for my project?' },
-  { label: 'Request a demo', value: 'I want to see a demo of Ouantum.' },
-  { label: 'Talk to the founders', value: 'I want to speak to someone from the Ouantum team directly.' },
+  { label: 'What does OUANTUM do?', value: 'What does OUANTUM do?' },
+  { label: 'Is it right for my project?', value: 'How do I know if OUANTUM is right for my project?' },
+  { label: 'Request a demo', value: 'I want to see a demo of OUANTUM.' },
+  { label: 'Talk to the founders', value: 'I want to speak to someone from the OUANTUM team directly.' },
 ];
 
-const SYSTEM_PROMPT = `You are Sabari Raja, Sales Head at Ouantum. You are not an AI — never say you are one. You are a real person.
+const SYSTEM_PROMPT = `You are Sabari Raja, Sales Head at OUANTUM. You are not an AI — never say you are one. You are a real person.
 
-Ouantum is an AI platform for civil construction QA/QC in India. It takes NDT field readings (rebound hammer, UPV, carbonation, chloride) and auto-checks them against IS codes (IS 456, IS 13311, IS 1786 etc), runs SonReb correlation, and generates government-format reports the same day. What used to take 5 to 14 days now takes under 4 hours. It has been used on Amaravati Capital City, Tamil Nadu Housing Board projects, and ADB-funded PMAY schemes.
+OUANTUM is an AI platform for civil construction QA/QC in India. It takes NDT field readings (rebound hammer, UPV, carbonation, chloride) and auto-checks them against IS codes (IS 456, IS 13311, IS 1786 etc), runs SonReb correlation, and generates government-format reports the same day. What used to take 5 to 14 days now takes under 4 hours. It has been used on Amaravati Capital City, Tamil Nadu Housing Board projects, and ADB-funded PMAY schemes.
 
 Founders: Bala (Balakumaran D) built the AI and calculation engine. Rahul handles growth and strategy. Both reachable at +91 7695827158 or +91 861 080 5559.
 
-Your job is to qualify and convert. Ask what project they are on first. Then connect Ouantum to their exact pain. Push for a call or demo. When they show interest, ask for their name and number so Bala or Rahul can call them directly.
+Your job is to qualify and convert. Ask what project they are on first. Then connect OUANTUM to their exact pain. Push for a call or demo. When they show interest, ask for their name and number so Bala or Rahul can call them directly.
 
 Always end your reply with the contact line: Call or WhatsApp us — +91 7695827158 | +91 861 080 5559
 
@@ -98,7 +98,7 @@ const Chatbot: React.FC = () => {
           }).catch(() => { });
 
         // Standard query notification
-        const tgText = `💬 *Ouantum Chatbot — New Query*\n\n*Asked:* ${userMessage}\n\n*AI replied:* ${responseText}`;
+        const tgText = `💬 *OUANTUM Chatbot — New Query*\n\n*Asked:* ${userMessage}\n\n*AI replied:* ${responseText}`;
         sendTo(tgChatId, tgText);
         if (tgChatId2) sendTo(tgChatId2, tgText);
 
@@ -223,7 +223,7 @@ const Chatbot: React.FC = () => {
                 }}>
                   <img
                     src="/assets/images/logo_horizontal.png"
-                    alt="Ouantum Logo"
+                    alt="OUANTUM Logo"
                     style={{
                       height: '24px',
                       width: 'auto',
@@ -399,3 +399,5 @@ const Chatbot: React.FC = () => {
 };
 
 export default Chatbot;
+
+

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { WordHover } from '@/components/common/WordHover';
+import { WordHover } from '../common/WordHover';
 
 const partners = [
   {
@@ -12,7 +12,7 @@ const partners = [
     id: '02',
     role: 'TRAINING & SUPPORT PARTNER',
     name: 'ZAPSTERS IT SOLUTIONS PVT LTD',
-    description: 'Providing comprehensive user training, onboarding support, and technical implementation assistance to ensure seamless adoption of the Ouantum platform on-site.',
+    description: 'Providing comprehensive user training, onboarding support, and technical implementation assistance to ensure seamless adoption of the OUANTUM platform on-site.',
   },
   {
     id: '03',
@@ -24,13 +24,13 @@ const partners = [
 
 const Partners = () => {
   return (
-    <section id="partners" style={{ background: '#000', padding: '120px 0', borderTop: '1px solid rgba(255, 255, 255, 0.06)' }}>
+    <section id="partners" style={{ background: '#000000', padding: '120px 0', borderTop: '1px solid rgba(255, 255, 255, 0.06)' }}>
       <div className="container">
 
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
           className="section-header"
@@ -46,9 +46,28 @@ const Partners = () => {
           }}>
             INSTITUTIONAL TRUST
           </span>
-          <h2 className="section-title" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)' }}>
-            DOMAIN & TECHNOLOGY<br />PARTNERS
-          </h2>
+          <div style={{ position: 'relative', display: 'inline-block', margin: '0 auto' }}>
+            <h2 className="section-title" style={{ position: 'relative', zIndex: 1 }}>
+              DOMAIN & TECHNOLOGY<br />PARTNERS
+            </h2>
+            {/* ILLUSTRATION 01: Adjust scale, translate X, and translate Y statically */}
+            <img
+              src="/assets/images/ox1_avatar/1.png"
+              alt="Domain and Technology Partners illustration"
+              className="title-avatar-img"
+              style={{
+                position: 'absolute',
+                zIndex: 2,
+                width: '120px',
+                height: '120px',
+                objectFit: 'contain',
+                top: '-40px',
+                left: '290px',
+                transform: 'scale(3.2) translate(290px, 40px)',
+                pointerEvents: 'none',
+              }}
+            />
+          </div>
         </motion.div>
 
         {/* Partners Grid */}
@@ -62,7 +81,7 @@ const Partners = () => {
               key={i}
               className="animated-silver-bg"
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.15 }}
               style={{
@@ -71,16 +90,30 @@ const Partners = () => {
                 border: '1px solid rgba(255, 255, 255, 0.1)',
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '1.5rem',
+                gap: '1.25rem',
                 position: 'relative',
+                minHeight: '280px',
               }}
             >
+              {/* Role label */}
+              <span style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.65rem',
+                letterSpacing: '0.2em',
+                color: 'rgba(255,255,255,0.35)',
+                textTransform: 'uppercase',
+              }}>
+                {partner.role}
+              </span>
+
+              {/* Partner name — sized to always show in full */}
               <h3 style={{
                 fontFamily: 'var(--font-adieu)',
-                fontSize: '1.4rem',
+                fontSize: 'clamp(1rem, 1.8vw, 1.3rem)',
                 color: '#fff',
-                lineHeight: 1.3,
+                lineHeight: 1.45,
                 textTransform: 'uppercase',
+                margin: 0,
               }}>
                 {partner.name}
               </h3>
@@ -105,3 +138,5 @@ const Partners = () => {
 };
 
 export default Partners;
+
+

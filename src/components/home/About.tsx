@@ -3,7 +3,7 @@ import { WordHover } from '@/components/common/WordHover';
 
 const About = () => {
   return (
-    <section id="about" className="section-padding" style={{ background: '#000' }}>
+    <section id="about" className="section-padding" style={{ background: '#000000' }}>
       <div className="container">
         <motion.div
           animate={{ opacity: 1, y: 0 }}
@@ -27,10 +27,10 @@ const About = () => {
               The Core Mission
             </h3>
             <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: 'rgba(255, 255, 255, 0.6)', lineHeight: '1.8', marginBottom: '1.5rem', textTransform: 'uppercase' }}>
-              <WordHover text="Ouantum is a domain-specific AI platform built exclusively for civil construction QA/QC and structural auditing. We transform how civil engineers perform quality assurance-compressing weeks of manual analysis into a single working day." />
+              <WordHover text="OUANTUM is a domain-specific AI platform built exclusively for civil construction QA/QC and structural auditing. We transform how civil engineers perform quality assurance-compressing weeks of manual analysis into a single working day." />
             </p>
             <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: 'rgba(255, 255, 255, 0.6)', lineHeight: '1.8', textTransform: 'uppercase' }}>
-              <WordHover text="Built in collaboration with 30+ year civil engineering veterans, Ouantum serves as the intelligence layer that sits on top of construction testing data, producing government-grade reports instantly." />
+              <WordHover text="Built in collaboration with 30+ year civil engineering veterans, OUANTUM serves as the intelligence layer that sits on top of construction testing data, producing government-grade reports instantly." />
             </p>
           </div>
 
@@ -52,4 +52,6 @@ const About = () => {
 }
 
 export default About
+
+
 

@@ -7,10 +7,10 @@ import useSEO from '../hooks/useSEO';
 
 const SystemStatus: React.FC = () => {
   useSEO({
-    title: 'System Status | Ouantum UI Component States',
+    title: 'System Status | OUANTUM UI Component States',
     description:
-      'Preview of deterministic UI feedback states used across the Ouantum platform — loading, success, error, and empty states for field data ingestion and processing.',
-    keywords: 'Ouantum system status, UI states, loading screen, error screen, field data ingestion',
+      'Preview of deterministic UI feedback states used across the OUANTUM platform — loading, success, error, and empty states for field data ingestion and processing.',
+    keywords: 'OUANTUM system status, UI states, loading screen, error screen, field data ingestion',
     canonicalPath: '/system-status',
     noIndex: true, // Internal dev page — do not index
   });
@@ -22,7 +22,7 @@ const SystemStatus: React.FC = () => {
   return (
     <main
       className="subpage-wrapper"
-      style={{ background: '#000', color: '#fff', minHeight: '100vh', paddingBottom: '80px', paddingTop: '120px' }}
+      style={{ background: '#000000', color: '#fff', minHeight: '100vh', paddingBottom: '80px', paddingTop: '120px' }}
     >
       <div className="container" style={{ maxWidth: '800px', margin: '0 auto' }}>
 
@@ -52,7 +52,7 @@ const SystemStatus: React.FC = () => {
               lineHeight: 1.6,
             }}
           >
-            Preview of deterministic UI states used across the Ouantum platform for field data ingestion and processing feedback.
+            Preview of deterministic UI states used across the OUANTUM platform for field data ingestion and processing feedback.
           </p>
         </header>
 
@@ -129,3 +129,5 @@ const SystemStatus: React.FC = () => {
 };
 
 export default SystemStatus;
+
+

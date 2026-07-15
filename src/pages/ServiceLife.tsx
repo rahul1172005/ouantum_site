@@ -12,7 +12,7 @@ const ServiceLife: React.FC = () => {
   }, []);
 
   useSEO({
-    title: 'Service Life Prediction | Concrete Durability Corrosion Audits India | Ouantum AI',
+    title: 'Service Life Prediction | Concrete Durability Corrosion Audits India | OUANTUM AI',
     description: 'Predictive modeling of reinforced concrete deterioration. Models chloride diffusion and carbonation depths under IS 456 environmental exposure categories.',
     canonicalPath: '/capabilities/service-life-prediction',
   });
@@ -125,7 +125,7 @@ const ServiceLife: React.FC = () => {
               <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.85rem', margin: 0, letterSpacing: '0.05em' }}>REGIONAL & GEOGRAPHIC CONTEXT (INDIA)</h3>
             </div>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.7, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>
-              Reinforced concrete structures in coastal regions of Tamil Nadu, Kerala, Maharashtra, and Gujarat suffer from accelerated chloride-induced corrosion due to marine spray and high temperature. In inland cities like Bengaluru, Hyderabad, and Delhi, carbonation-induced corrosion dominates due to elevated CO2 levels. Ouantum's Service Life Prediction Engine models these environmental exposure levels per IS 456 and Tuutti durability standards, estimating remaining lifespan for infrastructure.
+              Reinforced concrete structures in coastal regions of Tamil Nadu, Kerala, Maharashtra, and Gujarat suffer from accelerated chloride-induced corrosion due to marine spray and high temperature. In inland cities like Bengaluru, Hyderabad, and Delhi, carbonation-induced corrosion dominates due to elevated CO2 levels. OUANTUM's Service Life Prediction Engine models these environmental exposure levels per IS 456 and Tuutti durability standards, estimating remaining lifespan for infrastructure.
             </p>
           </motion.section>
 
@@ -247,3 +247,5 @@ const ServiceLife: React.FC = () => {
 };
 
 export default ServiceLife;
+
+

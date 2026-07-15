@@ -8,17 +8,17 @@ import useSEO from '../hooks/useSEO';
 const BASE_URL = 'https://ouantum.com';
 
 const CATEGORY_COLORS: Record<string, string> = {
-  'AI in Construction': '#ffffff',
-  'Predictive Maintenance': '#ffffff',
-  BIM: '#ffffff',
-  'Civil Engineering AI': '#ffffff',
   'Quality Assurance': '#ffffff',
+  'Infrastructure Inspection': '#ffffff',
+  'Structural Assessment': '#ffffff',
+  'Engineering Standards': '#ffffff',
+  'Industry Insights': '#ffffff',
 };
 
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Ouantum',
+  name: 'OUANTUM',
   url: BASE_URL,
   sameAs: ['https://www.linkedin.com/company/ouantum/'],
 };
@@ -31,14 +31,16 @@ const BlogPost: React.FC = () => {
     window.scrollTo(0, 0);
   }, [slug]);
 
-  // Related posts: random posts, exclude current post, max 3
+  // Related posts: filter by same category first, max 3
   const relatedPosts = React.useMemo(() => {
     if (!post) return [];
-    const others = blogPosts.filter((p) => p.slug !== post.slug);
-    // Shuffle
-    const shuffled = [...others].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, 3);
-  }, [post?.slug]);
+    let related = blogPosts.filter((p) => p.category === post.category && p.slug !== post.slug);
+    if (related.length < 3) {
+      const otherCats = blogPosts.filter((p) => p.category !== post.category && p.slug !== post.slug);
+      related = [...related, ...otherCats];
+    }
+    return related.slice(0, 3);
+  }, [post]);
 
   // Article JSON-LD
   const articleSchema = post
@@ -51,19 +53,19 @@ const BlogPost: React.FC = () => {
       dateModified: post.datePublished,
       author: {
         '@type': 'Organization',
-        name: 'Ouantum',
+        name: 'OUANTUM',
         url: BASE_URL,
       },
       publisher: {
         '@type': 'Organization',
-        name: 'Ouantum',
+        name: 'OUANTUM',
         url: BASE_URL,
       },
       url: `${BASE_URL}/blog/${post.slug}`,
       keywords: post.tags.join(', '),
       isPartOf: {
         '@type': 'Blog',
-        name: 'Ouantum Blog',
+        name: 'OUANTUM Knowledge Centre',
         url: `${BASE_URL}/blog`,
       },
     }
@@ -72,18 +74,18 @@ const BlogPost: React.FC = () => {
   useSEO(
     post
       ? {
-        title: `${post.title} | Ouantum Blog`,
+        title: `${post.title} | OUANTUM Knowledge Centre`,
         description: post.excerpt,
         keywords: post.tags.join(', '),
         ogType: 'article',
         canonicalPath: `/blog/${post.slug}`,
         publishedTime: post.datePublished,
-        author: 'Ouantum',
+        author: 'OUANTUM',
         jsonLd: articleSchema ? [organizationSchema, articleSchema] : [organizationSchema],
       }
       : {
-        title: 'Post Not Found | Ouantum Blog',
-        description: 'This blog post could not be found.',
+        title: 'Post Not Found | OUANTUM Knowledge Centre',
+        description: 'This resource could not be found.',
         noIndex: true,
       }
   );
@@ -92,12 +94,12 @@ const BlogPost: React.FC = () => {
     return <Navigate to="/blog" replace />;
   }
 
-  const catColor = CATEGORY_COLORS[post.category] ?? '#000';
+  const catColor = CATEGORY_COLORS[post.category] ?? '#000000';
 
   return (
     <main
       className="subpage-wrapper"
-      style={{ background: '#000', color: '#fff', minHeight: '100vh', paddingBottom: '80px' }}
+      style={{ background: '#000000', color: '#fff', minHeight: '100vh', paddingBottom: '80px' }}
     >
       <div className="container" style={{ paddingTop: '140px' }}>
 
@@ -120,7 +122,7 @@ const BlogPost: React.FC = () => {
             onMouseOut={(e) => (e.currentTarget.style.color = 'rgba(255, 255, 255, 0.45)')}
           >
             <ArrowLeft size={14} aria-hidden="true" />
-            BACK TO BLOG
+            BACK TO KNOWLEDGE CENTRE
           </Link>
         </nav>
 
@@ -310,6 +312,101 @@ const BlogPost: React.FC = () => {
                 return null;
             }
           })}
+          
+          {/* Key Takeaways */}
+          {post.takeaways && post.takeaways.length > 0 && (
+            <div
+              style={{
+                marginTop: '4rem',
+                padding: '2.5rem',
+                borderRadius: '24px',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                background: 'rgba(255, 255, 255, 0.02)',
+              }}
+            >
+              <h3 style={{
+                fontFamily: 'var(--font-adieu)',
+                fontSize: '1rem',
+                color: '#ffffff',
+                marginBottom: '1.5rem',
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em'
+              }}>
+                Key Takeaways
+              </h3>
+              <ul style={{
+                margin: 0,
+                paddingLeft: '1.25rem',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1rem',
+              }}>
+                {post.takeaways.map((takeaway, tIdx) => (
+                  <li key={tIdx} style={{
+                    fontFamily: 'var(--font-main)',
+                    fontSize: '0.9rem',
+                    lineHeight: 1.6,
+                    color: 'rgba(255, 255, 255, 0.65)',
+                  }}>
+                    {takeaway}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* References */}
+          {post.references && post.references.length > 0 && (
+            <div
+              style={{
+                marginTop: '2.5rem',
+                padding: '2.5rem',
+                borderRadius: '24px',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                background: 'rgba(0, 0, 0, 0.3)',
+              }}
+            >
+              <h3 style={{
+                fontFamily: 'var(--font-adieu)',
+                fontSize: '1rem',
+                color: '#ffffff',
+                marginBottom: '1.5rem',
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em'
+              }}>
+                Technical References
+              </h3>
+              <ul style={{
+                margin: 0,
+                paddingLeft: '1.25rem',
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.75rem',
+              }}>
+                {post.references.map((ref, rIdx) => (
+                  <li key={rIdx} style={{
+                    fontFamily: 'var(--font-main)',
+                    fontSize: '0.88rem',
+                    lineHeight: 1.6,
+                    color: 'rgba(255, 255, 255, 0.65)',
+                  }}>
+                    {ref.url ? (
+                      <a href={ref.url} target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255, 255, 255, 0.85)', textDecoration: 'underline' }}>
+                        {ref.name} ↗
+                      </a>
+                    ) : (
+                      ref.name
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Governance review date */}
+          <div style={{ marginTop: '2rem', fontFamily: 'var(--font-mono)', fontSize: '0.7rem', color: 'rgba(255, 255, 255, 0.35)', textTransform: 'uppercase' }}>
+            LAST REVIEWED: {post.date} | COMPLIANT STATUS: VALIDATED
+          </div>
         </article>
 
         {/* Tags */}
@@ -362,7 +459,7 @@ const BlogPost: React.FC = () => {
             }}
           >
             <ArrowLeft size={14} aria-hidden="true" />
-            ALL POSTS
+            BACK TO KNOWLEDGE CENTRE
           </Link>
         </footer>
       </div>
@@ -501,3 +598,5 @@ const BlogPost: React.FC = () => {
 };
 
 export default BlogPost;
+
+

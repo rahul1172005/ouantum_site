@@ -99,7 +99,7 @@ const Equipment = () => {
                     </h3>
                   </div>
                   <div style={{ opacity: isActive ? 1 : 0.2, transition: 'all 0.4s ease' }}>
-                    <ChevronRight size={16} color={isActive ? '#fff' : '#000'} />
+                    <ChevronRight size={16} color={isActive ? '#fff' : '#000000'} />
                   </div>
                 </div>
               );
@@ -188,3 +188,5 @@ const Equipment = () => {
 };
 
 export default Equipment;
+
+

@@ -186,7 +186,7 @@ const LoaderOverlay: React.FC<LoaderOverlayProps> = ({ forceShow }) => {
               color: '#333333',
             }}
           >
-            Ouantum
+            OUANTUM
           </div>
           {/* Overlay Layer ("lit") */}
           <div
@@ -209,7 +209,7 @@ const LoaderOverlay: React.FC<LoaderOverlayProps> = ({ forceShow }) => {
                 width: 'max-content',
               }}
             >
-              Ouantum
+              OUANTUM
             </div>
           </div>
         </div>
@@ -226,7 +226,7 @@ const LoaderOverlay: React.FC<LoaderOverlayProps> = ({ forceShow }) => {
           <img
             ref={logoImgRef}
             src="/assets/images/logo.png"
-            alt="Ouantum Logo"
+            alt="OUANTUM Logo"
             className="loader-logo-image"
             style={{
               filter: 'invert(1)',
@@ -256,3 +256,5 @@ const LoaderOverlay: React.FC<LoaderOverlayProps> = ({ forceShow }) => {
 };
 
 export default LoaderOverlay;
+
+

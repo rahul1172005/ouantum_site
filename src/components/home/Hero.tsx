@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { WordHover } from '@/components/common/WordHover';
 
 
@@ -62,8 +63,8 @@ const Hero: React.FC = () => {
 
     try {
       const tgToken = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
-      const tgChatId = import.meta.env.VITE_TELEGRAM_CHAT_ID;
-      const tgChatId2 = import.meta.env.VITE_TELEGRAM_CHAT_ID_2;
+      const tgChatId = import.meta.env.VITE_TELEGRAM_BOT_TOKEN ? import.meta.env.VITE_TELEGRAM_CHAT_ID : null;
+      const tgChatId2 = import.meta.env.VITE_TELEGRAM_BOT_TOKEN ? import.meta.env.VITE_TELEGRAM_CHAT_ID_2 : null;
 
       if (tgToken && tgChatId) {
         const text = `🚨 *New Website Lead (Hero Form)*\n\n*Name:* ${formData.name}\n*Email:* ${formData.email}\n*Phone:* ${formData.phone || 'N/A'}\n*Message:* ${formData.message || 'N/A'}`;
@@ -103,7 +104,7 @@ const Hero: React.FC = () => {
           height: '100%',
           minHeight: 'calc(100vh - 160px)',
           paddingTop: '40px',
-          paddingBottom: '20px',
+          paddingBottom: '100px',
           zIndex: 10,
         }}
       >
@@ -124,96 +125,120 @@ const Hero: React.FC = () => {
             transition={{ duration: 0.8 }}
             style={{
               fontFamily: 'var(--font-adieu)',
-              fontSize: 'clamp(2rem, 6.5vw, 4.8rem)',
+              fontSize: 'clamp(2rem, 5.5vw, 4.2rem)',
               fontWeight: 400,
-              lineHeight: 1.05,
-              color: '#ffffff',
+              lineHeight: 1.1,
+              color: 'rgba(255, 255, 255, 0.9)',
               margin: '0 0 1.5rem 0',
               textAlign: 'left',
               letterSpacing: '-0.02em',
               textTransform: 'uppercase',
             }}
           >
-            Innovation that<br />Drives Impact.
+            AI-Powered Quality Assurance<br />for Civil Infrastructure
           </motion.h1>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.15 }}
             style={{
               fontFamily: 'var(--font-main)',
-              fontSize: 'clamp(1rem, 1.8vw, 1.2rem)',
+              fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)',
               lineHeight: 1.6,
-              color: 'rgba(255, 255, 255, 0.7)',
-              maxWidth: '650px',
+              color: '#b0b0b0',
+              maxWidth: '680px',
               margin: '0 0 2.5rem 0',
               textAlign: 'left',
               fontWeight: 400,
             }}
           >
-            <WordHover text="Ouantum empowers teams to build, scale, and transform with technology that drives real results." />
-          </motion.p>
+            <p style={{ margin: 0 }}>
+              <WordHover text="OUANTUM helps government agencies, infrastructure organisations, engineering consultants, and quality inspection teams improve construction quality through AI-assisted inspection, structural assessment, monitoring, and standards-based reporting from a single platform." />
+            </p>
+          </motion.div>
 
-          <motion.button
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            onClick={() => setIsModalOpen(true)}
-            style={{
-              fontFamily: 'var(--font-adieu)',
-              fontSize: '0.85rem',
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
-              fontWeight: 600,
-              color: '#000000',
-              backgroundColor: '#ffffff',
-              border: 'none',
-              borderRadius: '9999px',
-              padding: '0.8rem 0.8rem 0.8rem 2.5rem',
-              cursor: 'pointer',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '2rem',
-              transition: 'all 0.25s ease',
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.opacity = '0.9';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.opacity = '1';
-            }}
+            style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap', margin: '0 0 2.5rem 0' }}
           >
-            Start Conversation
-            <div
+            <Link
+              to="/#activities"
+              onClick={(e) => {
+                const el = document.getElementById('activities');
+                if (el) {
+                  e.preventDefault();
+                  el.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               style={{
-                display: 'flex',
-                justifyContent: 'center',
+                fontFamily: 'var(--font-adieu)',
+                fontSize: '0.78rem',
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                fontWeight: 600,
+                color: '#000000',
+                backgroundColor: '#ffffff',
+                border: 'none',
+                borderRadius: '9999px',
+                padding: '1rem 2rem',
+                cursor: 'pointer',
+                display: 'inline-flex',
                 alignItems: 'center',
-                backgroundColor: '#000000',
-                color: '#ffffff',
-                borderRadius: '50%',
-                width: '42px',
-                height: '42px',
-                flexShrink: 0,
+                justifyContent: 'center',
+                transition: 'all 0.25s ease',
+                textDecoration: 'none',
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.opacity = '0.9';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.opacity = '1';
+                e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
-              <svg
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </motion.button>
+              Explore the Platform
+            </Link>
+
+            <Link
+              to="/contact"
+              style={{
+                fontFamily: 'var(--font-adieu)',
+                fontSize: '0.78rem',
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                fontWeight: 600,
+                color: '#ffffff',
+                backgroundColor: 'transparent',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
+                borderRadius: '9999px',
+                padding: '1rem 2rem',
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                transition: 'all 0.25s ease',
+                textDecoration: 'none',
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.borderColor = '#ffffff';
+                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
+              Contact Our Team
+            </Link>
+          </motion.div>
         </div>
+
 
         {/* Bottom Partner Logos */}
         <motion.div
@@ -226,8 +251,8 @@ const Hero: React.FC = () => {
             alignItems: 'center',
             gap: 'clamp(2rem, 5vw, 4rem)',
             width: '100%',
-            marginTop: 'auto',
-            paddingTop: '4rem',
+            marginTop: '1rem',
+            paddingTop: '0',
           }}
         >
           {/* Amith */}
@@ -330,7 +355,7 @@ const Hero: React.FC = () => {
       >
         <motion.img
           src="/assets/images/0deda3f3-08be-4515-af7b-2e1b6c2d97d8.png"
-          alt="Ouantum Architecture"
+          alt="OUANTUM Architecture"
           style={{
             width: '100%',
             height: '100%',
@@ -368,7 +393,7 @@ const Hero: React.FC = () => {
               transition={{ type: 'spring', damping: 25, stiffness: 300 }}
               className="contact-modal-grid"
               style={{
-                background: '#000',
+                background: '#000000',
                 border: '1px solid rgba(255, 255, 255, 0.1)',
                 borderRadius: '24px',
                 width: '100%',
@@ -399,7 +424,7 @@ const Hero: React.FC = () => {
               </button>
 
               {/* Left Column - Form */}
-              <div style={{ padding: '40px', background: '#000' }}>
+              <div style={{ padding: '40px', background: '#000000' }}>
                 <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '1.5rem', marginBottom: '10px', textTransform: 'uppercase' }}>Send us a message</h3>
                 <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '30px' }}>Fill out the form below and we'll get back to you.</p>
 
@@ -446,7 +471,7 @@ const Hero: React.FC = () => {
                       disabled={isSubmitting}
                       style={{
                         background: '#fff',
-                        color: '#000',
+                        color: '#000000',
                         border: 'none',
                         padding: '16px',
                         borderRadius: '8px',
@@ -477,12 +502,12 @@ const Hero: React.FC = () => {
               </div>
 
               {/* Right Column - Direct Links */}
-              <div style={{ padding: '40px', background: '#000', display: 'flex', flexDirection: 'column' }}>
+              <div style={{ padding: '40px', background: '#000000', display: 'flex', flexDirection: 'column' }}>
                 <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '1.5rem', marginBottom: '10px', textTransform: 'uppercase' }}>Direct Contact</h3>
                 <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', color: 'rgba(255, 255, 255, 0.6)', marginBottom: '30px' }}>Or reach out to us instantly via these channels.</p>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', flex: 1, justifyContent: 'center' }}>
-                  <a href="https://api.whatsapp.com/send/?phone=917695827158&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '20px', background: '#000', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '12px', color: '#fff', textDecoration: 'none', transition: 'all 0.2s' }} onMouseEnter={e => e.currentTarget.style.background = '#121212'} onMouseLeave={e => e.currentTarget.style.background = '#0a0a0a'}>
+                  <a href="https://api.whatsapp.com/send/?phone=917695827158&text&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '20px', background: '#000000', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '12px', color: '#fff', textDecoration: 'none', transition: 'all 0.2s' }} onMouseEnter={e => e.currentTarget.style.background = '#121212'} onMouseLeave={e => e.currentTarget.style.background = '#000000'}>
                     <div style={{ background: whatsappLogoBg, color: '#fff', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
                       <img
                         src="/assets/images/whatsapp_logo.png"
@@ -502,7 +527,7 @@ const Hero: React.FC = () => {
                     </div>
                   </a>
 
-                  <a href="tel:+917695827158" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '20px', background: '#000', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '12px', color: '#fff', textDecoration: 'none', transition: 'all 0.2s' }} onMouseEnter={e => e.currentTarget.style.background = '#121212'} onMouseLeave={e => e.currentTarget.style.background = '#0a0a0a'}>
+                  <a href="tel:+917695827158" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '20px', background: '#000000', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '12px', color: '#fff', textDecoration: 'none', transition: 'all 0.2s' }} onMouseEnter={e => e.currentTarget.style.background = '#121212'} onMouseLeave={e => e.currentTarget.style.background = '#000000'}>
                     <div style={{ background: callLogoBg, color: '#fff', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
                       <img
                         src="/assets/images/call_logo.png"
@@ -522,7 +547,7 @@ const Hero: React.FC = () => {
                     </div>
                   </a>
 
-                  <a href="mailto:contact@ouantum.com" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '20px', background: '#000', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '12px', color: '#fff', textDecoration: 'none', transition: 'all 0.2s' }} onMouseEnter={e => e.currentTarget.style.background = '#121212'} onMouseLeave={e => e.currentTarget.style.background = '#0a0a0a'}>
+                  <a href="mailto:contact@ouantum.com" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '20px', background: '#000000', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '12px', color: '#fff', textDecoration: 'none', transition: 'all 0.2s' }} onMouseEnter={e => e.currentTarget.style.background = '#121212'} onMouseLeave={e => e.currentTarget.style.background = '#000000'}>
                     <div style={{ background: emailLogoBg, color: '#fff', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
                       <img
                         src="/assets/images/email_logo.jpg"
@@ -542,7 +567,7 @@ const Hero: React.FC = () => {
                     </div>
                   </a>
 
-                  <a href="https://linkedin.com/company/ouantum" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '20px', background: '#000', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '12px', color: '#fff', textDecoration: 'none', transition: 'all 0.2s' }} onMouseEnter={e => e.currentTarget.style.background = '#121212'} onMouseLeave={e => e.currentTarget.style.background = '#0a0a0a'}>
+                  <a href="https://linkedin.com/company/ouantum" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '20px', background: '#000000', border: '1px solid rgba(255, 255, 255, 0.05)', borderRadius: '12px', color: '#fff', textDecoration: 'none', transition: 'all 0.2s' }} onMouseEnter={e => e.currentTarget.style.background = '#121212'} onMouseLeave={e => e.currentTarget.style.background = '#000000'}>
                     <div style={{ background: linkedinLogoBg, color: '#fff', width: '40px', height: '40px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', flexShrink: 0 }}>
                       <img
                         src="/assets/images/linkedin_logo.png"
@@ -572,3 +597,5 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+
+

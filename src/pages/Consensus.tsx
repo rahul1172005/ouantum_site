@@ -12,7 +12,7 @@ const Consensus: React.FC = () => {
   }, []);
 
   useSEO({
-    title: 'Multi-Model Consensus Engine | AI Structural Validation | Ouantum AI',
+    title: 'Multi-Model Consensus Engine | AI Structural Validation | OUANTUM AI',
     description: 'Triple-model safety verification for concrete QA. Code Specialist, Safety Analyst, and Pattern Intelligence models reach consensus on civil integrity.',
     canonicalPath: '/capabilities/multi-model-consensus',
   });
@@ -109,7 +109,7 @@ const Consensus: React.FC = () => {
           >
             <h2 style={{ fontFamily: 'var(--font-adieu)', fontSize: '1.25rem', marginBottom: '1.25rem', borderBottom: '1px solid rgba(255, 255, 255, 0.1)', paddingBottom: '0.5rem' }}>OVERVIEW SUMMARY</h2>
             <p style={{ fontSize: '1.1rem', lineHeight: 1.8, color: 'rgba(255, 255, 255, 0.75)', margin: 0 }}>
-              To ensure maximum safety and credibility, Ouantum employs a Multi-Model Consensus Validation Engine. No verdict is confirmed on a structural element by a single algorithm; instead, three specialized, independent AI models evaluate the data. Only when they reach a unified consensus is the element signed off, minimizing false alarms and critical misses.
+              To ensure maximum safety and credibility, OUANTUM employs a Multi-Model Consensus Validation Engine. No verdict is confirmed on a structural element by a single algorithm; instead, three specialized, independent AI models evaluate the data. Only when they reach a unified consensus is the element signed off, minimizing false alarms and critical misses.
             </p>
           </motion.section>
 
@@ -226,7 +226,7 @@ const Consensus: React.FC = () => {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
               <div>
                 <h4 style={{ fontSize: '1rem', fontWeight: 700, lineHeight: 1.4, margin: '0 0 0.5rem 0' }}>What is the benefit of a three-model consensus for civil engineering audits?</h4>
-                <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Instead of relying on a single AI model, Ouantum runs three specialized neural networks (IS Code Specialist, Structural Safety Analyst, and Pattern Intelligence). If one model detects an anomaly (e.g. concrete strength drops near column-beam junctions) while others report pass, the verdict is flagged for senior engineer sign-off. This prevents false passes and ensures regulatory compliance.</p>
+                <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Instead of relying on a single AI model, OUANTUM runs three specialized neural networks (IS Code Specialist, Structural Safety Analyst, and Pattern Intelligence). If one model detects an anomaly (e.g. concrete strength drops near column-beam junctions) while others report pass, the verdict is flagged for senior engineer sign-off. This prevents false passes and ensures regulatory compliance.</p>
               </div>
               <div>
                 <h4 style={{ fontSize: '1rem', fontWeight: 700, lineHeight: 1.4, margin: '0 0 0.5rem 0' }}>How does the Pattern Intelligence model cross-reference contractor history?</h4>
@@ -247,3 +247,5 @@ const Consensus: React.FC = () => {
 };
 
 export default Consensus;
+
+

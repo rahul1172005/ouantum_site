@@ -19,12 +19,12 @@ interface DifferencePoint {
 
 const DifferenceCard = ({ point, i, pointsLength, progress }: { point: DifferencePoint, i: number, pointsLength: number, progress: MotionValue<number> }) => {
   const container = useRef(null);
-  
+
   // Outer Card Scale & Darkening
   const start = i / pointsLength;
   const targetScale = 1 - ((pointsLength - 1 - i) * 0.04);
   const targetOpacity = (pointsLength - 1 - i) * 0.3;
-  
+
   const safeRange = [start, 1];
   const safeScale = [1, targetScale];
   const safeOpacity = [0, targetOpacity];
@@ -33,7 +33,7 @@ const DifferenceCard = ({ point, i, pointsLength, progress }: { point: Differenc
   const overlayOpacity = useTransform(progress, safeRange, safeOpacity);
 
   return (
-    <div 
+    <div
       ref={container}
       className="difference-card-wrapper"
       style={{
@@ -67,22 +67,22 @@ const DifferenceCard = ({ point, i, pointsLength, progress }: { point: Differenc
         }}
       >
         {/* Darkening overlay for stacking depth */}
-        <motion.div 
-          style={{ 
-            position: 'absolute', 
-            inset: 0, 
-            background: '#000', 
+        <motion.div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: '#000000',
             opacity: overlayOpacity,
             zIndex: 10,
             pointerEvents: 'none'
-          }} 
+          }}
         />
-        
+
         {/* Noise Overlay */}
         <div style={{ position: 'absolute', inset: 0, opacity: 0.03, pointerEvents: 'none', backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")', mixBlendMode: 'overlay', zIndex: 1, borderRadius: '24px' }}></div>
- 
- 
-        
+
+
+
         {/* Header row */}
         <div className="difference-card-header" style={{ position: 'relative', zIndex: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
           <div className="difference-card-title" style={{ display: 'flex', gap: 'clamp(10px, 2vw, 20px)', alignItems: 'center' }}>
@@ -105,7 +105,7 @@ const DifferenceCard = ({ point, i, pointsLength, progress }: { point: Differenc
             THE DIFFERENCE
           </div>
         </div>
- 
+
         {/* Content image panel — premium visual storytelling with img3, img2, img1, and img4 */}
         <div style={{
           position: 'relative',
@@ -117,7 +117,7 @@ const DifferenceCard = ({ point, i, pointsLength, progress }: { point: Differenc
           borderRadius: '24px',
           overflow: 'hidden',
           boxShadow: '0 10px 25px rgba(0, 0, 0, 0.04)',
-          background: '#000',
+          background: '#000000',
         }}>
           <img
             src={
@@ -147,7 +147,7 @@ const DifferenceCard = ({ point, i, pointsLength, progress }: { point: Differenc
 const Difference = () => {
   const sectionRef = useRef(null)
   const cardsContainerRef = useRef(null)
-  
+
   // Track scroll progress exclusively for the cards container
   const { scrollYProgress } = useScroll({
     target: cardsContainerRef,
@@ -162,9 +162,9 @@ const Difference = () => {
   const titleY = useTransform(sectionProgress, [0, 1], [-150, 150])
 
   const points: DifferencePoint[] = [
-    { 
+    {
       id: '01',
-      title: 'NOT A DATA PROBLEM', 
+      title: 'NOT A DATA PROBLEM',
       subtitle: "It's a Contextual Judgment Problem",
       description: "Most AI tools treat construction testing as a data problem. It isn't.",
       accent: '#4ade80',
@@ -176,9 +176,9 @@ const Difference = () => {
       stat2Label: 'Code compliance — auto-checked every field',
       tags: ['NDT', 'SonReb', 'IS Code'],
     },
-    { 
+    {
       id: '02',
-      title: 'CONTEXT IS EVERYTHING', 
+      title: 'CONTEXT IS EVERYTHING',
       subtitle: 'Age, Exposure, Cement Type, Curing',
       description: "A reading of 32 means something completely different on a 30-year-old coastal building versus a freshly cast M25 column inland.",
       accent: '#f87171',
@@ -190,9 +190,9 @@ const Difference = () => {
       stat2Label: 'Housing units audited across programmes',
       tags: ['Exposure', 'Cement Grade', 'Carbonation'],
     },
-    { 
+    {
       id: '03',
-      title: 'VARIABLES REQUIRED', 
+      title: 'VARIABLES REQUIRED',
       subtitle: 'System Demands Context to Run',
       description: "Every variable is a required input. The system refuses to give you a result without the context that makes the result meaningful.",
       accent: '#fbbf24',
@@ -204,9 +204,9 @@ const Difference = () => {
       stat2Label: 'Government-grade report delivery',
       tags: ['UPV', 'Chloride', 'Half-Cell', 'RH'],
     },
-    { 
+    {
       id: '04',
-      title: 'EMBEDDED EXPERTISE', 
+      title: 'EMBEDDED EXPERTISE',
       subtitle: 'A 30-Year Engineering Decision',
       description: "That's not a software decision. That's a 30-year-structural-engineer decision, embedded.",
       accent: '#a78bfa',
@@ -221,25 +221,44 @@ const Difference = () => {
   ]
 
   return (
-    <section ref={sectionRef} id="difference" className="difference" style={{ paddingTop: '200px', paddingBottom: '50px', background: '#000', position: 'relative' }}>
+    <section ref={sectionRef} id="difference" className="difference" style={{ paddingTop: '200px', paddingBottom: '50px', background: '#000000', position: 'relative' }}>
       <div style={{ position: 'relative', zIndex: 2, width: '100%', padding: '0 4vw' }}>
         <motion.div
           style={{ marginBottom: '80px', textAlign: 'center', y: titleY }}
         >
-          <h2 style={{ fontFamily: 'var(--font-adieu)', fontSize: 'clamp(2.5rem, 6vw, 5rem)', fontWeight: 400, lineHeight: 0.9 }}>
-            WHAT MAKES US<br />DIFFERENT
-          </h2>
+          <div style={{ position: 'relative', display: 'inline-block', margin: '0 auto' }}>
+            <h2 className="section-title" style={{ position: 'relative', zIndex: 1 }}>
+              WHY CHOOSE<br />OUANTUM
+            </h2>
+            {/* ILLUSTRATION 07: Adjust scale, translate X, and translate Y statically */}
+            <img
+              src="/assets/images/ox1_avatar/7.png"
+              alt="Why choose OUANTUM illustration"
+              className="title-avatar-img"
+              style={{
+                position: 'absolute',
+                zIndex: 2, // Layer above the title
+                width: '120px',
+                height: '120px',
+                objectFit: 'contain',
+                top: '-40px',
+                left: '290px',
+                transform: 'scale(3.2) translate(-140px, 13px)',
+                pointerEvents: 'none', // Prevents mouse blockages
+              }}
+            />
+          </div>
         </motion.div>
 
         <div ref={cardsContainerRef} style={{ position: 'relative' }}>
           {points.map((point, i) => {
             return (
-              <DifferenceCard 
-                key={i} 
-                point={point} 
-                i={i} 
+              <DifferenceCard
+                key={i}
+                point={point}
+                i={i}
                 pointsLength={points.length}
-                progress={scrollYProgress} 
+                progress={scrollYProgress}
               />
             )
           })}
@@ -252,3 +271,5 @@ const Difference = () => {
 }
 
 export default Difference
+
+

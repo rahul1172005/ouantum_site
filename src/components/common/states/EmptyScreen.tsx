@@ -65,7 +65,7 @@ const EmptyScreen: React.FC<EmptyScreenProps> = ({
             transition: 'border-color 0.3s, color 0.3s'
           }}
           onMouseOver={e => {
-            e.currentTarget.style.borderColor = '#000';
+            e.currentTarget.style.borderColor = '#000000';
           }}
           onMouseOut={e => {
             e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.2)';
@@ -79,3 +79,5 @@ const EmptyScreen: React.FC<EmptyScreenProps> = ({
 };
 
 export default EmptyScreen;
+
+

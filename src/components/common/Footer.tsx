@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
           }}>
             <img
               src="/assets/images/logo_horizontal.png"
-              alt="Ouantum Logo"
+              alt="OUANTUM Logo"
               loading="lazy"
               style={{
                 height: 'clamp(1.5rem, 4vw, 3rem)',
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
             <span className="footer-col-label">Navigation</span>
             <Link to="/about" className="footer-nav-link">About Archive</Link>
             <Link to="/careers" className="footer-nav-link">Careers</Link>
-            <a href="/#activities" className="footer-nav-link">Core Capabilities</a>
+            <Link to="/capabilities" className="footer-nav-link">Core Capabilities</Link>
             <Link to="/case-studies" className="footer-nav-link">Case Studies</Link>
             <Link to="/blog" className="footer-nav-link">Blog</Link>
           </div>
@@ -73,7 +73,7 @@ const Footer: React.FC = () => {
         <div className="footer-bottom-bar">
           <div className="footer-copyright-group">
             <span className="footer-copyright">
-              © 2026 Ouantum
+              © 2026 OUANTUM
             </span>
             <div className="footer-separator"></div>
             <div className="footer-legal-links">

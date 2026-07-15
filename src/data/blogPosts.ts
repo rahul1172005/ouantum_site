@@ -12,6 +12,8 @@ export interface BlogPost {
   coverImageAlt: string;
   tags: string[];
   content: BlogSection[];
+  takeaways: string[];
+  references: { name: string; url?: string }[];
 }
 
 interface BlogSection {
@@ -22,31 +24,40 @@ interface BlogSection {
 
 export const CATEGORIES = [
   'All',
-  'AI in Construction',
-  'Predictive Maintenance',
-  'BIM',
-  'Civil Engineering AI',
   'Quality Assurance',
+  'Infrastructure Inspection',
+  'Structural Assessment',
+  'Engineering Standards',
+  'Industry Insights',
 ] as const;
 
 export type Category = (typeof CATEGORIES)[number];
 
 export const blogPosts: BlogPost[] = [
-  // ─── AI IN CONSTRUCTION ──────────────────────────────────────────────────
+  // ─── QUALITY ASSURANCE ────────────────────────────────────────────────────
   {
     id: 1,
     slug: 'how-ai-reduces-rework-costs-in-construction',
     title: 'How Can AI Reduce Rework Costs in Construction Projects?',
-    category: 'AI in Construction',
+    category: 'Quality Assurance',
     date: 'June 5, 2026',
     datePublished: '2026-06-05T09:00:00+05:30',
     author: 'BALAKUMARAN D',
-    authorRole: 'CEO',
+    authorRole: 'President',
     excerpt:
       'AI identifies defects, design conflicts, and quality issues before they become expensive problems. Through computer vision, predictive analytics, and real-time monitoring, AI enables project teams to take corrective action immediately.',
     coverImage: '/assets/images/blog_images/mixboard-image (2).png',
     coverImageAlt: 'Amaravati project showing AI defect detection in action',
     tags: ['AI', 'rework', 'construction costs', 'quality assurance', 'computer vision'],
+    takeaways: [
+      'Early defect detection at the design or initial construction stage prevents exponential repair costs later in the project lifecycle.',
+      'Computer vision and automated sensor data comparison against BIM models reduce human inspection error.',
+      'Real-time digital alerting systems allow project managers to halt defective work instantly, minimizing material and labor waste.'
+    ],
+    references: [
+      { name: 'IS 456:2000 - Plain and Reinforced Concrete - Code of Practice', url: 'https://bis.gov.in' },
+      { name: 'National Building Code of India (NBC) 2016', url: 'https://bis.gov.in' }
+    ],
     content: [
       {
         type: 'paragraph',
@@ -95,16 +106,24 @@ export const blogPosts: BlogPost[] = [
     id: 2,
     slug: 'roi-of-ai-powered-construction-quality-assurance',
     title: 'What Is the ROI of AI-Powered Construction Quality Assurance?',
-    category: 'AI in Construction',
+    category: 'Quality Assurance',
     date: 'May 28, 2026',
     datePublished: '2026-05-28T09:00:00+05:30',
     author: 'RAHUL',
-    authorRole: 'Engineering Lead',
+    authorRole: 'CEO',
     excerpt:
       'The return on investment of AI-powered QA comes from reduced rework, improved productivity, faster inspections, and lower operational costs. Organizations implementing AI-driven QA often experience fewer project delays and better resource utilization.',
     coverImage: '/assets/images/blog_images/mixboard-image (3).png',
     coverImageAlt: 'Engineer reviewing AI-generated quality assurance report',
     tags: ['ROI', 'quality assurance', 'AI', 'construction productivity'],
+    takeaways: [
+      'AI-driven quality assurance typically achieves full ROI in less than six months by cutting manual QA overhead and rework.',
+      'Automated reporting saves senior engineers 20 to 40 hours per project fortnight, freeing them for critical supervision tasks.',
+      'Objective, machine-readable records mitigate dispute risks and speed up government sign-offs.'
+    ],
+    references: [
+      { name: 'Guidelines on Quality Systems for Road Bridges (IRC:SP:47-1998)', url: 'https://irc.gov.in' }
+    ],
     content: [
       {
         type: 'paragraph',
@@ -142,21 +161,30 @@ export const blogPosts: BlogPost[] = [
     ],
   },
 
-  // ─── PREDICTIVE MAINTENANCE ───────────────────────────────────────────────
+  // ─── INFRASTRUCTURE INSPECTION ─────────────────────────────────────────────
   {
     id: 6,
     slug: 'how-ai-improves-infrastructure-asset-management',
     title: 'How Can AI Improve Infrastructure Asset Management?',
-    category: 'Predictive Maintenance',
+    category: 'Infrastructure Inspection',
     date: 'April 28, 2026',
     datePublished: '2026-04-28T09:00:00+05:30',
     author: 'RAGHU',
-    authorRole: 'Infrastructure Specialist',
+    authorRole: 'CMO',
     excerpt:
       'AI improves infrastructure asset management by continuously monitoring asset conditions, predicting maintenance needs, and supporting lifecycle planning using sensor data, computer vision, and predictive analytics.',
     coverImage: '/assets/images/blog_images/mixboard-image (4).png',
     coverImageAlt: 'Kendriya Vidyalaya infrastructure asset monitoring',
     tags: ['asset management', 'infrastructure', 'AI', 'lifecycle planning'],
+    takeaways: [
+      'AI shifts infrastructure asset management from reactive or calendar-based maintenance to data-driven predictive maintenance.',
+      'Fusion of IoT vibration sensors and camera feeds provides continuous assessment of structural health.',
+      'Predictive analytics extend asset lifespan and optimize public repair budgets by targeting deteriorating zones early.'
+    ],
+    references: [
+      { name: 'IS 13311 (Part 1):1992 - Non-destructive Testing of Concrete - Ultrasonic Pulse Velocity', url: 'https://bis.gov.in' },
+      { name: 'IS 13311 (Part 2):1992 - Non-destructive Testing of Concrete - Rebound Hammer', url: 'https://bis.gov.in' }
+    ],
     content: [
       {
         type: 'paragraph',
@@ -193,16 +221,24 @@ export const blogPosts: BlogPost[] = [
     id: 7,
     slug: 'technologies-transforming-infrastructure-maintenance',
     title: 'What Technologies Are Transforming Infrastructure Maintenance?',
-    category: 'Predictive Maintenance',
+    category: 'Infrastructure Inspection',
     date: 'April 20, 2026',
     datePublished: '2026-04-20T09:00:00+05:30',
     author: 'SABARI RAJA',
-    authorRole: 'Tech Analyst',
+    authorRole: 'CFO',
     excerpt:
       'Technologies transforming infrastructure maintenance include AI, digital twins, IoT sensors, drones, robotics, and predictive analytics — providing real-time insights that reduce downtime and optimize maintenance budgets.',
     coverImage: '/assets/images/blog_images/mixboard-image (5).png',
     coverImageAlt: 'Drone inspecting infrastructure for maintenance assessment',
     tags: ['infrastructure', 'maintenance technology', 'drones', 'IoT', 'digital twins'],
+    takeaways: [
+      'Digital twins, drones, and IoT sensors work together to automate visual and structural inspections in hazardous environments.',
+      'Machine learning algorithms detect microscopic surface cracks and corrosion markers before they affect structural load capacity.',
+      'Integrating drone photogrammetry with BIM models enables comprehensive as-built vs. as-designed monitoring.'
+    ],
+    references: [
+      { name: 'IRC:119-2015 - Guidelines for Design and Construction of Bridge Substructure and Foundations', url: 'https://irc.gov.in' }
+    ],
     content: [
       {
         type: 'paragraph',
@@ -234,21 +270,29 @@ export const blogPosts: BlogPost[] = [
     ],
   },
 
-  // ─── BIM ─────────────────────────────────────────────────────────────────
+  // ─── STRUCTURAL ASSESSMENT ───────────────────────────────────────────────
   {
     id: 11,
     slug: 'how-bim-improves-construction-quality-control',
     title: 'How Does BIM Improve Construction Quality Control?',
-    category: 'BIM',
+    category: 'Structural Assessment',
     date: 'March 20, 2026',
     datePublished: '2026-03-20T09:00:00+05:30',
     author: 'BALAKUMARAN D',
-    authorRole: 'CEO',
+    authorRole: 'President',
     excerpt:
       'BIM improves construction quality control by providing a centralized digital representation of project specifications, geometry, and construction requirements, enabling teams to detect design conflicts and verify compliance.',
     coverImage: '/assets/images/blog_images/mixboard-image (6).png',
     coverImageAlt: 'BIM model being used for construction project pipelines',
     tags: ['BIM', 'quality control', 'construction', 'clash detection'],
+    takeaways: [
+      'BIM serves as a single source of truth that coordinates structural, MEP, and architectural designs to prevent clashes before construction.',
+      'Combining 3D laser scans with BIM models provides objective, high-precision progress checks.',
+      'Embedding QA checklists directly in the BIM workflow ensures all field tests map to their precise structural elements.'
+    ],
+    references: [
+      { name: 'IS 1893 (Part 1):2016 - Criteria for Earthquake Resistant Design of Structures', url: 'https://bis.gov.in' }
+    ],
     content: [
       {
         type: 'paragraph',
@@ -285,16 +329,24 @@ export const blogPosts: BlogPost[] = [
     id: 12,
     slug: 'benefits-of-bim-for-large-infrastructure-projects',
     title: 'What Are the Benefits of BIM for Large Infrastructure Projects?',
-    category: 'BIM',
+    category: 'Structural Assessment',
     date: 'March 12, 2026',
     datePublished: '2026-03-12T09:00:00+05:30',
     author: 'RAHUL',
-    authorRole: 'Engineering Lead',
+    authorRole: 'CEO',
     excerpt:
       'BIM offers significant benefits for large infrastructure including improved collaboration, enhanced project visualization, reduced design conflicts, and better lifecycle management throughout the asset lifespan.',
     coverImage: '/assets/images/blog_images/mixboard-image (7).png',
     coverImageAlt: 'Large infrastructure BIM model displayed in a project review meeting',
     tags: ['BIM', 'infrastructure', 'lifecycle management', 'collaboration'],
+    takeaways: [
+      'For mega-projects with 50+ year lifespans, construction-phase BIM data serves as a critical asset operation manual.',
+      '4D BIM scheduling visualizes the sequence of construction to optimize resource allocation and prevent spatial bottlenecks.',
+      'BIM reduces change orders and design errors, keeping projects within budget constraints.'
+    ],
+    references: [
+      { name: 'IS 13920:2016 - Ductile Design and Detailing of Reinforced Concrete Structures Subjected to Seismic Forces', url: 'https://bis.gov.in' }
+    ],
     content: [
       {
         type: 'paragraph',
@@ -325,21 +377,29 @@ export const blogPosts: BlogPost[] = [
     ],
   },
 
-  // ─── CIVIL ENGINEERING AI ─────────────────────────────────────────────────
+  // ─── ENGINEERING STANDARDS ────────────────────────────────────────────────
   {
     id: 16,
     slug: 'can-ai-detect-structural-defects-more-accurately-than-manual',
     title: 'Can AI Detect Structural Defects More Accurately Than Manual Inspections?',
-    category: 'Civil Engineering AI',
+    category: 'Engineering Standards',
     date: 'February 10, 2026',
     datePublished: '2026-02-10T09:00:00+05:30',
     author: 'RAGHU',
-    authorRole: 'Infrastructure Specialist',
+    authorRole: 'CMO',
     excerpt:
       'AI can detect many structural defects more consistently and efficiently than manual inspections by analyzing images, videos, and sensor data with advanced machine learning models trained on thousands of real defect examples.',
     coverImage: '/assets/images/blog_images/mixboard-image (8).png',
     coverImageAlt: 'AI system analyzing structural defect in a concrete beam',
     tags: ['structural defects', 'AI detection', 'manual inspection', 'accuracy'],
+    takeaways: [
+      'AI detects surface cracks, spalling, and corrosion current trends with consistent precision, eliminating human fatigue.',
+      'While engineers make the final engineering decisions, AI screens thousands of components to flag anomalies.',
+      'Combining cover meter readings and vision analysis yields highly accurate structural health ratings.'
+    ],
+    references: [
+      { name: 'ASTM C876-22 - Standard Test Method for Corrosion Potentials of Uncoated Reinforcing Steel in Concrete', url: 'https://astm.org' }
+    ],
     content: [
       {
         type: 'paragraph',
@@ -351,7 +411,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: 'paragraph',
-        text: 'While engineering expertise remains essential for final decision-making, AI significantly improves inspection speed, consistency, and defect detection capabilities. The key advantage of AI is not necessarily greater raw accuracy on any single defect — it is the elimination of inconsistency across hundreds or thousands of elements.',
+        text: 'While engineering expertise remains essential for final decision-making, AI significantly improves inspection speed, consistency, and defect detection capabilities. The key advantage of AI is not greater raw accuracy on any single defect — it is the elimination of inconsistency across hundreds or thousands of elements.',
       },
       {
         type: 'list',
@@ -373,16 +433,24 @@ export const blogPosts: BlogPost[] = [
     id: 17,
     slug: 'how-ai-improves-structural-health-monitoring',
     title: 'How Does AI Improve Structural Health Monitoring?',
-    category: 'Civil Engineering AI',
+    category: 'Engineering Standards',
     date: 'February 2, 2026',
     datePublished: '2026-02-02T09:00:00+05:30',
     author: 'SABARI RAJA',
-    authorRole: 'Tech Analyst',
+    authorRole: 'CFO',
     excerpt:
       'AI improves structural health monitoring by continuously analyzing data from sensors, cameras, and monitoring systems, identifying patterns associated with deterioration and generating alerts when abnormal conditions are detected.',
     coverImage: '/assets/images/blog_images/mixboard-image (9).png',
     coverImageAlt: 'Structural health monitoring sensors installed on a concrete structure at PMAY site',
     tags: ['structural health monitoring', 'SHM', 'AI', 'sensors', 'anomaly detection'],
+    takeaways: [
+      'Real-time AI alerts detect crack propagation through acoustic emission and dynamic strain measurements.',
+      'Sensor fusion processes massive arrays of structural data that would take engineers days to compile manually.',
+      'Early anomaly alerts allow agencies to plan preventive reinforcement and avoid catastrophic infrastructure failures.'
+    ],
+    references: [
+      { name: 'IS 516 (Part 5/Sec 1):2018 - Methods of Testing Strength of Concrete - Non-destructive Testing', url: 'https://bis.gov.in' }
+    ],
     content: [
       {
         type: 'paragraph',
@@ -409,21 +477,29 @@ export const blogPosts: BlogPost[] = [
     ],
   },
 
-  // ─── QUALITY ASSURANCE ───────────────────────────────────────────────────
+  // ─── INDUSTRY INSIGHTS ────────────────────────────────────────────────────
   {
     id: 21,
     slug: 'how-ai-reduces-construction-delays',
     title: 'How Can AI Reduce Construction Delays?',
-    category: 'Quality Assurance',
+    category: 'Industry Insights',
     date: 'January 2, 2026',
     datePublished: '2026-01-02T09:00:00+05:30',
     author: 'BALAKUMARAN D',
-    authorRole: 'CEO',
+    authorRole: 'President',
     excerpt:
       'AI reduces construction delays by analyzing schedules, resource availability, weather conditions, and project performance data to identify potential risks before they impact timelines, enabling proactive project management.',
     coverImage: '/assets/images/blog_images/mixboard-image (10).png',
     coverImageAlt: 'TNHB site with AI-powered construction delay prediction dashboard',
     tags: ['construction delays', 'AI', 'schedule optimization', 'risk management'],
+    takeaways: [
+      'AI analyzes weather schedules, procurement leads, and labor trends to predict project delays before they impact milestones.',
+      'Predictive scheduling alerts project teams of downstream hold points, keeping inspections on track.',
+      'Data-driven schedule optimization improves subcontractor coordination and resource allocation.'
+    ],
+    references: [
+      { name: 'IRC:SP:57-2000 - Guidelines for Quality System for Road Construction', url: 'https://irc.gov.in' }
+    ],
     content: [
       {
         type: 'paragraph',
@@ -457,16 +533,24 @@ export const blogPosts: BlogPost[] = [
     id: 22,
     slug: 'what-is-ai-powered-construction-project-management',
     title: 'What Is AI-Powered Construction Project Management?',
-    category: 'Quality Assurance',
+    category: 'Industry Insights',
     date: 'December 26, 2025',
     datePublished: '2025-12-26T09:00:00+05:30',
     author: 'RAHUL',
-    authorRole: 'Engineering Lead',
+    authorRole: 'CEO',
     excerpt:
       'AI-powered construction project management uses artificial intelligence to support planning, scheduling, budgeting, resource allocation, risk management, and progress tracking for better project efficiency and outcomes.',
     coverImage: '/assets/images/blog_images/mixboard-image (11).png',
     coverImageAlt: 'Construction project manager reviewing AI-powered project management dashboard',
     tags: ['project management', 'AI', 'construction', 'planning', 'scheduling'],
+    takeaways: [
+      'AI-powered project management platforms compile diverse field data into real-time dashboards.',
+      'Machine learning algorithms predict budget overruns and schedule risks based on daily site progress inputs.',
+      'Consolidating QA checks, safety audits, and scheduling metrics improves transparency for public owners.'
+    ],
+    references: [
+      { name: 'IS 15883 (Part 1):2009 - Construction Project Management - Guidelines', url: 'https://bis.gov.in' }
+    ],
     content: [
       {
         type: 'paragraph',

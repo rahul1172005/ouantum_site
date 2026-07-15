@@ -7,18 +7,18 @@ const BASE_URL = 'https://ouantum.com';
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Ouantum',
+  name: 'OUANTUM',
   url: BASE_URL,
   sameAs: ['https://www.linkedin.com/company/ouantum/'],
 };
 
 const Careers: React.FC = () => {
   useSEO({
-    title: 'Careers at Ouantum | Join the AI Infrastructure Team',
+    title: 'Careers at OUANTUM | Join the AI Infrastructure Team',
     description:
-      'Join Ouantum — we are hiring AI engineers, structural audit specialists, and frontend developers to scale deterministic quality assurance for India\'s construction infrastructure.',
+      'Join OUANTUM — we are hiring AI engineers, structural audit specialists, and frontend developers to scale deterministic quality assurance for India\'s construction infrastructure.',
     keywords:
-      'Ouantum careers, AI engineer jobs Chennai, structural audit engineer, civil engineering AI jobs, ML researcher construction, frontend developer Chennai',
+      'OUANTUM careers, AI engineer jobs Chennai, structural audit engineer, civil engineering AI jobs, ML researcher construction, frontend developer Chennai',
     canonicalPath: '/careers',
     jsonLd: [organizationSchema],
   });
@@ -30,7 +30,7 @@ const Careers: React.FC = () => {
   return (
     <main
       className="subpage-wrapper"
-      style={{ background: '#000', color: '#fff', minHeight: '100vh', paddingBottom: '80px' }}
+      style={{ background: '#000000', color: '#fff', minHeight: '100vh', paddingBottom: '80px' }}
     >
       {/* Hero */}
       <section className="hero" style={{ minHeight: '60vh', paddingTop: '120px' }} aria-label="Careers hero section">
@@ -58,11 +58,11 @@ const Careers: React.FC = () => {
               >
                 CAREERS<br/>NODE
               </h1>
-              <p className="hero-subtext">
-                We are actively looking for uncompromising civil engineers, AI researchers, and full-stack developers to scale the future of structural auditing.
-              </p>
             </motion.div>
           </div>
+          <p className="hero-subtext" style={{ marginTop: '2rem' }}>
+            We are actively looking for uncompromising civil engineers, AI researchers, and full-stack developers to scale the future of structural auditing.
+          </p>
         </div>
 
         <motion.div
@@ -74,7 +74,7 @@ const Careers: React.FC = () => {
         >
           <img
             src="/assets/images/careers-about.jpg"
-            alt="Team collaborating on AI infrastructure project at Ouantum — careers at Ouantum"
+            alt="Team collaborating on AI infrastructure project at OUANTUM — careers at OUANTUM"
             className="subpage-hero-image"
           />
           <div className="overlay-gradient" aria-hidden="true"></div>
@@ -159,7 +159,7 @@ const Careers: React.FC = () => {
                     borderRadius: '100px',
                     transition: 'all 0.3s',
                   }}
-                  aria-label="Apply for AI Engineer / ML Researcher position at Ouantum"
+                  aria-label="Apply for AI Engineer / ML Researcher position at OUANTUM"
                 >
                   APPLY NOW
                 </a>
@@ -214,7 +214,7 @@ const Careers: React.FC = () => {
                     borderRadius: '100px',
                     transition: 'all 0.3s',
                   }}
-                  aria-label="Apply for Structural Audit Engineer position at Ouantum"
+                  aria-label="Apply for Structural Audit Engineer position at OUANTUM"
                 >
                   APPLY NOW
                 </a>
@@ -269,7 +269,7 @@ const Careers: React.FC = () => {
                     borderRadius: '100px',
                     transition: 'all 0.3s',
                   }}
-                  aria-label="Apply for Frontend / UI Developer position at Ouantum"
+                  aria-label="Apply for Frontend / UI Developer position at OUANTUM"
                 >
                   APPLY NOW
                 </a>
@@ -324,7 +324,7 @@ const Careers: React.FC = () => {
                     borderRadius: '100px',
                     transition: 'all 0.3s',
                   }}
-                  aria-label="Apply for Civil Engineer position at Ouantum"
+                  aria-label="Apply for Civil Engineer position at OUANTUM"
                 >
                   APPLY NOW
                 </a>
@@ -379,7 +379,7 @@ const Careers: React.FC = () => {
                     borderRadius: '100px',
                     transition: 'all 0.3s',
                   }}
-                  aria-label="Apply for DevOps Engineer position at Ouantum"
+                  aria-label="Apply for DevOps Engineer position at OUANTUM"
                 >
                   APPLY NOW
                 </a>
@@ -419,7 +419,7 @@ const Careers: React.FC = () => {
                 borderRadius: '100px',
                 transition: 'all 0.3s',
               }}
-              aria-label="Submit an open application to Ouantum"
+              aria-label="Submit an open application to OUANTUM"
             >
               SUBMIT OPEN APPLICATION
             </a>
@@ -432,3 +432,5 @@ const Careers: React.FC = () => {
 };
 
 export default Careers;
+
+

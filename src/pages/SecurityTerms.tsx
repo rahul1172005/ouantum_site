@@ -7,18 +7,18 @@ const BASE_URL = 'https://ouantum.com';
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Ouantum',
+  name: 'OUANTUM',
   url: BASE_URL,
   sameAs: ['https://www.linkedin.com/company/ouantum/'],
 };
 
 const SecurityTerms: React.FC = () => {
   useSEO({
-    title: 'Security Terms | Ouantum Platform Liability & Encryption',
+    title: 'Security Terms | OUANTUM Platform Liability & Encryption',
     description:
-      'Ouantum security terms covering platform utilization, multi-model liability framework, TLS 1.3 encryption, and 99.9% uptime SLA for civil infrastructure AI quality assurance.',
+      'OUANTUM security terms covering platform utilization, multi-model liability framework, TLS 1.3 encryption, and 99.9% uptime SLA for civil infrastructure AI quality assurance.',
     keywords:
-      'Ouantum security terms, construction AI security, infrastructure data encryption, TPQM liability, Ouantum SLA, AES-256 construction platform',
+      'OUANTUM security terms, construction AI security, infrastructure data encryption, TPQM liability, OUANTUM SLA, AES-256 construction platform',
     canonicalPath: '/security',
     jsonLd: [organizationSchema],
   });
@@ -30,7 +30,7 @@ const SecurityTerms: React.FC = () => {
   return (
     <main
       className="subpage-wrapper"
-      style={{ background: '#000', color: '#fff', minHeight: '100vh', paddingBottom: '80px' }}
+      style={{ background: '#000000', color: '#fff', minHeight: '100vh', paddingBottom: '80px' }}
     >
       {/* Hero */}
       <section className="hero" style={{ minHeight: '60vh', paddingTop: '120px' }} aria-label="Security terms hero">
@@ -58,11 +58,11 @@ const SecurityTerms: React.FC = () => {
               >
                 SECURITY<br/>TERMS
               </h1>
-              <p className="hero-subtext">
-                EFFECTIVE DATE: MAY 2026. Outlining the operational constraints and multi-model liability frameworks of Ouantum.
-              </p>
             </motion.div>
           </div>
+          <p className="hero-subtext" style={{ marginTop: '2rem' }}>
+            EFFECTIVE DATE: MAY 2026. Outlining the operational constraints and multi-model liability frameworks of OUANTUM.
+          </p>
         </div>
 
         <motion.div
@@ -74,7 +74,7 @@ const SecurityTerms: React.FC = () => {
         >
           <img
             src="/assets/images/privacy-and-security-page-hero.jpg"
-            alt="Secure AI infrastructure — Ouantum security terms and encryption standards for civil engineering platform"
+            alt="Secure AI infrastructure — OUANTUM security terms and encryption standards for civil engineering platform"
             className="subpage-hero-image"
           />
           <div className="overlay-gradient" aria-hidden="true"></div>
@@ -82,7 +82,7 @@ const SecurityTerms: React.FC = () => {
       </section>
 
       {/* Content Section */}
-      <div className="container" style={{ maxWidth: '800px', margin: '0 auto', paddingTop: '4rem' }}>
+      <div className="container" style={{ paddingTop: '4rem' }}>
         <div
           style={{
             fontFamily: 'var(--font-mono)',
@@ -108,7 +108,7 @@ const SecurityTerms: React.FC = () => {
               1. PLATFORM UTILIZATION
             </h2>
             <p>
-              Access to the Ouantum AI platform is restricted to authorized civil engineers, Third-Party Quality Monitors (TPQM), and structural audit consultants. The platform is designed to augment, not replace, professional engineering judgment.
+              Access to the OUANTUM AI platform is restricted to authorized civil engineers, Third-Party Quality Monitors (TPQM), and structural audit consultants. The platform is designed to augment, not replace, professional engineering judgment.
             </p>
           </section>
 
@@ -125,7 +125,7 @@ const SecurityTerms: React.FC = () => {
               2. MULTI-MODEL LIABILITY FRAMEWORK
             </h2>
             <p>
-              While Ouantum utilizes deterministic calculations and multi-model AI consensus for IS code compliance (e.g., IS 456, IS 13311), final sign-off and liability for structural integrity reports rest strictly with the authorizing Senior Engineer. Ouantum provides the intelligence layer; the human expert provides the structural guarantee.
+              While OUANTUM utilizes deterministic calculations and multi-model AI consensus for IS code compliance (e.g., IS 456, IS 13311), final sign-off and liability for structural integrity reports rest strictly with the authorizing Senior Engineer. OUANTUM provides the intelligence layer; the human expert provides the structural guarantee.
             </p>
           </section>
 
@@ -159,7 +159,7 @@ const SecurityTerms: React.FC = () => {
               4. SERVICE LEVEL AGREEMENT (SLA)
             </h2>
             <p>
-              Ouantum guarantees 99.9% uptime for the field data intake API to ensure continuous operation on remote construction sites. Offline capabilities are built-in, syncing automatically upon network restoration.
+              OUANTUM guarantees 99.9% uptime for the field data intake API to ensure continuous operation on remote construction sites. Offline capabilities are built-in, syncing automatically upon network restoration.
             </p>
           </section>
 
@@ -170,3 +170,5 @@ const SecurityTerms: React.FC = () => {
 };
 
 export default SecurityTerms;
+
+

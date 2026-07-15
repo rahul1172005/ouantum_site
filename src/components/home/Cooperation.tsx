@@ -73,7 +73,7 @@ const CooperationCard = ({ point, i, pointsLength, progress }: { point: Cooperat
           style={{ 
             position: 'absolute', 
             inset: 0, 
-            background: '#000', 
+            background: '#000000', 
             opacity: overlayOpacity,
             zIndex: 10,
             pointerEvents: 'none'
@@ -182,12 +182,12 @@ const Cooperation = () => {
   ]
 
   return (
-    <section ref={sectionRef} id="cooperation" className="cooperation" style={{ padding: '120px 0 50px', background: '#000', position: 'relative' }}>
+    <section ref={sectionRef} id="cooperation" className="cooperation" style={{ padding: '120px 0 50px', background: '#000000', position: 'relative' }}>
       <div style={{ position: 'relative', zIndex: 2, width: '100%', padding: '0 4vw' }}>
         <motion.div
           style={{ marginBottom: '80px', textAlign: 'center', y: titleY }}
         >
-          <h2 style={{ fontFamily: 'var(--font-adieu)', fontSize: 'clamp(2.5rem, 6vw, 5rem)', fontWeight: 400, lineHeight: 0.9 }}>
+          <h2 className="section-title">
             ADVISORY<br />BOARD
           </h2>
         </motion.div>
@@ -213,4 +213,6 @@ const Cooperation = () => {
 }
 
 export default Cooperation
+
+
 

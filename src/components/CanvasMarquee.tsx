@@ -104,7 +104,7 @@ export function CanvasMarquee({
 
     // Placeholder color while image loads
     const placeholderColor = getComputedStyle(document.documentElement)
-      .getPropertyValue('--color-background-secondary').trim() || '#0a0a0a'; // #0a0a0a was the background of the item
+      .getPropertyValue('--color-background-secondary').trim() || '#000000'; // #000000 was the background of the item
 
     let offset = 0;
     let lastTime: number | null = null;

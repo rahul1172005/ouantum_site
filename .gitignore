@@ -24,3 +24,15 @@ dist-ssr
 *.sw?
 
 .env
+
+# Scratch files and task docs
+dump_tasks.cjs
+get_outline.cjs
+get_task_details.cjs
+parse_docx.cjs
+print_tasks_summary.cjs
+*.docx
+tasks_specification.md
+tasks_summary_checklist.md
+temp_docx/
+temp_docx_extracted.txt

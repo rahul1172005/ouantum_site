@@ -1,9 +1,9 @@
 :root {
   /* Colors */
   --bg-primary: #000000;
-  --bg-secondary: #0a0a0a;
+  --bg-secondary: #000000;
   --text-primary: #ffffff;
-  --text-secondary: #aaaaaa;
+  --text-secondary: #b0b4ba;
   --text-muted: #666666;
   --accent-white: #ffffff;
   --accent-white-glow: rgba(255, 255, 255, 0.08);
@@ -11,9 +11,9 @@
   --line-active: #444444;
 
   /* Fonts */
-  --font-main: 'Montserrat', sans-serif;
-  --font-mono: 'Montserrat', sans-serif;
-  --font-adieu: 'Adieu', 'Montserrat', sans-serif;
+  --font-main: 'Inter', sans-serif;
+  --font-mono: 'Inter', sans-serif;
+  --font-adieu: 'Adieu', 'Inter', sans-serif;
 
   /* Spacing */
   --container-width: 1600px;

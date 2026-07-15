@@ -12,7 +12,7 @@ const IsCompliance: React.FC = () => {
   }, []);
 
   useSEO({
-    title: 'IS Code Compliance | Bureau of Indian Standards Civil QA | Ouantum AI',
+    title: 'IS Code Compliance | Bureau of Indian Standards Civil QA | OUANTUM AI',
     description: 'Automated concrete, aggregate, and reinforcement testing audit against IS 456, IS 383, and IS 1786 standards. Real-time PWD compliance verification.',
     canonicalPath: '/capabilities/is-code-compliance',
   });
@@ -229,11 +229,11 @@ const IsCompliance: React.FC = () => {
             <h2 style={{ fontFamily: 'var(--font-adieu)', fontSize: '1.25rem', marginBottom: '2rem', borderBottom: '1px solid rgba(255, 255, 255, 0.1)', paddingBottom: '0.5rem', textTransform: 'uppercase' }}>ENGINEERING FAQ LOG</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
               <div>
-                <h4 style={{ fontSize: '1rem', fontWeight: 700, lineHeight: 1.4, margin: '0 0 0.5rem 0' }}>What Indian Standards (IS Codes) are supported by Ouantum's validation engine?</h4>
-                <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Ouantum supports IS 456 (Plain and reinforced concrete), IS 13311 (Ultrasonic pulse velocity and rebound index), IS 1786 (High-strength deformed steel bars for concrete reinforcement), IS 383 (Coarse and fine aggregates specification), IS 2386 (Methods of test for aggregate), and IS 3025 (Water quality for concrete mixing).</p>
+                <h4 style={{ fontSize: '1rem', fontWeight: 700, lineHeight: 1.4, margin: '0 0 0.5rem 0' }}>What Indian Standards (IS Codes) are supported by OUANTUM's validation engine?</h4>
+                <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>OUANTUM supports IS 456 (Plain and reinforced concrete), IS 13311 (Ultrasonic pulse velocity and rebound index), IS 1786 (High-strength deformed steel bars for concrete reinforcement), IS 383 (Coarse and fine aggregates specification), IS 2386 (Methods of test for aggregate), and IS 3025 (Water quality for concrete mixing).</p>
               </div>
               <div>
-                <h4 style={{ fontSize: '1rem', fontWeight: 700, lineHeight: 1.4, margin: '0 0 0.5rem 0' }}>How does Ouantum flag non-compliance under IS 456 durability requirements?</h4>
+                <h4 style={{ fontSize: '1rem', fontWeight: 700, lineHeight: 1.4, margin: '0 0 0.5rem 0' }}>How does OUANTUM flag non-compliance under IS 456 durability requirements?</h4>
                 <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>The compliance engine evaluates minimum cement content, maximum water-cement ratio, and concrete grade limits based on exposure conditions (Mild, Moderate, Severe, Very Severe, Extreme) specified in Table 5 of IS 456. Any violation automatically triggers a 'FAIL' status with the specific clause reference.</p>
               </div>
               <div>
@@ -251,3 +251,5 @@ const IsCompliance: React.FC = () => {
 };
 
 export default IsCompliance;
+
+

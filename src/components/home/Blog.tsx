@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -34,7 +35,7 @@ const Blog: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <section id="blog" className="section-padding" style={{ background: '#000' }}>
+    <section id="blog" className="section-padding" style={{ background: '#000000' }}>
       <div className="container">
 
         {/* Centered Header */}
@@ -78,7 +79,7 @@ const Blog: React.FC = () => {
             transition={{ duration: 0.7 }}
             onClick={() => setFeaturedActive(v => !v)}
             style={{
-              background: featuredActive ? '#000' : '#fff',
+              background: featuredActive ? '#000000' : '#fff',
               border: `1px solid ${featuredActive ? 'transparent' : 'rgba(0, 0, 0, 0.07)'}`,
               borderRadius: '32px',
               padding: '3rem',
@@ -108,7 +109,7 @@ const Blog: React.FC = () => {
                 fontWeight: 400,
                 lineHeight: 1.1,
                 textTransform: 'uppercase',
-                color: featuredActive ? '#fff' : '#000',
+                color: featuredActive ? '#fff' : '#000000',
                 transition: 'color 0.4s ease',
               }}>
                 {featuredPost.title}
@@ -174,7 +175,7 @@ const Blog: React.FC = () => {
                   style={{
                     borderRadius: '24px',
                     padding: '2rem 2.5rem',
-                    background: active ? '#000' : '#fff',
+                    background: active ? '#000000' : '#fff',
                     border: `1px solid ${active ? 'transparent' : 'rgba(0, 0, 0, 0.05)'}`,
                     display: 'flex',
                     flexDirection: 'column',
@@ -189,7 +190,7 @@ const Blog: React.FC = () => {
                       fontSize: '0.6rem',
                       opacity: 0.4,
                       fontFamily: 'var(--font-adieu)',
-                      color: active ? '#fff' : '#000',
+                      color: active ? '#fff' : '#000000',
                       transition: 'color 0.4s ease',
                     }}>
                       {post.date}
@@ -199,7 +200,7 @@ const Blog: React.FC = () => {
                       opacity: 0.25,
                       fontFamily: 'var(--font-adieu)',
                       letterSpacing: '0.1em',
-                      color: active ? '#fff' : '#000',
+                      color: active ? '#fff' : '#000000',
                       transition: 'color 0.4s ease',
                     }}>
                       ID_LOG: {post.id}
@@ -211,7 +212,7 @@ const Blog: React.FC = () => {
                     fontSize: '0.95rem',
                     fontWeight: 400,
                     fontFamily: 'var(--font-adieu)',
-                    color: active ? '#fff' : '#000',
+                    color: active ? '#fff' : '#000000',
                     marginBottom: '0.5rem',
                     lineHeight: 1.25,
                     transition: 'color 0.4s ease',
@@ -244,7 +245,7 @@ const Blog: React.FC = () => {
                       fontSize: '0.55rem',
                       letterSpacing: '0.1em',
                       opacity: 0.45,
-                      color: active ? 'rgba(255, 255, 255, 0.6)' : '#000',
+                      color: active ? 'rgba(255, 255, 255, 0.6)' : '#000000',
                       transition: 'color 0.4s ease',
                     }}>
                       TECH_ANALYSIS
@@ -273,9 +274,8 @@ const Blog: React.FC = () => {
 
         {/* Archive CTA - rounded card, not pill */}
         <div style={{ display: 'flex', justifyContent: 'center', marginTop: '4rem' }}>
-          <motion.button
-            whileHover={{ background: 'rgba(0, 0, 0, 0.06)' }}
-            whileTap={{ scale: 0.97 }}
+          <Link
+            to="/blog"
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -286,6 +286,13 @@ const Blog: React.FC = () => {
               borderRadius: '16px',
               cursor: 'pointer',
               transition: 'all 0.3s ease',
+              textDecoration: 'none',
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.backgroundColor = 'transparent';
             }}
           >
             <span style={{
@@ -295,7 +302,7 @@ const Blog: React.FC = () => {
               color: '#fff',
               textTransform: 'uppercase',
             }}>
-              ACCESS_COMPLETE_ARCHIVE
+              EXPLORE OUR KNOWLEDGE CENTRE
             </span>
             <div style={{
               display: 'flex',
@@ -304,13 +311,13 @@ const Blog: React.FC = () => {
               width: '36px',
               height: '36px',
               borderRadius: '50%',
-              background: 'rgba(0, 0, 0, 0.08)',
+              background: 'rgba(255, 255, 255, 0.08)',
               border: '1px solid rgba(255, 255, 255, 0.15)',
               color: '#fff',
             }}>
               <ArrowUpRight size={16} />
             </div>
-          </motion.button>
+          </Link>
         </div>
 
       </div>
@@ -319,3 +326,5 @@ const Blog: React.FC = () => {
 };
 
 export default Blog;
+
+

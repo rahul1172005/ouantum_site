@@ -250,7 +250,7 @@ const faqSchema = {
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Ouantum',
+  name: 'OUANTUM',
   url: BASE_URL,
   sameAs: ['https://www.linkedin.com/company/ouantum/'],
 };
@@ -373,7 +373,7 @@ const SECTION_COLORS = [
 
 const FAQ: React.FC = () => {
   useSEO({
-    title: 'FAQ | Ouantum — AI, BIM & Construction Engineering Questions',
+    title: 'FAQ | OUANTUM — AI, BIM & Construction Engineering Questions',
     description:
       'Answers to the most common questions about AI in construction, predictive maintenance, BIM, structural engineering, construction management, and the future of civil engineering.',
     keywords:
@@ -399,7 +399,7 @@ const FAQ: React.FC = () => {
   return (
     <main
       className="subpage-wrapper"
-      style={{ background: '#000', color: '#fff', minHeight: '100vh', paddingBottom: '100px' }}
+      style={{ background: '#000000', color: '#fff', minHeight: '100vh', paddingBottom: '100px' }}
     >
       {/* Hero */}
       <section
@@ -429,11 +429,11 @@ const FAQ: React.FC = () => {
               >
                 FREQUENTLY<br />ASKED QUESTIONS
               </h1>
-              <p className="hero-subtext">
-                Everything you need to know about AI in construction, infrastructure monitoring, BIM, and the future of civil engineering.
-              </p>
             </motion.div>
           </div>
+          <p className="hero-subtext" style={{ marginTop: '2rem' }}>
+            Everything you need to know about AI in construction, infrastructure monitoring, BIM, and the future of civil engineering.
+          </p>
         </div>
         <motion.div
           className="hero-image-container"
@@ -444,7 +444,7 @@ const FAQ: React.FC = () => {
         >
           <img
             src="/assets/images/faq_page_bg.png"
-            alt="Civil infrastructure engineering site background image for Ouantum FAQ page"
+            alt="Civil infrastructure engineering site background image for OUANTUM FAQ page"
             className="subpage-hero-image"
           />
           <div className="overlay-gradient" aria-hidden="true" />
@@ -453,7 +453,7 @@ const FAQ: React.FC = () => {
 
       <div className="container">
         {faqData.map((section, sectionIdx) => {
-          const color = SECTION_COLORS[sectionIdx] ?? '#000';
+          const color = SECTION_COLORS[sectionIdx] ?? '#000000';
           return (
             <motion.section
               key={section.title}
@@ -527,3 +527,5 @@ const FAQ: React.FC = () => {
 };
 
 export default FAQ;
+
+

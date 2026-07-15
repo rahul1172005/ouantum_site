@@ -1,5 +1,6 @@
 import React from 'react';
 import Hero from '../components/home/Hero';
+import PlatformIntro from '../components/home/PlatformIntro';
 import Problem from '../components/home/Problem';
 import Services from '../components/home/Services';
 import HowItWorks from '../components/home/HowItWorks';
@@ -13,10 +14,10 @@ const BASE_URL = 'https://ouantum.com';
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'Ouantum',
+  name: 'OUANTUM',
   url: BASE_URL,
   description:
-    'AI-powered quality assurance platform for civil construction. Field data in. Government-grade reports out. Same day.',
+    'AI-powered quality assurance platform for civil infrastructure. Field data in. Government-grade reports out. Same day.',
   potentialAction: {
     '@type': 'SearchAction',
     target: `${BASE_URL}/?s={search_term_string}`,
@@ -27,11 +28,11 @@ const websiteSchema = {
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Ouantum',
+  name: 'OUANTUM',
   url: BASE_URL,
   logo: `${BASE_URL}/assets/images/logo.png`,
   description:
-    'Ouantum is the AI platform built for civil construction quality assurance, monitoring, and structural auditing. Compressing weeks of manual analysis into a single working day.',
+    'OUANTUM is the AI platform built for civil infrastructure quality assurance, monitoring, and structural auditing. Compressing weeks of manual analysis into a single working day.',
   address: {
     '@type': 'PostalAddress',
     streetAddress: '25, Silambu Street, Padmanabha Nagar, Choolaimedu',
@@ -55,18 +56,19 @@ const organizationSchema = {
 
 const Home: React.FC = () => {
   useSEO({
-    title: 'Ouantum | AI-Powered Quality Assurance for Civil Infrastructure',
+    title: 'OUANTUM | AI-Powered Quality Assurance for Civil Infrastructure',
     description:
-      'Ouantum is the AI platform built for civil construction quality assurance, monitoring, and structural auditing. Field data in. Government-grade reports out. Same day.',
+      'OUANTUM is the AI platform built for civil infrastructure quality assurance, monitoring, and structural auditing. Field data in. Government-grade reports out. Same day.',
     keywords:
-      'AI quality assurance, civil engineering AI, structural auditing, NDT analysis, SonReb correlation, IS code compliance, TPQM, construction QA, India infrastructure AI, Ouantum',
+      'AI quality assurance, civil engineering AI, structural auditing, NDT analysis, SonReb correlation, IS code compliance, TPQM, construction QA, India infrastructure AI, OUANTUM',
     canonicalPath: '/',
     jsonLd: [websiteSchema, organizationSchema],
   });
 
   return (
-    <main id="main-content" aria-label="Ouantum home page">
+    <main id="main-content" aria-label="OUANTUM home page">
       <Hero />
+      <PlatformIntro />
       <Problem />
       <Services />
       <HowItWorks />

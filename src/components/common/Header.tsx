@@ -26,7 +26,7 @@ const Header: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Core', href: '/#activities' },
+    { name: 'Capabilities', href: '/capabilities' },
     { name: 'Blog', href: '/blog' },
     { name: 'FAQ', href: '/faq' },
     { name: 'About', href: '/about' },
@@ -52,7 +52,7 @@ const Header: React.FC = () => {
           <a href="/" style={{ display: 'flex', alignItems: 'center' }}>
             <img
               src="/assets/images/logo_horizontal.png"
-              alt="Ouantum Logo"
+              alt="OUANTUM Logo"
               style={{
                 height: '24px',
                 width: 'auto',
@@ -182,3 +182,5 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+
+

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import ScrollReveal from '@/components/common/ScrollReveal';
 
 const stats = [
   {
@@ -61,39 +62,48 @@ const words = [
 
 const Problem = () => {
   return (
-    <section id="problem" style={{ background: '#000', padding: '120px 0' }}>
+    <section id="problem" style={{ background: '#000000', padding: '120px 0' }}>
       <div className="container">
 
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          style={{ marginBottom: '5rem' }}
-        >
-          <span style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '0.9rem',
-            letterSpacing: '0.25em',
-            color: 'rgba(255, 255, 255, 0.35)',
-            textTransform: 'uppercase',
-            display: 'block',
-            marginBottom: '1.5rem',
-          }}>
-            THE PROBLEM
-          </span>
-          <h2 style={{
-            fontFamily: 'var(--font-adieu)',
-            fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-            fontWeight: 400,
-            lineHeight: 1.05,
-            color: '#fff',
-            maxWidth: '700px',
-          }}>
+        <div style={{ marginBottom: '5rem', textAlign: 'center' }}>
+          <div style={{ position: 'relative', display: 'inline-block', margin: '0 auto' }}>
+            <h2 className="section-title" style={{ marginBottom: '1.5rem', position: 'relative', zIndex: 1 }}>
+              The Problem
+            </h2>
+            {/* ILLUSTRATION 05: Adjust scale, translate X, and translate Y statically */}
+            <img
+              src="/assets/images/ox1_avatar/5.png"
+              alt="The Problem illustration"
+              className="title-avatar-img"
+              style={{
+                position: 'absolute',
+                zIndex: 2, // Layer above the title
+                width: '120px',
+                height: '120px',
+                objectFit: 'contain',
+                top: '-40px',
+                left: '290px',
+                transform: 'scale(3.1) translate(-138px, 15px)',
+                pointerEvents: 'none', // Prevents mouse/click blockages
+              }}
+            />
+          </div>
+          <ScrollReveal
+            baseOpacity={0.1}
+            style={{
+              fontFamily: 'var(--font-main)',
+              fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+              lineHeight: 1.5,
+              color: 'rgba(255,255,255,0.65)',
+              maxWidth: '750px',
+              marginLeft: 'auto',
+              marginRight: 'auto',
+            }}
+          >
             India's infrastructure QA runs on manual processes that don't scale.
-          </h2>
-        </motion.div>
+          </ScrollReveal>
+        </div>
 
         {/* Stat Cards */}
         <div style={{
@@ -181,7 +191,7 @@ const Problem = () => {
             flexWrap: 'wrap',
           }}
         >
-          <p 
+          <p
             style={{
               fontFamily: 'var(--font-mono)',
               fontSize: 'clamp(1rem, 2vw, 1.35rem)',
@@ -221,3 +231,5 @@ const Problem = () => {
 };
 
 export default Problem;
+
+

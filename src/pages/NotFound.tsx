@@ -4,8 +4,8 @@ import useSEO from '../hooks/useSEO';
 
 const NotFound: React.FC = () => {
   useSEO({
-    title: '404 — Page Not Found | Ouantum',
-    description: 'The page you are looking for does not exist or has been moved. Return to the Ouantum homepage.',
+    title: '404 — Page Not Found | OUANTUM',
+    description: 'The page you are looking for does not exist or has been moved. Return to the OUANTUM homepage.',
     canonicalPath: '/404',
     noIndex: true,
   });
@@ -13,7 +13,7 @@ const NotFound: React.FC = () => {
   return (
     <main
       style={{
-        background: '#000',
+        background: '#000000',
         color: '#fff',
         minHeight: '100vh',
         display: 'flex',
@@ -66,7 +66,7 @@ const NotFound: React.FC = () => {
               display: 'inline-block',
               fontFamily: 'var(--font-mono)',
               fontSize: '0.9rem',
-              color: '#000',
+              color: '#000000',
               background: '#fff',
               padding: '12px 24px',
               textDecoration: 'none',
@@ -84,3 +84,5 @@ const NotFound: React.FC = () => {
 };
 
 export default NotFound;
+
+

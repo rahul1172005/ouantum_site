@@ -67,7 +67,7 @@ const ErrorScreen: React.FC<ErrorScreenProps> = ({
           }}
           onMouseOver={e => {
             e.currentTarget.style.background = '#EF4444';
-            e.currentTarget.style.color = '#000';
+            e.currentTarget.style.color = '#000000';
           }}
           onMouseOut={e => {
             e.currentTarget.style.background = 'transparent';
@@ -82,3 +82,5 @@ const ErrorScreen: React.FC<ErrorScreenProps> = ({
 };
 
 export default ErrorScreen;
+
+

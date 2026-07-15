@@ -74,7 +74,7 @@ export function useSEO({
     setMeta('meta[property="og:type"]', 'property=og:type', ogType);
     setMeta('meta[property="og:image"]', 'property=og:image', ogImage);
     setMeta('meta[property="og:url"]', 'property=og:url', canonicalUrl);
-    setMeta('meta[property="og:site_name"]', 'property=og:site_name', 'Ouantum');
+    setMeta('meta[property="og:site_name"]', 'property=og:site_name', 'OUANTUM');
 
     // Article-specific OG
     if (ogType === 'article' && publishedTime) {

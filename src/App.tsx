@@ -21,6 +21,10 @@ import IsCompliance from './pages/IsCompliance'
 import Consensus from './pages/Consensus'
 import ServiceLife from './pages/ServiceLife'
 import NotFound from './pages/NotFound'
+import FieldDataIn from './pages/FieldDataIn'
+import AiAnalysis from './pages/AiAnalysis'
+import ReportOut from './pages/ReportOut'
+import Capabilities from './pages/Capabilities'
 import './styles/global.css'
 
 function GlobalWordHover() {
@@ -146,6 +150,7 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="/faq" element={<FAQ />} />
+            <Route path="/capabilities" element={<Capabilities />} />
             <Route path="/capabilities/ndt-analysis-engine" element={<NdtAnalysis />} />
             <Route path="/capabilities/ndt analysis engine" element={<NdtAnalysis />} />
             <Route path="/capabilities/is-code-compliance" element={<IsCompliance />} />
@@ -154,6 +159,9 @@ function App() {
             <Route path="/capabilities/multi model consensus" element={<Consensus />} />
             <Route path="/capabilities/service-life-prediction" element={<ServiceLife />} />
             <Route path="/capabilities/service life prediction" element={<ServiceLife />} />
+            <Route path="/how-it-works/field-data-in" element={<FieldDataIn />} />
+            <Route path="/how-it-works/ai-analysis" element={<AiAnalysis />} />
+            <Route path="/how-it-works/report-out" element={<ReportOut />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />

@@ -17,9 +17,28 @@ const Contact: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           className="contact-header"
         >
-          <h2 className="section-title">
-            SECURE YOUR<br />INFRASTRUCTURE
-          </h2>
+          <div style={{ position: 'relative', display: 'inline-block', margin: '0 auto' }}>
+            <h2 className="section-title" style={{ position: 'relative', zIndex: 1 }}>
+              SECURE YOUR<br />INFRASTRUCTURE
+            </h2>
+            {/* ILLUSTRATION 08: Adjust scale, translate X, and translate Y statically */}
+            <img
+              src="/assets/images/ox1_avatar/8.png"
+              alt="Secure your infrastructure illustration"
+              className="title-avatar-img"
+              style={{
+                position: 'absolute',
+                zIndex: 2,
+                width: '120px',
+                height: '120px',
+                objectFit: 'contain',
+                top: '-40px',
+                left: '290px',
+                transform: 'scale(2.6) translate(125px, -50px)',
+                pointerEvents: 'none',
+              }}
+            />
+          </div>
           <p className="section-subtitle">
             READY TO COMMENCE TECHNICAL CONSULTATION OR SITE INTEGRITY AUDIT?
           </p>
@@ -29,11 +48,11 @@ const Contact: React.FC = () => {
         <div className="contact-grid">
 
           {/* Email */}
-            <motion.div
-              animate={{ opacity: 1, y: 0 }}
-              onClick={() => setActiveCard(isActive(0) ? null : 0)}
-              className={`contact-card animated-silver-bg ${isActive(0) ? 'active' : ''}`}
-            >
+          <motion.div
+            animate={{ opacity: 1, y: 0 }}
+            onClick={() => setActiveCard(isActive(0) ? null : 0)}
+            className={`contact-card animated-silver-bg ${isActive(0) ? 'active' : ''}`}
+          >
             <a
               href="mailto:contact@ouantum.com"
               onClick={e => e.stopPropagation()}
@@ -86,23 +105,24 @@ const Contact: React.FC = () => {
 
         </div>
 
-        {/* START CONVERSATION */}
-        <motion.a
-          href="https://api.whatsapp.com/send/?phone=917695827158&text&type=phone_number&app_absent=0"
-          target="_blank"
-          rel="noopener noreferrer"
-          animate={{ opacity: 1, y: 0 }}
-          onClick={() => setCtaActive(v => !v)}
-          className={`contact-cta ${ctaActive ? 'active' : ''}`}
-          style={{ textDecoration: 'none', display: 'flex' }}
-        >
-          <span className="contact-cta-text">
-            START CONVERSATION
-          </span>
-          <div className="contact-cta-icon">
-            <ArrowRight size={22} />
-          </div>
-        </motion.a>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <motion.a
+            href="https://api.whatsapp.com/send/?phone=917695827158&text&type=phone_number&app_absent=0"
+            target="_blank"
+            rel="noopener noreferrer"
+            animate={{ opacity: 1, y: 0 }}
+            onClick={() => setCtaActive(v => !v)}
+            className={`contact-cta ${ctaActive ? 'active' : ''}`}
+            style={{ textDecoration: 'none', display: 'inline-flex' }}
+          >
+            <span className="contact-cta-text">
+              START CONVERSATION
+            </span>
+            <div className="contact-cta-icon">
+              <ArrowRight size={16} />
+            </div>
+          </motion.a>
+        </div>
 
       </div>
     </section>

@@ -10,7 +10,7 @@ const BASE_URL = 'https://ouantum.com';
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Ouantum',
+  name: 'OUANTUM',
   url: BASE_URL,
   sameAs: ['https://www.linkedin.com/company/ouantum/'],
 };
@@ -18,32 +18,32 @@ const organizationSchema = {
 const blogListingSchema = {
   '@context': 'https://schema.org',
   '@type': 'Blog',
-  name: 'Ouantum Blog — Insights & Engineering Intelligence',
+  name: 'OUANTUM Knowledge Centre — Resources & Insights',
   description:
-    'Technical insights on AI in construction, predictive maintenance, BIM, civil engineering AI, and quality assurance from the Ouantum team.',
+    'Practical resources, technical guidance, and industry insights related to civil infrastructure quality assurance.',
   url: `${BASE_URL}/blog`,
   publisher: {
     '@type': 'Organization',
-    name: 'Ouantum',
+    name: 'OUANTUM',
     url: BASE_URL,
   },
 };
 
 const CATEGORY_COLORS: Record<string, string> = {
-  'AI in Construction': '#ffffff',
-  'Predictive Maintenance': '#ffffff',
-  BIM: '#ffffff',
-  'Civil Engineering AI': '#ffffff',
   'Quality Assurance': '#ffffff',
+  'Infrastructure Inspection': '#ffffff',
+  'Structural Assessment': '#ffffff',
+  'Engineering Standards': '#ffffff',
+  'Industry Insights': '#ffffff',
 };
 
 const Blog: React.FC = () => {
   useSEO({
-    title: 'Blog | Ouantum — Insights & Engineering Intelligence',
+    title: 'Knowledge Centre | OUANTUM — Resources & Insights',
     description:
-      'Explore technical insights on AI in construction, predictive maintenance, BIM workflows, civil engineering AI, and quality assurance from the Ouantum team.',
+      'The OUANTUM Knowledge Centre provides practical resources, technical guidance, and industry insights related to civil infrastructure quality assurance.',
     keywords:
-      'AI in construction, predictive maintenance, BIM, civil engineering AI, quality assurance, construction technology, Ouantum blog',
+      'civil infrastructure QA, engineering standards, structural assessment, NDT testing, concrete quality monitoring, OUANTUM knowledge centre',
     canonicalPath: '/blog',
     jsonLd: [organizationSchema, blogListingSchema],
   });
@@ -62,13 +62,13 @@ const Blog: React.FC = () => {
   return (
     <main
       className="subpage-wrapper"
-      style={{ background: '#000', color: '#fff', minHeight: '100vh', paddingBottom: '100px' }}
+      style={{ background: '#000000', color: '#fff', minHeight: '100vh', paddingBottom: '100px' }}
     >
       {/* Hero */}
       <section
         className="hero"
         style={{ minHeight: '60vh', paddingTop: '120px' }}
-        aria-label="Blog hero section"
+        aria-label="Knowledge Centre hero section"
       >
         <div className="container hero-content">
           <div className="section-split hero-main-layout">
@@ -90,13 +90,13 @@ const Blog: React.FC = () => {
                   textTransform: 'uppercase',
                 }}
               >
-                THE OUANTUM<br />LOG
+                KNOWLEDGE<br />CENTRE
               </h1>
-              <p className="hero-subtext">
-                Deep-dives into AI-powered construction quality assurance, predictive maintenance, BIM workflows, and structural engineering technology.
-              </p>
             </motion.div>
           </div>
+          <p className="hero-subtext" style={{ marginTop: '2rem' }}>
+            The OUANTUM Knowledge Centre provides practical resources, technical guidance, and industry insights related to civil infrastructure quality assurance. The content is designed to help engineering professionals, infrastructure organisations, consultants, and project teams better understand inspection processes, quality management, structural assessment, and standards-based reporting.
+          </p>
         </div>
         <motion.div
           className="hero-image-container"
@@ -107,7 +107,7 @@ const Blog: React.FC = () => {
         >
           <img
             src="/assets/images/blog_page_bg.png"
-            alt="Construction analysis engineering background image for Ouantum Blog page"
+            alt="Construction analysis engineering background image for OUANTUM Knowledge Centre"
             className="subpage-hero-image"
           />
           <div className="overlay-gradient" aria-hidden="true" />
@@ -131,7 +131,7 @@ const Blog: React.FC = () => {
         >
           {CATEGORIES.map((cat) => {
             const isActive = activeCategory === cat;
-            const color = cat === 'All' ? '#000' : CATEGORY_COLORS[cat] ?? '#000';
+            const color = cat === 'All' ? '#000000' : CATEGORY_COLORS[cat] ?? '#000000';
             return (
               <button
                 key={cat}
@@ -189,7 +189,7 @@ const Blog: React.FC = () => {
               }}
             >
               {filteredPosts.map((post, idx) => {
-                const catColor = CATEGORY_COLORS[post.category] ?? '#000';
+                const catColor = CATEGORY_COLORS[post.category] ?? '#000000';
                 return (
                   <article key={post.slug} aria-label={post.title}>
                     <motion.div
@@ -361,3 +361,5 @@ const Blog: React.FC = () => {
 };
 
 export default Blog;
+
+

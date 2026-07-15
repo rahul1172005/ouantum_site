@@ -12,7 +12,7 @@ const NdtAnalysis: React.FC = () => {
   }, []);
 
   useSEO({
-    title: 'NDT Analysis Engine | Rebound Hammer & UPV Concrete QA India | Ouantum AI',
+    title: 'NDT Analysis Engine | Rebound Hammer & UPV Concrete QA India | OUANTUM AI',
     description: 'Automated rebound hammer and UPV transit time correlation under IS 13311. Processes field readings to calculate concrete strength in southern building zones.',
     canonicalPath: '/capabilities/ndt-analysis-engine',
   });
@@ -125,7 +125,7 @@ const NdtAnalysis: React.FC = () => {
               <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.85rem', margin: 0, letterSpacing: '0.05em' }}>REGIONAL & GEOGRAPHIC CONTEXT (INDIA)</h3>
             </div>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.7, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>
-              Concrete testing in coastal climates like Chennai, Mumbai, and Vishakhapatnam faces high ambient humidity and saline exposure. High humidity accelerates surface carbonation, which artificially inflates rebound hammer index readings while concrete core density remains lower. Ouantum's NDT Analysis Engine auto-corrects rebound values based on local atmospheric and carbonation conditions in Southern India (Tamil Nadu, Karnataka, Andhra Pradesh), ensuring accurate SonReb correlation curves that align with Bureau of Indian Standards (BIS) parameters.
+              Concrete testing in coastal climates like Chennai, Mumbai, and Vishakhapatnam faces high ambient humidity and saline exposure. High humidity accelerates surface carbonation, which artificially inflates rebound hammer index readings while concrete core density remains lower. OUANTUM's NDT Analysis Engine auto-corrects rebound values based on local atmospheric and carbonation conditions in Southern India (Tamil Nadu, Karnataka, Andhra Pradesh), ensuring accurate SonReb correlation curves that align with Bureau of Indian Standards (BIS) parameters.
             </p>
           </motion.section>
 
@@ -233,8 +233,8 @@ const NdtAnalysis: React.FC = () => {
                 <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Standard rebound hammer tests (IS 13311 Part 2) only measure surface hardness. Factors like aggregate type, concrete carbonation (highly prevalent in tropical coastal climates like Chennai and Vizag), moisture content, and surface texture can result in misleadingly high rebound numbers. Correlating it with UPV ensures velocity waves detect internal voids and true core density.</p>
               </div>
               <div>
-                <h4 style={{ fontSize: '1rem', fontWeight: 700, lineHeight: 1.4, margin: '0 0 0.5rem 0' }}>How does Ouantum handle aggregate-specific corrections for Indian concrete mixes?</h4>
-                <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Ouantum's database contains aggregate-specific correlation curves calibrated for common regional quarries in Tamil Nadu (e.g., black granite aggregate from Pallavaram) and Andhra Pradesh, aligning strength calculations with specific design grades (M25 to M60).</p>
+                <h4 style={{ fontSize: '1rem', fontWeight: 700, lineHeight: 1.4, margin: '0 0 0.5rem 0' }}>How does OUANTUM handle aggregate-specific corrections for Indian concrete mixes?</h4>
+                <p style={{ fontSize: '0.95rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>OUANTUM's database contains aggregate-specific correlation curves calibrated for common regional quarries in Tamil Nadu (e.g., black granite aggregate from Pallavaram) and Andhra Pradesh, aligning strength calculations with specific design grades (M25 to M60).</p>
               </div>
             </div>
           </motion.section>
@@ -247,3 +247,5 @@ const NdtAnalysis: React.FC = () => {
 };
 
 export default NdtAnalysis;
+
+

@@ -54,10 +54,29 @@ const Services: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
           className="section-header"
+          style={{ position: 'relative' }}
         >
-          <h2 className="section-title services-main-title">
-            CORE<br />CAPABILITIES
+          <h2 className="section-title services-main-title" style={{ position: 'relative', zIndex: 1 }}>
+            HOW OUANTUM<br />WORKS
           </h2>
+
+          {/* ILLUSTRATION 04: Adjust scale, translate X, and translate Y statically */}
+          <img
+            src="/assets/images/ox1_avatar/4.png"
+            alt="How OUANTUM works illustration"
+            style={{
+              position: 'absolute',
+              zIndex: 2, // Layer above the title
+              width: '180px',
+              height: '180px',
+              objectFit: 'contain',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%) scale(2.05) translate(280px, 38px)', // Centering + customizable offset
+              pointerEvents: 'none', // Prevents mouse/click blockages
+            }}
+          />
+
           <p className="section-subtitle">
             <WordHover text="Our domain-specific AI platform automates quality assurance workflows, compressing weeks of manual analysis into a single working day." />
           </p>
@@ -104,7 +123,7 @@ const Services: React.FC = () => {
                       onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.7')}
                       onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
                     >
-                      READ MORE <ArrowUpRight size={14} />
+                      EXPLORE {item.category} <ArrowUpRight size={14} />
                     </Link>
                   </div>
                 </div>
