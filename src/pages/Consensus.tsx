@@ -18,7 +18,7 @@ const Consensus: React.FC = () => {
   });
 
   return (
-    <div style={{
+    <div className="subpage-wrapper" style={{
       background: '#000000',
       color: '#ffffff',
       minHeight: '100vh',
@@ -62,7 +62,7 @@ const Consensus: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <span style={{
+            <span className="hero-tech-label" style={{
               fontFamily: 'var(--font-mono)',
               fontSize: '0.8rem',
               color: '#999',
@@ -75,23 +75,21 @@ const Consensus: React.FC = () => {
             </span>
             <h1 style={{
               fontFamily: 'var(--font-adieu)',
-              fontSize: 'clamp(2.2rem, 5vw, 4rem)',
+              fontSize: 'clamp(3rem, 8vw, 7rem)',
               fontWeight: 400,
-              lineHeight: 1.1,
+              lineHeight: 0.9,
               color: '#ffffff',
               margin: '0 0 1.5rem 0',
-              textTransform: 'uppercase'
             }}>
-              MULTI-MODEL CONSENSUS
+              Multi-Model Consensus
             </h1>
             <p style={{
-              fontFamily: 'var(--font-adieu)',
-              fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+              fontFamily: 'var(--font-main)',
+              fontSize: 'clamp(1.2rem, 2.2vw, 1.45rem)',
               color: 'rgba(255, 255, 255, 0.6)',
               margin: 0,
-              lineHeight: 1.3,
+              lineHeight: 1.65,
               maxWidth: '800px',
-              textTransform: 'uppercase'
             }}>
               Triple-Validation AI Consensus Engine for Structural Integrity Decisions
             </p>
@@ -118,7 +116,7 @@ const Consensus: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
-            style={{ borderLeft: '3px solid #ffffff', paddingLeft: '1.5rem', margin: '0.5rem 0' }}
+            style={{ paddingLeft: '0', margin: '0.5rem 0' }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '0.75rem', color: '#ffffff' }}>
               <MapPin size={16} />

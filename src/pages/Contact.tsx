@@ -126,7 +126,7 @@ const Contact: React.FC = () => {
                   fontSize: 'clamp(2.5rem, 6vw, 4rem)',
                   lineHeight: 1.1,
                   marginBottom: '2rem',
-                  textTransform: 'uppercase',
+                  color: '#ffffff',
                 }}
               >
                 Get in Touch<br/>with OUANTUM

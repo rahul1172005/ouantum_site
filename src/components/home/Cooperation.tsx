@@ -185,10 +185,10 @@ const Cooperation = () => {
     <section ref={sectionRef} id="cooperation" className="cooperation" style={{ padding: '120px 0 50px', background: '#000000', position: 'relative' }}>
       <div style={{ position: 'relative', zIndex: 2, width: '100%', padding: '0 4vw' }}>
         <motion.div
-          style={{ marginBottom: '80px', textAlign: 'center', y: titleY }}
+          style={{ marginBottom: '80px', textAlign: 'left', y: titleY }}
         >
           <h2 className="section-title">
-            ADVISORY<br />BOARD
+            Advisory<br />Board
           </h2>
         </motion.div>
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUpRight, Tag } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { blogPosts, CATEGORIES, type Category } from '../data/blogPosts';
 import useSEO from '../hooks/useSEO';
 
@@ -84,13 +84,14 @@ const Blog: React.FC = () => {
               <h1
                 style={{
                   fontFamily: 'var(--font-adieu)',
-                  fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
+                  fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
                   lineHeight: 1.1,
                   marginBottom: '2rem',
-                  textTransform: 'uppercase',
+                  textTransform: 'none',
+                  color: '#ffffff',
                 }}
               >
-                KNOWLEDGE<br />CENTRE
+                Knowledge<br />Centre
               </h1>
             </motion.div>
           </div>
@@ -224,33 +225,9 @@ const Blog: React.FC = () => {
                           style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                         />
                       </div>
-                      <div style={{ padding: '1.5rem 2rem 0' }}>
-                        {/* Category tag */}
-                        <span
-                          style={{
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '5px',
-                            fontFamily: 'var(--font-mono)',
-                            fontSize: '0.62rem',
-                            letterSpacing: '0.12em',
-                            textTransform: 'uppercase',
-                            color: catColor,
-                            background: `${catColor}18`,
-                            border: `1px solid ${catColor}35`,
-                            padding: '4px 10px',
-                            borderRadius: '4px',
-                            marginBottom: '1.25rem',
-                          }}
-                        >
-                          <Tag size={9} aria-hidden="true" />
-                          {post.category}
-                        </span>
-                      </div>
-
                       <div
                         style={{
-                          padding: '0 2rem 2rem',
+                          padding: '1.5rem 2rem 2rem',
                           display: 'flex',
                           flexDirection: 'column',
                           flex: 1,
@@ -258,10 +235,11 @@ const Blog: React.FC = () => {
                       >
                         {/* Title */}
                         <h2
+                          className="blog-card-title"
                           style={{
                             fontFamily: 'var(--font-adieu)',
-                            fontSize: 'clamp(1.1rem, 2.5vw, 1.35rem)',
-                            lineHeight: 1.25,
+                            fontSize: '1.25rem',
+                            lineHeight: 1.3,
                             color: '#fff',
                             marginBottom: '1rem',
                             fontWeight: 400,
@@ -272,11 +250,12 @@ const Blog: React.FC = () => {
 
                         {/* Excerpt */}
                         <p
+                          className="blog-card-excerpt"
                           style={{
                             fontFamily: 'var(--font-mono)',
-                            fontSize: '0.82rem',
-                            lineHeight: 1.75,
-                            color: 'rgba(255, 255, 255, 0.5)',
+                            fontSize: '0.88rem !important',
+                            lineHeight: '1.6 !important',
+                            color: 'rgba(255, 255, 255, 0.6)',
                             marginBottom: '1.75rem',
                             flex: 1,
                             display: '-webkit-box',

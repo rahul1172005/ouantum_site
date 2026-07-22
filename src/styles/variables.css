@@ -3,7 +3,7 @@
   --bg-primary: #000000;
   --bg-secondary: #000000;
   --text-primary: #ffffff;
-  --text-secondary: #b0b4ba;
+  --text-secondary: #aaaaaa;
   --text-muted: #666666;
   --accent-white: #ffffff;
   --accent-white-glow: rgba(255, 255, 255, 0.08);
@@ -13,7 +13,8 @@
   /* Fonts */
   --font-main: 'Inter', sans-serif;
   --font-mono: 'Inter', sans-serif;
-  --font-adieu: 'Adieu', 'Inter', sans-serif;
+  --font-adieu: 'Geist', sans-serif;
+  --font-brand: 'Adieu', 'Montserrat', sans-serif;
 
   /* Spacing */
   --container-width: 1600px;

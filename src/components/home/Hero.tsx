@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
   }, []);
 
   // Adjust background image scale, X-axis position, and Y-axis position directly here
-  const heroImageScaleDesktop = 0.90;
+  const heroImageScaleDesktop = 1.0;
   const heroImageXDesktop = 0; // in pixels
   const heroImageYDesktop = 0; // in pixels
 
@@ -100,11 +100,11 @@ const Hero: React.FC = () => {
         style={{
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'space-between',
+          justifyContent: 'flex-end',
           height: '100%',
-          minHeight: 'calc(100vh - 160px)',
+          minHeight: 'calc(100vh - 100px)',
           paddingTop: '40px',
-          paddingBottom: '100px',
+          paddingBottom: '40px',
           zIndex: 10,
         }}
       >
@@ -112,239 +112,159 @@ const Hero: React.FC = () => {
         <div
           style={{
             display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'flex-start',
-            textAlign: 'left',
+            width: '100%',
+            justifyContent: 'space-between',
+            alignItems: isMobile ? 'flex-start' : 'flex-end',
+            flexDirection: isMobile ? 'column' : 'row',
+            gap: isMobile ? '1.5rem' : '3rem',
             marginTop: 'auto',
-            marginBottom: 'auto',
+            marginBottom: '0px',
           }}
         >
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            style={{
-              fontFamily: 'var(--font-adieu)',
-              fontSize: 'clamp(2rem, 5.5vw, 4.2rem)',
-              fontWeight: 400,
-              lineHeight: 1.1,
-              color: 'rgba(255, 255, 255, 0.9)',
-              margin: '0 0 1.5rem 0',
-              textAlign: 'left',
-              letterSpacing: '-0.02em',
-              textTransform: 'uppercase',
-            }}
-          >
-            AI-Powered Quality Assurance<br />for Civil Infrastructure
-          </motion.h1>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15 }}
-            style={{
-              fontFamily: 'var(--font-main)',
-              fontSize: 'clamp(0.95rem, 1.5vw, 1.1rem)',
-              lineHeight: 1.6,
-              color: '#b0b0b0',
-              maxWidth: '680px',
-              margin: '0 0 2.5rem 0',
-              textAlign: 'left',
-              fontWeight: 400,
-            }}
-          >
-            <p style={{ margin: 0 }}>
-              <WordHover text="OUANTUM helps government agencies, infrastructure organisations, engineering consultants, and quality inspection teams improve construction quality through AI-assisted inspection, structural assessment, monitoring, and standards-based reporting from a single platform." />
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap', margin: '0 0 2.5rem 0' }}
-          >
-            <Link
-              to="/#activities"
-              onClick={(e) => {
-                const el = document.getElementById('activities');
-                if (el) {
-                  e.preventDefault();
-                  el.scrollIntoView({ behavior: 'smooth' });
-                }
-              }}
+          {/* Left: Title */}
+          <div style={{ flex: '1 1 auto', minWidth: '280px' }}>
+            <motion.h1
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
               style={{
-                fontFamily: 'var(--font-adieu)',
-                fontSize: '0.78rem',
-                letterSpacing: '0.1em',
+                fontFamily: 'var(--font-brand)',
+                fontSize: 'clamp(3rem, 9vw, 7.5rem)',
+                fontWeight: 400,
+                lineHeight: 0.85,
+                color: 'rgba(255, 255, 255, 0.9)',
+                margin: 0,
+                textAlign: 'left',
+                letterSpacing: '-0.03em',
                 textTransform: 'uppercase',
-                fontWeight: 600,
-                color: '#000000',
-                backgroundColor: '#ffffff',
-                border: 'none',
-                borderRadius: '9999px',
-                padding: '1rem 2rem',
-                cursor: 'pointer',
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                transition: 'all 0.25s ease',
-                textDecoration: 'none',
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.opacity = '0.9';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.opacity = '1';
-                e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
-              Explore the Platform
-            </Link>
+              OUANTUM
+            </motion.h1>
+          </div>
 
-            <Link
-              to="/contact"
+          {/* Right: Wording Content & Buttons */}
+          <div
+            style={{
+              flex: '0 1 540px',
+              minWidth: '320px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'flex-start',
+              gap: '1.5rem',
+              paddingBottom: '10px',
+            }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.15 }}
               style={{
-                fontFamily: 'var(--font-adieu)',
-                fontSize: '0.78rem',
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                fontWeight: 600,
-                color: '#ffffff',
-                backgroundColor: 'transparent',
-                border: '1px solid rgba(255, 255, 255, 0.3)',
-                borderRadius: '9999px',
-                padding: '1rem 2rem',
-                cursor: 'pointer',
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                transition: 'all 0.25s ease',
-                textDecoration: 'none',
-              }}
-              onMouseOver={(e) => {
-                e.currentTarget.style.borderColor = '#ffffff';
-                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseOut={(e) => {
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-                e.currentTarget.style.backgroundColor = 'transparent';
-                e.currentTarget.style.transform = 'translateY(0)';
+                fontFamily: 'var(--font-main)',
+                fontSize: 'clamp(0.9rem, 1.2vw, 1rem)',
+                lineHeight: 1.5,
+                color: '#b0b0b0',
+                fontWeight: 400,
+                textAlign: 'left',
               }}
             >
-              Contact Our Team
-            </Link>
-          </motion.div>
+              <p style={{ margin: 0 }}>
+                <WordHover text="OUANTUM is the world's first AI-Powered Quality Assurance for Civil Infrastructure that helps government agencies, infrastructure organisations, engineering consultants, and quality inspection teams improve construction quality through AI-assisted inspection, structural assessment, monitoring, and standards-based reporting from a single platform." />
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              style={{
+                display: 'flex',
+                gap: '0.75rem',
+                flexWrap: isMobile ? 'wrap' : 'nowrap',
+                margin: '0',
+                width: '100%',
+              }}
+            >
+              <Link
+                to="/#activities"
+                onClick={(e) => {
+                  const el = document.getElementById('activities');
+                  if (el) {
+                    e.preventDefault();
+                    el.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                style={{
+                  fontFamily: 'var(--font-adieu)',
+                  fontSize: '0.74rem',
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  fontWeight: 600,
+                  color: '#000000',
+                  backgroundColor: '#ffffff',
+                  border: 'none',
+                  borderRadius: '9999px',
+                  padding: '0.8rem 1.5rem',
+                  cursor: 'pointer',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all 0.25s ease',
+                  textDecoration: 'none',
+                  whiteSpace: 'nowrap',
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.opacity = '0.9';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.opacity = '1';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
+                Explore the Platform
+              </Link>
+
+              <Link
+                to="/contact"
+                style={{
+                  fontFamily: 'var(--font-adieu)',
+                  fontSize: '0.74rem',
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  fontWeight: 600,
+                  color: '#ffffff',
+                  backgroundColor: 'transparent',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  borderRadius: '9999px',
+                  padding: '0.8rem 1.5rem',
+                  cursor: 'pointer',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'all 0.25s ease',
+                  textDecoration: 'none',
+                  whiteSpace: 'nowrap',
+                }}
+                onMouseOver={(e) => {
+                  e.currentTarget.style.borderColor = '#ffffff';
+                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                }}
+                onMouseOut={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
+              >
+                Contact Our Team
+              </Link>
+            </motion.div>
+          </div>
         </div>
 
 
-        {/* Bottom Partner Logos */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.0, delay: 0.5 }}
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            gap: 'clamp(2rem, 5vw, 4rem)',
-            width: '100%',
-            marginTop: '1rem',
-            paddingTop: '0',
-          }}
-        >
-          {/* Amith */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px',
-              color: '#ffffff',
-              opacity: 0.8,
-              fontSize: 'clamp(0.8rem, 1.2vw, 1rem)',
-              fontFamily: 'var(--font-adieu)',
-            }}
-          >
-            <span>Amith</span>
-          </div>
 
-          {/* Cybercom */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px',
-              color: '#ffffff',
-              opacity: 0.8,
-              fontSize: 'clamp(0.8rem, 1.2vw, 1rem)',
-              fontFamily: 'var(--font-adieu)',
-            }}
-          >
-            <img
-              src="/assets/images/logo/cybercom-logo-white.png"
-              alt="Cybercom"
-              style={{
-                height: 'clamp(1.2rem, 2vw, 1.8rem)',
-                width: 'auto',
-                display: 'block',
-                transform: 'scale(1) translate(0px, -0.9px)',
-              }}
-            />
-            <span>Cybercom</span>
-          </div>
-
-          {/* Zapsters */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px',
-              color: '#ffffff',
-              opacity: 0.8,
-              fontSize: 'clamp(0.8rem, 1.2vw, 1rem)',
-              fontFamily: 'var(--font-adieu)',
-            }}
-          >
-            <img
-              src="/assets/images/logo/zapsters logo.png"
-              alt="Zapsters"
-              style={{
-                height: 'clamp(1.2rem, 2vw, 1.8rem)',
-                width: 'auto',
-                display: 'block',
-                transform: 'scale(3.5) translate(-2px, 0px)',
-              }}
-            />
-            <span>Zapsters</span>
-          </div>
-
-          {/* Etherence */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '10px',
-              color: '#ffffff',
-              opacity: 0.8,
-              fontSize: 'clamp(0.8rem, 1.2vw, 1rem)',
-              fontFamily: 'var(--font-adieu)',
-            }}
-          >
-            <img
-              src="/assets/images/logo/E2-logo.png"
-              alt="Etherence"
-              style={{
-                height: 'clamp(1.2rem, 2vw, 1.8rem)',
-                width: 'auto',
-                display: 'block',
-                transform: 'scale(2) translate(-2px, -0.5px)',
-              }}
-            />
-            <span>Etherence</span>
-          </div>
-        </motion.div>
       </div>
 
       <motion.div

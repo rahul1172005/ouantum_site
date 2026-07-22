@@ -1,275 +1,196 @@
-import { useRef } from 'react'
-import { MotionValue, motion, useScroll, useTransform } from 'framer-motion'
-import { WordHover } from '@/components/common/WordHover';
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { ArrowUpRight, ArrowDown } from 'lucide-react'
 
-interface DifferencePoint {
+interface DifferenceItem {
   id: string;
   title: string;
-  subtitle: string;
   description: string;
-  accent: string;
-  metric: string;
-  metricLabel: string;
-  stat1: string;
-  stat1Label: string;
-  stat2: string;
-  stat2Label: string;
-  tags: string[];
-}
-
-const DifferenceCard = ({ point, i, pointsLength, progress }: { point: DifferencePoint, i: number, pointsLength: number, progress: MotionValue<number> }) => {
-  const container = useRef(null);
-
-  // Outer Card Scale & Darkening
-  const start = i / pointsLength;
-  const targetScale = 1 - ((pointsLength - 1 - i) * 0.04);
-  const targetOpacity = (pointsLength - 1 - i) * 0.3;
-
-  const safeRange = [start, 1];
-  const safeScale = [1, targetScale];
-  const safeOpacity = [0, targetOpacity];
-
-  const scale = useTransform(progress, safeRange, safeScale);
-  const overlayOpacity = useTransform(progress, safeRange, safeOpacity);
-
-  return (
-    <div
-      ref={container}
-      className="difference-card-wrapper"
-      style={{
-        height: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        position: 'sticky',
-        top: 0
-      }}
-    >
-      <motion.div
-        style={{
-          scale,
-          top: `calc(-5vh + ${i * 25}px)`,
-          position: 'relative',
-          width: '100%',
-          height: 'auto',
-          minHeight: 'clamp(400px, 70vh, 650px)',
-          transformOrigin: 'top center',
-          willChange: 'transform',
-          boxShadow: '0 -10px 30px rgba(0, 0, 0, 0.04)',
-          border: '1px solid rgba(255, 255, 255, 0.06)',
-          borderRadius: '32px',
-          padding: 'clamp(24px, 4vw, 40px)',
-          background: '#000000',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 'clamp(16px, 2vh, 24px)',
-          overflow: 'hidden'
-        }}
-      >
-        {/* Darkening overlay for stacking depth */}
-        <motion.div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: '#000000',
-            opacity: overlayOpacity,
-            zIndex: 10,
-            pointerEvents: 'none'
-          }}
-        />
-
-        {/* Noise Overlay */}
-        <div style={{ position: 'absolute', inset: 0, opacity: 0.03, pointerEvents: 'none', backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.8\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")', mixBlendMode: 'overlay', zIndex: 1, borderRadius: '24px' }}></div>
-
-
-
-        {/* Header row */}
-        <div className="difference-card-header" style={{ position: 'relative', zIndex: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-          <div className="difference-card-title" style={{ display: 'flex', gap: 'clamp(10px, 2vw, 20px)', alignItems: 'center' }}>
-            <span style={{ fontFamily: 'var(--font-adieu)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, lineHeight: 0.9, color: '#ffffff', opacity: 0.8 }}>
-              {point.id}
-            </span>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-              <span style={{ fontFamily: 'var(--font-adieu)', fontSize: 'clamp(1rem, 1.5vw, 1.2rem)', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                {point.title}
-              </span>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: 'clamp(0.9rem, 1.2vw, 1rem)', opacity: 0.6 }}>
-                {point.subtitle}
-              </span>
-              <p style={{ fontFamily: 'var(--font-mono)', fontSize: '0.95rem', color: 'rgba(255, 255, 255, 0.7)', marginTop: '8px', maxWidth: '600px', lineHeight: 1.6 }}>
-                <WordHover text={point.description} />
-              </p>
-            </div>
-          </div>
-          <div style={{ padding: '8px 20px', border: '1px solid rgba(0, 0, 0, 0.3)', borderRadius: '30px', fontFamily: 'var(--font-mono)', fontSize: '0.9rem', textTransform: 'uppercase', letterSpacing: '1px', whiteSpace: 'nowrap' }}>
-            THE DIFFERENCE
-          </div>
-        </div>
-
-        {/* Content image panel — premium visual storytelling with img3, img2, img1, and img4 */}
-        <div style={{
-          position: 'relative',
-          zIndex: 2,
-          width: '100%',
-          height: 'clamp(280px, 45vh, 400px)',
-          minHeight: 0,
-          marginTop: 'auto',
-          borderRadius: '24px',
-          overflow: 'hidden',
-          boxShadow: '0 10px 25px rgba(0, 0, 0, 0.04)',
-          background: '#000000',
-        }}>
-          <img
-            src={
-              point.id === '01'
-                ? "/assets/images/img1.png"
-                : point.id === '02'
-                  ? "/assets/images/img2.png"
-                  : point.id === '03'
-                    ? "/assets/images/img3.png"
-                    : "/assets/images/img4.png"
-            }
-            alt={point.title}
-            loading="lazy"
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              opacity: 0.9,
-            }}
-          />
-        </div>
-      </motion.div>
-    </div>
-  )
+  image: string;
 }
 
 const Difference = () => {
-  const sectionRef = useRef(null)
-  const cardsContainerRef = useRef(null)
+  const [activeId, setActiveId] = useState<string>('01');
 
-  // Track scroll progress exclusively for the cards container
-  const { scrollYProgress } = useScroll({
-    target: cardsContainerRef,
-    offset: ["start start", "end end"]
-  })
-
-  // Title parallax
-  const { scrollYProgress: sectionProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"]
-  })
-  const titleY = useTransform(sectionProgress, [0, 1], [-150, 150])
-
-  const points: DifferencePoint[] = [
+  const items: DifferenceItem[] = [
     {
-      id: '01',
+      id: '1',
       title: 'NOT A DATA PROBLEM',
-      subtitle: "It's a Contextual Judgment Problem",
-      description: "Most AI tools treat construction testing as a data problem. It isn't.",
-      accent: '#4ade80',
-      metric: '<4 hrs',
-      metricLabel: 'Average report turnaround — down from 5–14 days',
-      stat1: '99.9%',
-      stat1Label: 'Rebound hammer validation accuracy',
-      stat2: 'IS:13311',
-      stat2Label: 'Code compliance — auto-checked every field',
-      tags: ['NDT', 'SonReb', 'IS Code'],
+      description: "Most AI tools treat construction testing as a data problem. It isn't. It's a contextual judgment problem requiring multi-variable structural validation.",
+      image: '/assets/images/img1.png',
     },
     {
-      id: '02',
+      id: '2',
       title: 'CONTEXT IS EVERYTHING',
-      subtitle: 'Age, Exposure, Cement Type, Curing',
       description: "A reading of 32 means something completely different on a 30-year-old coastal building versus a freshly cast M25 column inland.",
-      accent: '#f87171',
-      metric: '12+',
-      metricLabel: 'Context variables required before a single result is generated',
-      stat1: '30 yrs',
-      stat1Label: 'Structural engineering expertise embedded',
-      stat2: '4000+',
-      stat2Label: 'Housing units audited across programmes',
-      tags: ['Exposure', 'Cement Grade', 'Carbonation'],
+      image: '/assets/images/img2.png',
     },
     {
-      id: '03',
+      id: '3',
       title: 'VARIABLES REQUIRED',
-      subtitle: 'System Demands Context to Run',
       description: "Every variable is a required input. The system refuses to give you a result without the context that makes the result meaningful.",
-      accent: '#fbbf24',
-      metric: '0',
-      metricLabel: 'Results generated without full contextual input',
-      stat1: '40–60h',
-      stat1Label: 'Senior engineer time saved per project',
-      stat2: 'Same day',
-      stat2Label: 'Government-grade report delivery',
-      tags: ['UPV', 'Chloride', 'Half-Cell', 'RH'],
+      image: '/assets/images/img3.png',
     },
     {
-      id: '04',
+      id: '4',
       title: 'EMBEDDED EXPERTISE',
-      subtitle: 'A 30-Year Engineering Decision',
-      description: "That's not a software decision. That's a 30-year-structural-engineer decision, embedded.",
-      accent: '#a78bfa',
-      metric: '₹0',
-      metricLabel: 'Manual cross-referencing cost — fully automated',
-      stat1: 'ADB',
-      stat1Label: 'PMAY & government infrastructure deployed',
-      stat2: 'TNHB',
-      stat2Label: 'Tamil Nadu Housing Board — active deployment',
-      tags: ['Expertise', 'IS Code', 'Deterministic'],
-    }
-  ]
+      description: "That's not a software decision. That's a 30-year-structural-engineer decision, embedded directly into standard compliance workflows.",
+      image: '/assets/images/img4.png',
+    },
+  ];
 
   return (
-    <section ref={sectionRef} id="difference" className="difference" style={{ paddingTop: '200px', paddingBottom: '50px', background: '#000000', position: 'relative' }}>
-      <div style={{ position: 'relative', zIndex: 2, width: '100%', padding: '0 4vw' }}>
-        <motion.div
-          style={{ marginBottom: '80px', textAlign: 'center', y: titleY }}
+    <section id="difference" className="difference section-padding" style={{ background: '#f5f5f7', color: '#111111' }}>
+      <div className="container">
+        <h2
+          className="section-title"
+          style={{
+            fontFamily: 'var(--font-adieu)',
+            fontSize: 'clamp(3rem, 8vw, 7rem)',
+            lineHeight: 0.9,
+            color: '#111111',
+            marginBottom: '4rem',
+            textTransform: 'none',
+          }}
         >
-          <div style={{ position: 'relative', display: 'inline-block', margin: '0 auto' }}>
-            <h2 className="section-title" style={{ position: 'relative', zIndex: 1 }}>
-              WHY CHOOSE<br />OUANTUM
-            </h2>
-            {/* ILLUSTRATION 07: Adjust scale, translate X, and translate Y statically */}
-            <img
-              src="/assets/images/ox1_avatar/7.png"
-              alt="Why choose OUANTUM illustration"
-              className="title-avatar-img"
-              style={{
-                position: 'absolute',
-                zIndex: 2, // Layer above the title
-                width: '120px',
-                height: '120px',
-                objectFit: 'contain',
-                top: '-40px',
-                left: '290px',
-                transform: 'scale(3.2) translate(-140px, 13px)',
-                pointerEvents: 'none', // Prevents mouse blockages
-              }}
-            />
-          </div>
-        </motion.div>
+          Why Choose<br />OUANTUM
+        </h2>
 
-        <div ref={cardsContainerRef} style={{ position: 'relative' }}>
-          {points.map((point, i) => {
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          {items.map((item) => {
+            const isOpen = activeId === item.id;
             return (
-              <DifferenceCard
-                key={i}
-                point={point}
-                i={i}
-                pointsLength={points.length}
-                progress={scrollYProgress}
-              />
-            )
+              <div
+                key={item.id}
+                style={{
+                  borderTop: '1px solid rgba(0, 0, 0, 0.12)',
+                  paddingTop: '24px',
+                  paddingBottom: '24px',
+                  transition: 'background 0.3s ease',
+                }}
+              >
+                {/* Header Row */}
+                <button
+                  onClick={() => setActiveId(isOpen ? '' : item.id)}
+                  style={{
+                    width: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    background: 'transparent',
+                    border: 'none',
+                    cursor: 'pointer',
+                    padding: 0,
+                    textAlign: 'left',
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                    <span
+                      style={{
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.95rem',
+                        color: 'rgba(0, 0, 0, 0.4)',
+                        letterSpacing: '0.05em',
+                      }}
+                    >
+                      {item.id}
+                    </span>
+                    <h3
+                      style={{
+                        fontFamily: 'var(--font-adieu)',
+                        fontSize: 'clamp(1.2rem, 2.8vw, 2.2rem)',
+                        fontWeight: 400,
+                        color: '#111111',
+                        letterSpacing: '-0.01em',
+                        margin: 0,
+                        textTransform: 'uppercase',
+                      }}
+                    >
+                      {item.title}
+                    </h3>
+                  </div>
+
+                  <div
+                    style={{
+                      width: '44px',
+                      height: '44px',
+                      borderRadius: '50%',
+                      background: isOpen ? '#e5e5e7' : '#111111',
+                      color: isOpen ? '#111111' : '#ffffff',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      transition: 'all 0.3s ease',
+                      flexShrink: 0,
+                    }}
+                  >
+                    {isOpen ? (
+                      <ArrowDown size={20} />
+                    ) : (
+                      <ArrowUpRight size={20} />
+                    )}
+                  </div>
+                </button>
+
+                {/* Expanded Content */}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                      style={{ overflow: 'hidden' }}
+                    >
+                      <div style={{ paddingTop: '20px', paddingLeft: 'clamp(0px, 4vw, 54px)' }}>
+                        <p
+                          style={{
+                            fontFamily: 'var(--font-main)',
+                            fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
+                            lineHeight: 1.6,
+                            color: 'rgba(0, 0, 0, 0.65)',
+                            maxWidth: '720px',
+                            marginBottom: '32px',
+                          }}
+                        >
+                          {item.description}
+                        </p>
+
+                        <div
+                          style={{
+                            width: '100%',
+                            maxHeight: '480px',
+                            borderRadius: '28px',
+                            overflow: 'hidden',
+                            boxShadow: '0 20px 40px rgba(0, 0, 0, 0.08)',
+                          }}
+                        >
+                          <img
+                            src={item.image}
+                            alt={item.title}
+                            style={{
+                              width: '100%',
+                              height: '100%',
+                              maxHeight: '480px',
+                              objectFit: 'cover',
+                              display: 'block',
+                            }}
+                          />
+                        </div>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
           })}
-          {/* Spacer to allow the last card to remain sticky and visible while reading */}
-          <div className="difference-spacer" style={{ height: '50vh' }} />
+          <div style={{ borderTop: '1px solid rgba(0, 0, 0, 0.12)' }} />
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Difference
+export default Difference;
 
 

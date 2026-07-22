@@ -96,9 +96,10 @@ const Capabilities: React.FC = () => {
                   fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
                   lineHeight: 1.1,
                   marginBottom: '2rem',
+                  color: '#ffffff',
                 }}
               >
-                PLATFORM<br />CAPABILITIES
+                Platform<br />Capabilities
               </h1>
             </motion.div>
           </div>
@@ -140,22 +141,13 @@ const Capabilities: React.FC = () => {
         >
           {/* WHAT WE DO */}
           <section aria-label="What we do">
-            <h2
-              style={{
-                fontFamily: 'var(--font-adieu)',
-                fontSize: '1.8rem',
-                color: '#fff',
-                marginBottom: '2rem',
-                borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-                paddingBottom: '1rem',
-              }}
-            >
-              WHAT WE DO
+            <h2>
+              What We Do
             </h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem' }}>
               <div>
                 <h3 style={{ fontFamily: 'var(--font-adieu)', color: '#fff', fontSize: '1.1rem', marginBottom: '1rem' }}>
-                  DETERMINISTIC QUALITY ASSURANCE
+                  Deterministic Quality Assurance
                 </h3>
                 <p style={{ color: 'rgba(255,255,255,0.65)' }}>
                   We replace slow, subjective, and error-prone manual structural auditing with real-time, deterministic, and compliance-guaranteed computational checks. The platform digitizes the complete workflow, from the initial raw non-destructive testing (NDT) readings to final government-standard compliance certification.
@@ -163,7 +155,7 @@ const Capabilities: React.FC = () => {
               </div>
               <div>
                 <h3 style={{ fontFamily: 'var(--font-adieu)', color: '#fff', fontSize: '1.1rem', marginBottom: '1rem' }}>
-                  ON-SITE CIVIL VALIDATION
+                  On-Site Civil Validation
                 </h3>
                 <p style={{ color: 'rgba(255,255,255,0.65)' }}>
                   OUANTUM demands rigorous input variables including structural age, curing cycles, cement grades, and exposure parameters. We prevent the submission of isolated, meaningless test metrics, ensuring every structural reading has the necessary context to determine true load-bearing strength and safety.
@@ -174,17 +166,8 @@ const Capabilities: React.FC = () => {
 
           {/* THE CAPABILITIES MATRIX */}
           <section aria-label="Capabilities grid">
-            <h2
-              style={{
-                fontFamily: 'var(--font-adieu)',
-                fontSize: '1.8rem',
-                color: '#fff',
-                marginBottom: '2rem',
-                borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-                paddingBottom: '1rem',
-              }}
-            >
-              CAPABILITIES MATRIX
+            <h2>
+              Capabilities Matrix
             </h2>
             <div
               style={{
@@ -238,22 +221,13 @@ const Capabilities: React.FC = () => {
 
           {/* HOW IT WORKS */}
           <section aria-label="How it works workflow">
-            <h2
-              style={{
-                fontFamily: 'var(--font-adieu)',
-                fontSize: '1.8rem',
-                color: '#fff',
-                marginBottom: '2rem',
-                borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
-                paddingBottom: '1rem',
-              }}
-            >
-              HOW IT WORKS
+            <h2>
+              How It Works
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
                 <h3 style={{ fontFamily: 'var(--font-adieu)', color: '#fff', fontSize: '1.1rem', marginBottom: '0.5rem' }}>
-                  FIELD DATA CAPTURE
+                  Field Data Capture
                 </h3>
                 <p style={{ color: 'rgba(255,255,255,0.65)' }}>
                   Field testing data (such as Ultrasonic Pulse Velocity and Rebound Hammer numbers) is entered directly into the secure mobile portal. Geolocation, timestamps, and physical structural parameters are verified synchronously on-site.
@@ -292,18 +266,18 @@ const Capabilities: React.FC = () => {
                 paddingBottom: '1rem',
               }}
             >
-              WHAT WE CHANGE IN THE WORLD
+              What We Change In The World
             </h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '3rem' }}>
               <div>
                 <h3 style={{ fontFamily: 'var(--font-adieu)', color: '#fff', fontSize: '1.1rem', marginBottom: '1.1rem' }}>
-                  ELIMINATING DATA TAMPERING & TRANSCRIBER FRAUD
+                  Eliminating Data Tampering & Transcriber Fraud
                 </h3>
                 <p style={{ color: 'rgba(255,255,255,0.65)', marginBottom: '1.5rem' }}>
                   Traditionally, structural test readings are hand-written, easily manipulated, or incorrectly averaged to meet specifications. OUANTUM seals the audit loop. Data captured on-site is cryptographically secured, validated, and directly submitted.
                 </p>
                 <h3 style={{ fontFamily: 'var(--font-adieu)', color: '#fff', fontSize: '1.1rem', marginBottom: '1.1rem' }}>
-                  REDUCING CYCLE TIMES FROM WEEKS TO MINUTES
+                  Reducing Cycle Times From Weeks To Minutes
                 </h3>
                 <p style={{ color: 'rgba(255,255,255,0.65)' }}>
                   Instead of waiting 7–14 days for a senior structural engineer to compile lab results, verify standard deviations, cross-reference tables, and write reports, civil authorities get same-day certified reports, drastically accelerating project development.
@@ -312,13 +286,13 @@ const Capabilities: React.FC = () => {
 
               <div>
                 <h3 style={{ fontFamily: 'var(--font-adieu)', color: '#fff', fontSize: '1.1rem', marginBottom: '1.1rem' }}>
-                  DEMOCRATIZING DETERMINISTIC VERIFICATION
+                  Democratizing Deterministic Verification
                 </h3>
                 <p style={{ color: 'rgba(255,255,255,0.65)', marginBottom: '1.5rem' }}>
                   We empower municipalities, engineering consultants, housing boards, and contractors with access to deterministic structural health metrics. This structural transparency ensures safe infrastructure, preventing catastrophic structural failure and protecting lives.
                 </p>
                 <h3 style={{ fontFamily: 'var(--font-adieu)', color: '#fff', fontSize: '1.1rem', marginBottom: '1.1rem' }}>
-                  PRESERVING RESOURCES
+                  Preserving Resources
                 </h3>
                 <p style={{ color: 'rgba(255,255,255,0.65)' }}>
                   By estimating concrete service life, cover thickness safety, carbonation velocity, and steel corrosion risks early, we allow target rehabilitations instead of costly total structural rebuilds, saving billions in taxpayer funds.

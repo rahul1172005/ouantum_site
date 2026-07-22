@@ -71,10 +71,10 @@ const Equipment = () => {
           className="equipment-header"
         >
           <h2 className="equipment-title">
-            HOW THE<br />AI WORKS
+            How the<br />AI Works
           </h2>
           <p className="equipment-subtitle">
-            <WordHover text="DETERMINISTIC MATH FIRST. AI SECOND. EVERY RESULT IS CONTEXT-AWARE, AUDIT-READY, AND VALIDATED BY THREE INDEPENDENT MODELS BEFORE IT IS CONFIRMED." />
+            <WordHover text="Deterministic math first. AI second. Every result is context-aware, audit-ready, and validated by three independent models before it is confirmed." />
           </p>
         </motion.div>
 

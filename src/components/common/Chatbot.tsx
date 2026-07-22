@@ -52,6 +52,11 @@ const Chatbot: React.FC = () => {
   const logoX = -1.; // in pixels
   const logoY = 2.5; // in pixels
 
+  // Adjust mascot scale, X-axis position, and Y-axis position directly here
+  const mascotScale = 2.70;
+  const mascotX = 0; // in pixels
+  const mascotY = -1; // in pixels
+
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isLoading]);
@@ -158,7 +163,7 @@ const Chatbot: React.FC = () => {
           alignItems: 'center',
           justifyContent: 'center',
           boxShadow: '0 4px 24px rgba(0, 0, 0, 0.12)',
-          zIndex: 1000,
+          zIndex: 99999,
           cursor: 'pointer',
           border: 'none',
           padding: 0,
@@ -191,22 +196,22 @@ const Chatbot: React.FC = () => {
               right: '2rem',
               width: '380px',
               maxWidth: 'calc(100vw - 2rem)',
-              height: '580px',
-              maxHeight: '80vh',
+              height: '700px',
+              maxHeight: '85vh',
               background: '#000000',
               borderRadius: '20px',
               border: '1px solid rgba(255, 255, 255, 0.08)',
               boxShadow: '0 24px 48px rgba(0, 0, 0, 0.12)',
               display: 'flex',
               flexDirection: 'column',
-              zIndex: 1000,
+              zIndex: 99999,
               overflow: 'hidden',
             }}
           >
             {/* Header */}
             <div style={{
               padding: '1.25rem 1.5rem',
-              borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+              borderBottom: 'none',
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
@@ -234,6 +239,7 @@ const Chatbot: React.FC = () => {
                     }}
                   />
                 </div>
+
                 <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '1rem', color: '#fff', margin: 0, whiteSpace: 'nowrap' }}></h3>
               </div>
               <button
@@ -255,6 +261,22 @@ const Chatbot: React.FC = () => {
               fontFamily: 'var(--font-mono)',
               fontSize: '0.82rem',
             }}>
+              {/* Chatbot Mascot Illustration */}
+              <img
+                src="/assets/images/ox1_avatar/4.png"
+                alt="Mascot Avatar"
+                style={{
+                  alignSelf: 'center',
+                  margin: '1.5rem auto 2rem auto',
+                  width: '100%',
+                  maxWidth: '50px',
+                  height: 'auto',
+                  objectFit: 'contain',
+                  transform: `scale(${mascotScale}) translate(${mascotX}px, ${mascotY}px)`,
+                  display: 'block',
+                }}
+              />
+
               {/* Welcome */}
               <div style={{
                 alignSelf: 'flex-start',
@@ -340,16 +362,18 @@ const Chatbot: React.FC = () => {
             {/* Input */}
             <div style={{
               padding: '1rem 1.25rem',
-              borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+              borderTop: 'none',
               background: '#000000',
               flexShrink: 0,
+              position: 'relative',
+              zIndex: 10,
             }}>
               <div style={{
                 display: 'flex',
                 alignItems: 'center',
                 background: '#000000',
                 borderRadius: '30px',
-                padding: '0.5rem 0.75rem 0.5rem 1.25rem',
+                padding: '1.25rem 1.25rem 1.25rem 1.75rem',
                 border: '1px solid rgba(255, 255, 255, 0.15)',
               }}>
                 <input
@@ -364,7 +388,7 @@ const Chatbot: React.FC = () => {
                     border: 'none',
                     color: '#fff',
                     fontFamily: 'var(--font-mono)',
-                    fontSize: '0.82rem',
+                    fontSize: '0.92rem',
                     outline: 'none',
                   }}
                   disabled={isLoading}

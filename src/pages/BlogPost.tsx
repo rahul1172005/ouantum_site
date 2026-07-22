@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Calendar, Tag, ArrowUpRight } from 'lucide-react';
+import { ArrowLeft, Calendar, ArrowUpRight } from 'lucide-react';
 import { blogPosts } from '../data/blogPosts';
 import useSEO from '../hooks/useSEO';
 
@@ -128,28 +128,6 @@ const BlogPost: React.FC = () => {
 
         {/* Article header */}
         <header style={{ marginBottom: '3rem' }}>
-          {/* Category tag */}
-          <span
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '5px',
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.65rem',
-              letterSpacing: '0.12em',
-              textTransform: 'uppercase',
-              color: catColor,
-              background: `${catColor}18`,
-              border: `1px solid ${catColor}35`,
-              padding: '5px 12px',
-              borderRadius: '4px',
-              marginBottom: '1.75rem',
-            }}
-          >
-            <Tag size={9} aria-hidden="true" />
-            {post.category}
-          </span>
-
           {/* Title */}
           <motion.h1
             initial={{ opacity: 0, y: 16 }}
@@ -157,8 +135,8 @@ const BlogPost: React.FC = () => {
             transition={{ duration: 0.7 }}
             style={{
               fontFamily: 'var(--font-adieu)',
-              fontSize: 'clamp(1.75rem, 4vw, 3rem)',
-              lineHeight: 1.15,
+              fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+              lineHeight: 1.1,
               color: '#fff',
               marginBottom: '2rem',
               fontWeight: 400,
@@ -174,8 +152,6 @@ const BlogPost: React.FC = () => {
               flexWrap: 'wrap',
               gap: '1.5rem',
               alignItems: 'center',
-              paddingBottom: '2rem',
-              borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
             }}
           >
             <span
@@ -409,27 +385,8 @@ const BlogPost: React.FC = () => {
           </div>
         </article>
 
-        {/* Tags */}
-        <footer style={{ marginTop: '4rem', paddingTop: '2rem', borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '2.5rem' }}>
-            {post.tags.map((tag) => (
-              <span
-                key={tag}
-                style={{
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.65rem',
-                  letterSpacing: '0.08em',
-                  color: 'rgba(255, 255, 255, 0.45)',
-                  background: 'rgba(0, 0, 0, 0.04)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                  padding: '4px 12px',
-                  borderRadius: '3px',
-                }}
-              >
-                #{tag}
-              </span>
-            ))}
-          </div>
+        {/* Article Footer */}
+        <footer style={{ marginTop: '3rem' }}>
 
           {/* Back to blog */}
           <Link

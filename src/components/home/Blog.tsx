@@ -44,22 +44,22 @@ const Blog: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          style={{ textAlign: 'center', marginBottom: '4rem' }}
+          style={{ textAlign: 'left', marginBottom: '4rem' }}
         >
           <h2 className="section-title" style={{ fontSize: 'clamp(3rem, 8vw, 7rem)', lineHeight: 0.9, fontFamily: 'var(--font-adieu)' }}>
-            DIAGNOSTIC<br />JOURNAL
+            Diagnostic<br />Journal
           </h2>
           <p style={{
             color: 'rgba(255, 255, 255, 0.35)',
-            fontSize: '0.9rem',
-            maxWidth: '520px',
-            margin: '2rem auto 0',
-            fontFamily: 'var(--font-adieu)',
+            fontSize: 'clamp(1.2rem, 2.2vw, 1.45rem)',
+            maxWidth: '680px',
+            margin: '2rem 0 0',
+            fontFamily: 'var(--font-main)',
             lineHeight: 1.7,
-            textTransform: 'uppercase',
+            textTransform: 'none',
             letterSpacing: '0.05em'
           }}>
-            TECHNICAL ANALYSES, INDUSTRY NEWS, AND RESEARCH FROM THE FRONTIERS OF ENGINEERING.
+            Technical analyses, industry news, and research from the frontiers of engineering.
           </p>
         </motion.div>
 

@@ -66,38 +66,21 @@ const Problem = () => {
       <div className="container">
 
         {/* Header */}
-        <div style={{ marginBottom: '5rem', textAlign: 'center' }}>
-          <div style={{ position: 'relative', display: 'inline-block', margin: '0 auto' }}>
+        <div style={{ marginBottom: '5rem', textAlign: 'left' }}>
+          <div style={{ position: 'relative', display: 'inline-block', margin: '0' }}>
             <h2 className="section-title" style={{ marginBottom: '1.5rem', position: 'relative', zIndex: 1 }}>
               The Problem
             </h2>
-            {/* ILLUSTRATION 05: Adjust scale, translate X, and translate Y statically */}
-            <img
-              src="/assets/images/ox1_avatar/5.png"
-              alt="The Problem illustration"
-              className="title-avatar-img"
-              style={{
-                position: 'absolute',
-                zIndex: 2, // Layer above the title
-                width: '120px',
-                height: '120px',
-                objectFit: 'contain',
-                top: '-40px',
-                left: '290px',
-                transform: 'scale(3.1) translate(-138px, 15px)',
-                pointerEvents: 'none', // Prevents mouse/click blockages
-              }}
-            />
           </div>
           <ScrollReveal
             baseOpacity={0.1}
             style={{
               fontFamily: 'var(--font-main)',
-              fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+              fontSize: 'clamp(1.2rem, 2.2vw, 1.45rem)',
               lineHeight: 1.5,
               color: 'rgba(255,255,255,0.65)',
               maxWidth: '750px',
-              marginLeft: 'auto',
+              marginLeft: '0',
               marginRight: 'auto',
             }}
           >
@@ -105,76 +88,204 @@ const Problem = () => {
           </ScrollReveal>
         </div>
 
-        {/* Stat Cards */}
-        <div style={{
+        {/* Bento Stat Cards (1 wide top card + 2 side-by-side bottom cards) */}
+        <div className="problem-bento-grid" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-          gap: '1px',
-          backgroundColor: 'rgba(255, 255, 255, 0.15)',
-          border: '1px solid rgba(255, 255, 255, 0.15)',
-          borderRadius: '20px',
-          overflow: 'hidden',
+          gridTemplateColumns: 'repeat(2, 1fr)',
+          gap: '1.25rem',
           marginBottom: '4rem',
         }}>
-          {stats.map((stat, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.12 }}
-              style={{
-                padding: 'clamp(1.5rem, 5vw, 3.5rem)',
-                position: 'relative',
-                backgroundColor: '#000000',
-              }}
-            >
-              <div style={{ marginBottom: '1.25rem' }}>
-                <span style={{
-                  fontFamily: 'var(--font-adieu)',
-                  fontSize: 'clamp(2rem, 6vw, 3.5rem)',
-                  fontWeight: 400,
-                  lineHeight: 0.9,
-                  color: '#fff',
-                  display: 'block',
-                }}>
-                  {stat.value}
-                </span>
-                <span style={{
-                  fontFamily: 'var(--font-adieu)',
-                  fontSize: '0.75rem',
-                  fontWeight: 'bold',
-                  letterSpacing: '0.15em',
-                  color: 'rgba(255, 255, 255, 0.4)',
-                  textTransform: 'uppercase',
-                  display: 'block',
-                  marginTop: '0.5rem',
-                }}>
-                  {stat.unit}
-                </span>
-              </div>
-
-              <p style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.8rem',
-                color: 'rgba(255, 255, 255, 0.6)',
-                lineHeight: 1.6,
-                margin: 0,
+          {/* Top Wide Card (Stat 01) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0 }}
+            style={{
+              gridColumn: '1 / -1',
+              backgroundColor: 'rgba(255, 255, 255, 0.03)',
+              border: '1px solid rgba(255, 255, 255, 0.12)',
+              borderRadius: '24px',
+              padding: 'clamp(2rem, 4vw, 3.5rem)',
+              position: 'relative',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '2rem',
+              flexWrap: 'wrap',
+              transition: 'all 0.3s ease',
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255, 255, 255, 0.25)';
+              (e.currentTarget as HTMLElement).style.transform = 'translateY(-4px)';
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255, 255, 255, 0.12)';
+              (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
+            }}
+          >
+            <div>
+              <span style={{
+                fontFamily: 'var(--font-adieu)',
+                fontSize: 'clamp(2.5rem, 6vw, 4rem)',
+                fontWeight: 400,
+                lineHeight: 0.9,
+                color: '#fff',
+                display: 'block',
               }}>
-                {stat.label}
-              </p>
+                {stats[0].value}
+              </span>
+              <span style={{
+                fontFamily: 'var(--font-adieu)',
+                fontSize: '0.8rem',
+                fontWeight: 'bold',
+                letterSpacing: '0.15em',
+                color: 'rgba(255, 255, 255, 0.5)',
+                textTransform: 'uppercase',
+                display: 'block',
+                marginTop: '0.5rem',
+              }}>
+                {stats[0].unit}
+              </span>
+            </div>
 
-              {/* Bottom accent line */}
-              <div style={{
-                position: 'absolute',
-                bottom: 0,
-                left: 0,
-                right: 0,
-                height: '1px',
-                background: 'rgba(0, 0, 0, 0.06)',
-              }} />
-            </motion.div>
-          ))}
+            <p style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)',
+              color: 'rgba(255, 255, 255, 0.75)',
+              lineHeight: 1.6,
+              margin: 0,
+              maxWidth: '420px',
+            }}>
+              {stats[0].label}
+            </p>
+          </motion.div>
+
+          {/* Bottom Card 1 (Stat 02) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.12 }}
+            style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.03)',
+              border: '1px solid rgba(255, 255, 255, 0.12)',
+              borderRadius: '24px',
+              padding: 'clamp(2rem, 4vw, 3rem)',
+              position: 'relative',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              minHeight: '260px',
+              transition: 'all 0.3s ease',
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255, 255, 255, 0.25)';
+              (e.currentTarget as HTMLElement).style.transform = 'translateY(-4px)';
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255, 255, 255, 0.12)';
+              (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
+            }}
+          >
+            <div>
+              <span style={{
+                fontFamily: 'var(--font-adieu)',
+                fontSize: 'clamp(2.2rem, 5vw, 3.2rem)',
+                fontWeight: 400,
+                lineHeight: 0.9,
+                color: '#fff',
+                display: 'block',
+              }}>
+                {stats[1].value}
+              </span>
+              <span style={{
+                fontFamily: 'var(--font-adieu)',
+                fontSize: '0.75rem',
+                fontWeight: 'bold',
+                letterSpacing: '0.15em',
+                color: 'rgba(255, 255, 255, 0.5)',
+                textTransform: 'uppercase',
+                display: 'block',
+                marginTop: '0.5rem',
+              }}>
+                {stats[1].unit}
+              </span>
+            </div>
+
+            <p style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.85rem',
+              color: 'rgba(255, 255, 255, 0.65)',
+              lineHeight: 1.6,
+              margin: '1.5rem 0 0 0',
+            }}>
+              {stats[1].label}
+            </p>
+          </motion.div>
+
+          {/* Bottom Card 2 (Stat 03) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.24 }}
+            style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.03)',
+              border: '1px solid rgba(255, 255, 255, 0.12)',
+              borderRadius: '24px',
+              padding: 'clamp(2rem, 4vw, 3rem)',
+              position: 'relative',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              minHeight: '260px',
+              transition: 'all 0.3s ease',
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255, 255, 255, 0.25)';
+              (e.currentTarget as HTMLElement).style.transform = 'translateY(-4px)';
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255, 255, 255, 0.12)';
+              (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
+            }}
+          >
+            <div>
+              <span style={{
+                fontFamily: 'var(--font-adieu)',
+                fontSize: 'clamp(2.2rem, 5vw, 3.2rem)',
+                fontWeight: 400,
+                lineHeight: 0.9,
+                color: '#fff',
+                display: 'block',
+              }}>
+                {stats[2].value}
+              </span>
+              <span style={{
+                fontFamily: 'var(--font-adieu)',
+                fontSize: '0.75rem',
+                fontWeight: 'bold',
+                letterSpacing: '0.15em',
+                color: 'rgba(255, 255, 255, 0.5)',
+                textTransform: 'uppercase',
+                display: 'block',
+                marginTop: '0.5rem',
+              }}>
+                {stats[2].unit}
+              </span>
+            </div>
+
+            <p style={{
+              fontFamily: 'var(--font-mono)',
+              fontSize: '0.85rem',
+              color: 'rgba(255, 255, 255, 0.65)',
+              lineHeight: 1.6,
+              margin: '1.5rem 0 0 0',
+            }}>
+              {stats[2].label}
+            </p>
+          </motion.div>
         </div>
 
         {/* Anchor copy */}
@@ -193,7 +304,7 @@ const Problem = () => {
         >
           <p
             style={{
-              fontFamily: 'var(--font-mono)',
+              fontFamily: "'Inter', sans-serif",
               fontSize: 'clamp(1rem, 2vw, 1.35rem)',
               lineHeight: 1.5,
               maxWidth: '750px',
@@ -221,8 +332,6 @@ const Problem = () => {
               </span>
             ))}
           </p>
-
-
         </motion.div>
 
       </div>
@@ -231,5 +340,3 @@ const Problem = () => {
 };
 
 export default Problem;
-
-

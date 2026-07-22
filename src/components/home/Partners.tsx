@@ -29,44 +29,13 @@ const Partners = () => {
 
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          initial={{ opacity: 1, y: 0 }}
           className="section-header"
         >
-          <span style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '0.7rem',
-            letterSpacing: '0.25em',
-            color: 'rgba(255, 255, 255, 0.35)',
-            textTransform: 'uppercase',
-            display: 'block',
-            marginBottom: '1.5rem',
-          }}>
-            INSTITUTIONAL TRUST
-          </span>
-          <div style={{ position: 'relative', display: 'inline-block', margin: '0 auto' }}>
+          <div style={{ position: 'relative', display: 'inline-block', margin: '0' }}>
             <h2 className="section-title" style={{ position: 'relative', zIndex: 1 }}>
-              DOMAIN & TECHNOLOGY<br />PARTNERS
+              Domain & Technology<br />Partners
             </h2>
-            {/* ILLUSTRATION 01: Adjust scale, translate X, and translate Y statically */}
-            <img
-              src="/assets/images/ox1_avatar/1.png"
-              alt="Domain and Technology Partners illustration"
-              className="title-avatar-img"
-              style={{
-                position: 'absolute',
-                zIndex: 2,
-                width: '120px',
-                height: '120px',
-                objectFit: 'contain',
-                top: '-40px',
-                left: '290px',
-                transform: 'scale(3.2) translate(290px, 40px)',
-                pointerEvents: 'none',
-              }}
-            />
           </div>
         </motion.div>
 
@@ -80,10 +49,7 @@ const Partners = () => {
             <motion.div
               key={i}
               className="animated-silver-bg"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
+              initial={{ opacity: 1, y: 0 }}
               style={{
                 padding: '3rem',
                 borderRadius: '24px',

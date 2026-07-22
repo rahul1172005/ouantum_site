@@ -240,7 +240,7 @@ const About: React.FC = () => {
                   fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
                   lineHeight: 1.1,
                   marginBottom: '2rem',
-                  textTransform: 'uppercase',
+                  color: '#ffffff',
                 }}
               >
                 About<br />OUANTUM
@@ -275,7 +275,7 @@ const About: React.FC = () => {
           <section style={{ marginBottom: '80px' }} aria-label="OUANTUM Overview">
             <p style={{
               fontFamily: 'var(--font-main)',
-              fontSize: 'clamp(1.05rem, 1.8vw, 1.25rem)',
+              fontSize: 'clamp(1.2rem, 2.2vw, 1.45rem)',
               lineHeight: 1.85,
               color: 'rgba(255, 255, 255, 0.75)',
               margin: 0,
@@ -286,11 +286,11 @@ const About: React.FC = () => {
 
           {/* OUR EXPERTISE */}
           <section style={{ marginBottom: '80px' }} aria-label="Our Expertise">
-            <h2 className="about-team-heading" style={{ marginBottom: '1.5rem', fontFamily: 'var(--font-adieu)', fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', textTransform: 'uppercase' }}>Our Expertise</h2>
+            <h2 className="about-team-heading">Our Expertise</h2>
             <div className="about-team-rule" aria-hidden="true" />
             <p style={{
               fontFamily: 'var(--font-main)',
-              fontSize: 'clamp(1rem, 1.8vw, 1.15rem)',
+              fontSize: 'clamp(1.2rem, 2.2vw, 1.45rem)',
               lineHeight: 1.8,
               color: 'rgba(255, 255, 255, 0.7)',
               margin: 0,
@@ -301,7 +301,7 @@ const About: React.FC = () => {
 
           {/* CORE CAPABILITIES */}
           <section style={{ marginBottom: '80px' }} aria-label="Core Capabilities">
-            <h2 className="about-team-heading" style={{ marginBottom: '1.5rem', fontFamily: 'var(--font-adieu)', fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', textTransform: 'uppercase' }}>Core Capabilities</h2>
+            <h2 className="about-team-heading">Core Capabilities</h2>
             <div className="about-team-rule" aria-hidden="true" />
             <div style={{
               display: 'grid',
@@ -400,7 +400,7 @@ const About: React.FC = () => {
 
           {/* WHO WE SUPPORT */}
           <section style={{ marginBottom: '80px' }} aria-label="Who We Support">
-            <h2 className="about-team-heading" style={{ marginBottom: '1.5rem', fontFamily: 'var(--font-adieu)', fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', textTransform: 'uppercase' }}>Who We Support</h2>
+            <h2 className="about-team-heading">Who We Support</h2>
             <div className="about-team-rule" aria-hidden="true" />
             <div style={{
               display: 'grid',
@@ -509,7 +509,7 @@ const About: React.FC = () => {
           {/* PARTNER ECOSYSTEM */}
           <section className="about-partners-section" aria-label="Partner ecosystem">
             <h2 className="about-partners-heading">
-              PARTNER ECOSYSTEM
+              Partner Ecosystem
             </h2>
             <div className="about-partners-grid">
               {[

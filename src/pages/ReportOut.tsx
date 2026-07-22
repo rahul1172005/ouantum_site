@@ -9,7 +9,7 @@ const ReportOut: React.FC = () => {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
   return (
-    <div style={{
+    <div className="subpage-wrapper" style={{
       background: '#000000',
       color: '#fff',
       minHeight: '100vh',

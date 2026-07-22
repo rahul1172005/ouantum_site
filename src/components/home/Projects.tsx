@@ -69,10 +69,10 @@ const Projects: React.FC = () => {
           className="section-header"
         >
           <h2 className="section-title">
-            WHERE IT'S BEEN TESTED
+            Where It's Been Tested
           </h2>
           <p className="section-subtitle">
-            REAL INFRASTRUCTURE PROJECTS MANAGED BY OUR DOMAIN ADVISORY PARTNER - THE FIELD REALITY THAT SHAPED EVERY DECISION IN THE OUANTUM PLATFORM.
+            Real infrastructure projects managed by our domain advisory partner - the field reality that shaped every decision in the OUANTUM platform.
           </p>
         </motion.div>
 

@@ -54,9 +54,10 @@ const Careers: React.FC = () => {
                   fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
                   lineHeight: 1.1,
                   marginBottom: '2rem',
+                  color: '#ffffff',
                 }}
               >
-                CAREERS<br/>NODE
+                Careers<br/>Node
               </h1>
             </motion.div>
           </div>
@@ -96,16 +97,8 @@ const Careers: React.FC = () => {
         >
           {/* OPEN POSITIONS */}
           <section aria-label="Open job positions">
-            <h2
-              style={{
-                fontFamily: 'var(--font-adieu)',
-                fontSize: '1.5rem',
-                color: '#fff',
-                marginBottom: '2rem',
-                letterSpacing: '0.1em',
-              }}
-            >
-              OPEN POSITIONS
+            <h2>
+              Open Positions
             </h2>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem' }}>
@@ -399,7 +392,7 @@ const Careers: React.FC = () => {
                 letterSpacing: '0.1em',
               }}
             >
-              DON'T SEE A FIT?
+              Don't See A Fit?
             </h2>
             <p style={{ maxWidth: '600px', marginBottom: '2rem' }}>
               We are always looking for exceptional talent. If you believe your skills align with our mission to overhaul construction quality assurance, send your resume and a brief introduction.

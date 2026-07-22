@@ -424,10 +424,11 @@ const FAQ: React.FC = () => {
                   fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
                   lineHeight: 1.1,
                   marginBottom: '2rem',
-                  textTransform: 'uppercase',
+                  textTransform: 'none',
+                  color: '#ffffff',
                 }}
               >
-                FREQUENTLY<br />ASKED QUESTIONS
+                Frequently<br />Asked Questions
               </h1>
             </motion.div>
           </div>
@@ -476,21 +477,6 @@ const FAQ: React.FC = () => {
                   borderBottom: `1px solid rgba(255, 255, 255, 0.1)`,
                 }}
               >
-                <span
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.6rem',
-                    letterSpacing: '0.08em',
-                    color: '#fff',
-                    background: 'rgba(0, 0, 0, 0.05)',
-                    border: '1px solid rgba(255, 255, 255, 0.15)',
-                    padding: '3px 8px',
-                    borderRadius: '3px',
-                    flexShrink: 0,
-                  }}
-                >
-                  {String(sectionIdx + 1).padStart(2, '0')}
-                </span>
                 <h2
                   id={`faq-heading-${sectionIdx}`}
                   style={{
@@ -498,7 +484,7 @@ const FAQ: React.FC = () => {
                     fontSize: 'clamp(1.25rem, 3vw, 1.75rem)',
                     color: '#fff',
                     fontWeight: 400,
-                    textTransform: 'uppercase',
+                    textTransform: 'none',
                     letterSpacing: '-0.01em',
                   }}
                 >

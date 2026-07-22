@@ -17,30 +17,13 @@ const Contact: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           className="contact-header"
         >
-          <div style={{ position: 'relative', display: 'inline-block', margin: '0 auto' }}>
+          <div style={{ position: 'relative', display: 'inline-block', margin: '0' }}>
             <h2 className="section-title" style={{ position: 'relative', zIndex: 1 }}>
-              SECURE YOUR<br />INFRASTRUCTURE
+              Secure Your<br />Infrastructure
             </h2>
-            {/* ILLUSTRATION 08: Adjust scale, translate X, and translate Y statically */}
-            <img
-              src="/assets/images/ox1_avatar/8.png"
-              alt="Secure your infrastructure illustration"
-              className="title-avatar-img"
-              style={{
-                position: 'absolute',
-                zIndex: 2,
-                width: '120px',
-                height: '120px',
-                objectFit: 'contain',
-                top: '-40px',
-                left: '290px',
-                transform: 'scale(2.6) translate(125px, -50px)',
-                pointerEvents: 'none',
-              }}
-            />
           </div>
           <p className="section-subtitle">
-            READY TO COMMENCE TECHNICAL CONSULTATION OR SITE INTEGRITY AUDIT?
+            Ready to commence technical consultation or site integrity audit?
           </p>
         </motion.div>
 

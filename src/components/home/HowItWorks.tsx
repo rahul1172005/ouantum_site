@@ -316,54 +316,26 @@ const HowItWorks = () => {
         {/* Header */}
         <div style={{
           marginBottom: '5rem',
-          textAlign: 'center',
+          textAlign: 'left',
         }}>
-          <div style={{ position: 'relative', display: 'inline-block', margin: '0 auto' }}>
-            <span style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.9rem',
-              letterSpacing: '0.25em',
-              color: 'rgba(255,255,255,0.35)',
-              textTransform: 'uppercase',
-              display: 'block',
-              marginBottom: '1rem',
-            }}>
-              THE FLOW
-            </span>
+          <div style={{ position: 'relative', display: 'inline-block', margin: '0' }}>
             <h2 className="section-title" style={{
               position: 'relative',
               zIndex: 1,
             }}>
-              HOW IT WORKS
+              How It Works
             </h2>
-            {/* ILLUSTRATION 06: Adjust scale, translate X, and translate Y statically */}
-            <img
-              src="/assets/images/ox1_avatar/6.png"
-              alt="How it works illustration"
-              className="title-avatar-img"
-              style={{
-                position: 'absolute',
-                zIndex: 2, // Layer above the title
-                width: '120px',
-                height: '120px',
-                objectFit: 'contain',
-                top: '-40px',
-                left: '290px',
-                transform: 'scale(3.2) translate(250px, 13px)',
-                pointerEvents: 'none', // Prevents mouse blockages
-              }}
-            />
           </div>
 
           <ScrollReveal
             baseOpacity={0.15}
             style={{
               fontFamily: 'var(--font-mono)',
-              fontSize: '0.8rem',
+              fontSize: 'clamp(1.2rem, 2.2vw, 1.45rem)',
               color: 'rgba(255,255,255,0.55)',
               letterSpacing: '0.05em',
               marginTop: '1.5rem',
-              textAlign: 'center',
+              textAlign: 'left',
             }}
           >
             Three steps. Zero paper.

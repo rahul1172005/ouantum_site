@@ -5,20 +5,43 @@ import { Menu, X, Phone } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const scrolledDown = currentScrollY > lastScrollY;
+      const pastThreshold = currentScrollY > 60;
+
+      setIsScrolled(pastThreshold);
+
+      // Always show navbar when near top
+      if (currentScrollY < 60) {
+        setIsVisible(true);
+      } else if (scrolledDown) {
+        // Scrolling down → hide
+        setIsVisible(false);
+      } else {
+        // Scrolling up → show
+        setIsVisible(true);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
     const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    
+
     handleScroll();
     handleResize();
-    
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('resize', handleResize);
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
@@ -41,12 +64,17 @@ const Header: React.FC = () => {
   return (
     <header
       className={`main-header ${isScrolled ? 'scrolled' : ''}`}
-      style={isMenuOpen ? {
-        backgroundColor: '#000000',
-        backdropFilter: 'none',
-        WebkitBackdropFilter: 'none',
-      } : {}}
+      style={{
+        transform: isVisible ? 'translateY(0)' : 'translateY(-100%)',
+        transition: 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
+        ...(isMenuOpen ? {
+          backgroundColor: '#000000',
+          backdropFilter: 'none',
+          WebkitBackdropFilter: 'none',
+        } : {}),
+      }}
     >
+
       <div className="container header-container">
         <div className="logo">
           <a href="/" style={{ display: 'flex', alignItems: 'center' }}>
@@ -79,33 +107,22 @@ const Header: React.FC = () => {
           <button
             onClick={() => navigate('/contact')}
             style={{
-              fontFamily: 'var(--font-adieu)',
+              fontFamily: 'var(--font-brand)',
               fontSize: '0.75rem',
               textTransform: 'uppercase',
               letterSpacing: '0.1em',
               padding: isMobile ? '10px' : '10px 24px',
               fontWeight: 600,
-              backgroundColor: 'transparent',
-              color: '#ffffff',
-              border: '1px solid rgba(255, 255, 255, 0.25)',
+              backgroundColor: '#ffffff',
+              color: '#000000',
+              border: 'none',
               borderRadius: isMobile ? '50%' : '30px',
               cursor: 'pointer',
-              transition: 'all 0.3s ease',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               width: isMobile ? '38px' : 'auto',
               height: isMobile ? '38px' : 'auto',
-            }}
-            onMouseOver={(e) => {
-              e.currentTarget.style.borderColor = '#ffffff';
-              e.currentTarget.style.backgroundColor = '#ffffff';
-              e.currentTarget.style.color = '#000000';
-            }}
-            onMouseOut={(e) => {
-              e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.25)';
-              e.currentTarget.style.backgroundColor = 'transparent';
-              e.currentTarget.style.color = '#ffffff';
             }}
           >
             {isMobile ? <Phone size={16} /> : 'Contact Us'}
@@ -147,7 +164,7 @@ const Header: React.FC = () => {
                   navigate('/contact');
                 }}
                 style={{
-                  fontFamily: 'var(--font-adieu)',
+                  fontFamily: 'var(--font-brand)',
                   fontSize: '0.9rem',
                   textTransform: 'uppercase',
                   letterSpacing: '0.1em',

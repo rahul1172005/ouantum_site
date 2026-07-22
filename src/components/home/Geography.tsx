@@ -24,7 +24,7 @@ const Geography = () => {
     <section className="geography-section section-padding" id="geography">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">TARGET GEOGRAPHY</h2>
+          <h2 className="section-title">Target Geography</h2>
         </div>
 
         <div className="geography-grid">

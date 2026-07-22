@@ -4,9 +4,20 @@ interface WordHoverProps {
   children?: React.ReactNode;
   text?: string;
   style?: React.CSSProperties;
+  color?: string;
+  hoverColor?: string;
 }
 
-export const WordHover: React.FC<WordHoverProps> = ({ children, text, style }) => {
+export const WordHover: React.FC<WordHoverProps> = ({
+  children,
+  text,
+  style,
+  color,
+  hoverColor,
+}) => {
+  const baseColor = color ?? 'rgba(255, 255, 255, 0.65)';
+  const onHoverColor = hoverColor ?? '#ffffff';
+
   const processNode = (node: React.ReactNode): React.ReactNode => {
     if (typeof node === 'string') {
       const words = node.split(/(\s+)/);
@@ -24,7 +35,7 @@ export const WordHover: React.FC<WordHoverProps> = ({ children, text, style }) =
               display: 'inline-block',
             }}
             onMouseOver={(e) => {
-              e.currentTarget.style.color = '#ffffff';
+              e.currentTarget.style.color = onHoverColor;
             }}
             onMouseOut={(e) => {
               e.currentTarget.style.color = 'inherit';
@@ -52,7 +63,7 @@ export const WordHover: React.FC<WordHoverProps> = ({ children, text, style }) =
     <span
       style={{
         display: 'inline',
-        color: 'rgba(255, 255, 255, 0.65)',
+        color: baseColor,
         transition: 'color 0.3s ease',
         ...style,
       }}
