@@ -87,7 +87,7 @@ const Services: React.FC = () => {
               className="section-title services-main-title"
               style={{ color: '#111111', marginBottom: '0.75rem' }}
             >
-              How OUANTUM<br />Works
+              Core<br />Capabilities
             </h2>
             <p
               className="section-subtitle"
@@ -157,14 +157,14 @@ const Services: React.FC = () => {
 
         {/* Big single card */}
         <div className="services-card-wrapper" style={{ position: 'relative', width: '100%', height: '520px', borderRadius: '24px', overflow: 'hidden' }}>
-          <AnimatePresence mode="wait" custom={direction}>
+          <AnimatePresence mode="popLayout" custom={direction} initial={false}>
             <motion.div
               key={item.id}
               custom={direction}
-              initial={{ opacity: 0, x: direction * 60 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: direction * -60 }}
-              transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+              initial={{ opacity: 0, x: direction * 70, scale: 0.97, filter: 'blur(6px)' }}
+              animate={{ opacity: 1, x: 0, scale: 1, filter: 'blur(0px)' }}
+              exit={{ opacity: 0, x: direction * -70, scale: 1.02, filter: 'blur(6px)' }}
+              transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
               style={{
                 position: 'absolute',
                 inset: 0,
@@ -172,10 +172,13 @@ const Services: React.FC = () => {
               }}
               onClick={() => navigate(item.route)}
             >
-              {/* Background image */}
-              <img
+              {/* Background image with gentle zoom out */}
+              <motion.img
                 src={item.image}
                 alt={item.title}
+                initial={{ scale: 1.08 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
                 style={{
                   position: 'absolute',
                   inset: 0,
@@ -195,21 +198,6 @@ const Services: React.FC = () => {
                 }}
               />
 
-              {/* Card number badge */}
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '1.75rem',
-                  right: '1.75rem',
-                  fontFamily: 'var(--font-mono)',
-                  fontSize: '0.78rem',
-                  color: 'rgba(255,255,255,0.5)',
-                  letterSpacing: '0.12em',
-                }}
-              >
-                {item.id}
-              </div>
-
               {/* Bottom content */}
               <div
                 className="services-card-content"
@@ -225,8 +213,14 @@ const Services: React.FC = () => {
                   gap: '2rem',
                 }}
               >
-                {/* Left: title + description */}
-                <div className="services-card-info" style={{ maxWidth: '65%' }}>
+                {/* Left: title + description with staggered rise */}
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
+                  className="services-card-info"
+                  style={{ maxWidth: '65%' }}
+                >
                   <h3
                     style={{
                       fontFamily: 'var(--font-adieu)',
@@ -252,35 +246,41 @@ const Services: React.FC = () => {
                   >
                     {item.description}
                   </p>
-                </div>
+                </motion.div>
 
-                {/* Right: CTA button */}
-                <Link
-                  to={item.route}
-                  onClick={(e) => e.stopPropagation()}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '10px',
-                    background: '#ffffff',
-                    color: '#111111',
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.75rem',
-                    letterSpacing: '0.07em',
-                    textDecoration: 'none',
-                    padding: '0.8rem 1.4rem',
-                    borderRadius: '10px',
-                    textTransform: 'uppercase',
-                    fontWeight: 600,
-                    whiteSpace: 'nowrap',
-                    flexShrink: 0,
-                    transition: 'background 0.2s ease',
-                  }}
-                  onMouseEnter={(e) => (e.currentTarget.style.background = '#e5e5e5')}
-                  onMouseLeave={(e) => (e.currentTarget.style.background = '#ffffff')}
+                {/* Right: CTA button with staggered rise & scale */}
+                <motion.div
+                  initial={{ opacity: 0, y: 12, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ duration: 0.45, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+                  style={{ flexShrink: 0 }}
                 >
-                  Explore Engine <ArrowUpRight size={15} />
-                </Link>
+                  <Link
+                    to={item.route}
+                    onClick={(e) => e.stopPropagation()}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '10px',
+                      background: '#ffffff',
+                      color: '#111111',
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '0.75rem',
+                      letterSpacing: '0.07em',
+                      textDecoration: 'none',
+                      padding: '0.8rem 1.4rem',
+                      borderRadius: '10px',
+                      textTransform: 'uppercase',
+                      fontWeight: 600,
+                      whiteSpace: 'nowrap',
+                      transition: 'background 0.2s ease, transform 0.2s ease',
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.background = '#e5e5e5')}
+                    onMouseLeave={(e) => (e.currentTarget.style.background = '#ffffff')}
+                  >
+                    Explore Engine <ArrowUpRight size={15} />
+                  </Link>
+                </motion.div>
               </div>
             </motion.div>
           </AnimatePresence>

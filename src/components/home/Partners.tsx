@@ -20,7 +20,13 @@ const partners = [
     role: 'TECHNOLOGY & CYBERSECURITY PARTNER',
     name: 'ETHERENCE IT SOLUTIONS',
     description: 'Engineering the multi-model AI consensus layer, deterministic calculation engine, scalable IT infrastructure, and robust cybersecurity protocols.',
-  }
+  },
+  {
+    id: '04',
+    role: 'SYSTEMS SUPPORT PARTNER',
+    name: 'CYBERCOM',
+    description: 'Providing specialized systems support, vulnerability assessment, and infrastructure hardening protocols for high-security enterprise deployments.',
+  },
 ];
 
 const Partners = () => {
@@ -32,6 +38,7 @@ const Partners = () => {
         <motion.div
           initial={{ opacity: 1, y: 0 }}
           className="section-header"
+          style={{ marginBottom: '4rem' }}
         >
           <div style={{ position: 'relative', display: 'inline-block', margin: '0' }}>
             <h2 className="section-title" style={{ position: 'relative', zIndex: 1 }}>
@@ -43,7 +50,7 @@ const Partners = () => {
         {/* Partners Grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
           gap: '1.5rem',
         }}>
           {partners.map((partner, i) => (
@@ -52,7 +59,7 @@ const Partners = () => {
               initial={{ opacity: 1, y: 0 }}
               style={{ minHeight: '280px' }}
             >
-              <GlowCard style={{ padding: '3rem' }}>
+              <GlowCard style={{ padding: '2.5rem' }}>
                 <div style={{
                   display: 'flex',
                   flexDirection: 'column',

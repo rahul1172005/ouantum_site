@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { User } from 'lucide-react';
 import useSEO from '../hooks/useSEO';
-import aiEngineerImages from '../data/aiEngineerImages';
-import dataEngineerImages from '../data/dataEngineerImages';
-import fullStackDeveloperImages from '../data/fullStackDeveloperImages';
-import { CanvasMarquee } from '../components/CanvasMarquee';
 import GlowCard from '../components/GlowCard';
 
 const BASE_URL = 'https://ouantum.com';
@@ -63,7 +60,6 @@ const team = [
   },
 ];
 
-const FOOTER_H = 88;
 
 const TeamCard = ({ member, index }: { member: typeof team[0]; index: number }) => {
   const [expanded, setExpanded] = useState(false);
@@ -75,8 +71,10 @@ const TeamCard = ({ member, index }: { member: typeof team[0]; index: number }) 
       animate={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: (index % 3) * 0.1 }}
-      onClick={() => setExpanded(e => !e)}
-      className="about-team-card"
+      onClick={() => {
+        if (!expanded) setExpanded(true);
+      }}
+      className={`about-team-card ${expanded ? 'is-expanded' : ''}`}
       role="button"
       tabIndex={0}
       aria-expanded={expanded}
@@ -102,13 +100,22 @@ const TeamCard = ({ member, index }: { member: typeof team[0]; index: number }) 
             <span className="about-team-initials">{member.initials}</span>
           </div>
         )}
-        <div className="about-team-tap-hint">TAP</div>
+        <div className="about-team-tap-hint">{expanded ? 'CLOSE' : 'TAP FOR BIO'}</div>
       </div>
 
       {/* ── BIO PANEL ── */}
       <div
         className="about-team-bio-panel"
-        style={{ transform: expanded ? 'translateY(0)' : 'translateY(100%)' }}
+        style={{
+          transform: expanded ? 'translateY(0)' : 'translateY(110%)',
+          opacity: expanded ? 1 : 0,
+          visibility: expanded ? 'visible' : 'hidden',
+          pointerEvents: expanded ? 'auto' : 'none',
+        }}
+        onClick={(e) => {
+          // Stop propagation so scrolling or interacting with bio text doesn't trigger card click
+          e.stopPropagation();
+        }}
       >
         {/* LEFT — passport photo */}
         <div className="about-team-bio-photo-col">
@@ -126,23 +133,50 @@ const TeamCard = ({ member, index }: { member: typeof team[0]; index: number }) 
               </div>
             )}
           </div>
-          <p className="about-team-profile-label">PROFILE</p>
         </div>
 
         {/* RIGHT — bio text */}
         <div className="about-team-bio-text-col">
-          <p className="about-team-bio-header">BIOGRAPHY</p>
+          <div className="about-team-bio-top-bar">
+            <p className="about-team-bio-header">BIOGRAPHY</p>
+            <button
+              type="button"
+              className="about-team-bio-close-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                setExpanded(false);
+              }}
+              aria-label="Close biography"
+            >
+              ✕
+            </button>
+          </div>
           <div className="about-team-bio-paragraphs">
             {member.bio.split('\n\n').map((para, i) => (
               <p key={i} className="about-team-bio-para">{para}</p>
             ))}
           </div>
-          <p className="about-team-tap-close">TAP TO CLOSE ↑</p>
+          <button
+            type="button"
+            className="about-team-tap-close"
+            onClick={(e) => {
+              e.stopPropagation();
+              setExpanded(false);
+            }}
+          >
+            TAP TO CLOSE ↑
+          </button>
         </div>
       </div>
 
       {/* ── FOOTER ── */}
-      <div className="about-team-footer" style={{ height: FOOTER_H }}>
+      <div
+        className="about-team-footer"
+        onClick={(e) => {
+          e.stopPropagation();
+          setExpanded(v => !v);
+        }}
+      >
         <p className="about-team-footer-role">{member.role}</p>
         <h3 className="about-team-footer-name">{member.name}</h3>
       </div>
@@ -150,19 +184,99 @@ const TeamCard = ({ member, index }: { member: typeof team[0]; index: number }) 
   );
 };
 
-const EngineerSection = ({
-  images,
+const aiEngineersList = [
+  { name: 'G Sai Varun', role: 'AI Engineer' },
+  { name: 'Karthik Unnikrishnan', role: 'AI Engineer' },
+  { name: 'Vaishnavi Somarouthu', role: 'AI Engineer' },
+  { name: 'Keerthana S', role: 'AI Engineer' },
+  { name: 'Sujith B', role: 'AI Engineer' },
+  { name: 'Kumaran M', role: 'AI Engineer' },
+  { name: 'Adithya CH', role: 'AI Engineer' },
+  { name: 'Gopinath K', role: 'AI Engineer' },
+  { name: 'Shravan Balakrishnan', role: 'AI Engineer' },
+  { name: 'R Vishnu Nandhan', role: 'AI Engineer' },
+  { name: 'Aishwarya S', role: 'AI Engineer' },
+  { name: 'Sushmitha K', role: 'AI Engineer' },
+  { name: 'Sai Viswa Teja', role: 'AI Engineer' },
+  { name: 'Rithish', role: 'AI Engineer' },
+  { name: 'Mohammad Adhil', role: 'AI Engineer' },
+  { name: 'Harshitha S S', role: 'AI Engineer' },
+  { name: 'Nishitha lochan', role: 'AI Engineer' },
+  { name: 'Jagatharani', role: 'AI Engineer' },
+  { name: 'Bharadhan MD', role: 'AI Engineer' },
+  { name: 'Jaiya Nandhana SR', role: 'AI Engineer' },
+  { name: 'Haritha K', role: 'AI Engineer' },
+  { name: 'B.Yazhshree', role: 'AI Engineer' },
+  { name: 'R.sowmiya', role: 'AI Engineer' },
+  { name: 'Srisivashankar S', role: 'AI Engineer' },
+  { name: 'Deepika L', role: 'AI Engineer' },
+  { name: 'Hanumanthraa.R.C', role: 'AI Engineer' },
+  { name: 'Harini.E', role: 'AI Engineer' },
+];
+
+const dataEngineersList = [
+  { name: 'Shree Dharani', role: 'Data Engineer' },
+  { name: 'Aarthi P', role: 'Data Engineer' },
+  { name: 'Vikranth B', role: 'Data Engineer' },
+  { name: 'Aarthi E', role: 'Data Engineer' },
+  { name: 'Aathithyan VM', role: 'Data Engineer' },
+  { name: 'Rithika R', role: 'Data Engineer' },
+  { name: 'Rishika R', role: 'Data Engineer' },
+  { name: 'Jeevasree S K', role: 'Data Engineer' },
+  { name: 'Sheika fathima k', role: 'Data Engineer' },
+];
+
+const fullStackDevelopersList = [
+  { name: 'Vignesh Selvaa K S', role: 'Team Lead' },
+  { name: 'Thamesh S', role: 'Fullstack Developer' },
+  { name: 'Barath P', role: 'Fullstack Developer' },
+  { name: 'Vijay T', role: 'Fullstack Developer' },
+  { name: 'Hafil Asfak H', role: 'Fullstack Developer' },
+  { name: 'Sai Guru.R', role: 'Fullstack Developer' },
+];
+
+const EngineerCard = ({ member }: { member: { name: string; role: string } }) => (
+  <GlowCard borderRadius={14} style={{ padding: '0.85rem 1.1rem' }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem', width: '100%' }}>
+      <div
+        style={{
+          width: '38px',
+          height: '38px',
+          borderRadius: '10px',
+          background: '#000000',
+          border: '1px solid rgba(255,255,255,0.18)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexShrink: 0,
+        }}
+      >
+        <User size={19} color="#ffffff" />
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', flexWrap: 'wrap', minWidth: 0 }}>
+        <span style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.9rem', fontWeight: 600, color: '#ffffff', letterSpacing: '0.01em' }}>
+          {member.name}
+        </span>
+        <span style={{ color: 'rgba(255,255,255,0.35)', fontSize: '0.8rem' }}>•</span>
+        <span style={{ fontFamily: 'var(--font-main)', fontSize: '0.82rem', color: 'rgba(255,255,255,0.6)' }}>
+          {member.role}
+        </span>
+      </div>
+    </div>
+  </GlowCard>
+);
+
+const EngineerGridSection = ({
+  members,
   title,
   eyebrow,
 }: {
-  images: string[];
+  members: { name: string; role: string }[];
   title: string;
   eyebrow: string;
 }) => {
-  const marqueeImages = images.map((src, i) => ({ src, alt: `${title} ${i + 1}` }));
-
   return (
-    <section className="about-engineers-section" aria-label={`${title} team`}>
+    <section className="about-engineers-section" aria-label={`${title} team`} style={{ marginBottom: '80px' }}>
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -184,15 +298,25 @@ const EngineerSection = ({
 
       <div className="about-team-rule" aria-hidden="true" />
 
-      <div className="about-eng-marquee-outer" aria-hidden="true">
-        <CanvasMarquee
-          images={marqueeImages}
-          imageWidth={200}
-          imageHeight={300}
-          gap={16}
-          speed={60}
-          borderRadius={16}
-        />
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+          gap: '1.25rem',
+          marginTop: '2rem',
+        }}
+      >
+        {members.map((member, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: (i % 6) * 0.04 }}
+          >
+            <EngineerCard member={member} />
+          </motion.div>
+        ))}
       </div>
     </section>
   );
@@ -480,29 +604,29 @@ const About: React.FC = () => {
             </div>
           </section>
 
-          {/* AI ENGINEERS MARQUEE */}
-          <EngineerSection
-            images={aiEngineerImages}
+          {/* AI ENGINEERS GRID */}
+          <EngineerGridSection
+            members={aiEngineersList}
             title="AI Engineers"
             eyebrow="THE ENGINEERS"
           />
 
-          {/* DATA ENGINEERS MARQUEE */}
-          <EngineerSection
-            images={dataEngineerImages}
+          {/* DATA ENGINEERS GRID */}
+          <EngineerGridSection
+            members={dataEngineersList}
             title="Data Engineers"
             eyebrow="THE ENGINEERS"
           />
 
-          {/* FULL STACK DEVELOPERS MARQUEE */}
-          <EngineerSection
-            images={fullStackDeveloperImages}
+          {/* FULL STACK DEVELOPERS GRID */}
+          <EngineerGridSection
+            members={fullStackDevelopersList}
             title="Full Stack Developers"
             eyebrow="THE DEVELOPERS"
           />
 
           {/* PARTNER ECOSYSTEM */}
-          <section className="about-partners-section" aria-label="Partner ecosystem">
+          <section className="about-partners-section" aria-label="Partner ecosystem" style={{ marginBottom: '40px' }}>
             <h2 className="about-partners-heading">
               Partner Ecosystem
             </h2>
@@ -511,6 +635,7 @@ const About: React.FC = () => {
                 { name: 'ETHERENCE', desc: 'TECHNOLOGY & CYBERSECURITY', url: 'https://etherence.com', label: 'etherence.com' },
                 { name: 'ZAPSTERS', desc: 'TRAINING & SUPPORT', url: 'https://zapsters.in', label: 'zapsters.in' },
                 { name: 'AMITH', desc: 'CIVIL & ALLIED ENGINEERING', url: 'https://amith.in.net', label: 'amith.in.net' },
+                { name: 'CYBERCOM', desc: 'SYSTEMS SUPPORT', url: 'https://www.cybercomctf.com/', label: 'cybercomctf.com' },
               ].map(p => (
                 <a
                   key={p.name}

@@ -10,32 +10,32 @@ interface DifferenceItem {
 }
 
 const Difference = () => {
-  const [activeId, setActiveId] = useState<string>('01');
+  const [activeId, setActiveId] = useState<string>('1');
 
   const items: DifferenceItem[] = [
     {
       id: '1',
       title: 'NOT A DATA PROBLEM',
       description: "Most AI tools treat construction testing as a data problem. It isn't. It's a contextual judgment problem requiring multi-variable structural validation.",
-      image: '/assets/images/img1.png',
+      image: '/assets/images/cards_images/1.png',
     },
     {
       id: '2',
       title: 'CONTEXT IS EVERYTHING',
       description: "A reading of 32 means something completely different on a 30-year-old coastal building versus a freshly cast M25 column inland.",
-      image: '/assets/images/img2.png',
+      image: '/assets/images/cards_images/2.png',
     },
     {
       id: '3',
       title: 'VARIABLES REQUIRED',
       description: "Every variable is a required input. The system refuses to give you a result without the context that makes the result meaningful.",
-      image: '/assets/images/img3.png',
+      image: '/assets/images/cards_images/3.png',
     },
     {
       id: '4',
       title: 'EMBEDDED EXPERTISE',
       description: "That's not a software decision. That's a 30-year-structural-engineer decision, embedded directly into standard compliance workflows.",
-      image: '/assets/images/img4.png',
+      image: '/assets/images/cards_images/4.png',
     },
   ];
 
