@@ -6,6 +6,7 @@ interface ScrollRevealProps {
   children: string;
   enableBlur?: boolean;
   baseOpacity?: number;
+  textColor?: string;
   containerClassName?: string;
   textClassName?: string;
   style?: React.CSSProperties;
@@ -18,6 +19,7 @@ interface WordProps {
   progress: MotionValue<number>;
   baseOpacity: number;
   enableBlur: boolean;
+  textColor: string;
 }
 
 const Word: React.FC<WordProps> = ({
@@ -27,6 +29,7 @@ const Word: React.FC<WordProps> = ({
   progress,
   baseOpacity,
   enableBlur,
+  textColor,
 }) => {
   const start = index / total;
   const end = Math.min(1, start + (1 / total) * 1.5);
@@ -44,7 +47,7 @@ const Word: React.FC<WordProps> = ({
         filter: enableBlur ? useTransform(blurVal, (v) => `blur(${v}px)`) : undefined,
         display: 'inline-block',
         marginRight: '0.28em',
-        color: '#ffffff',
+        color: textColor,
         willChange: 'opacity, transform',
       }}
     >
@@ -57,6 +60,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   children,
   enableBlur = false,
   baseOpacity = 0.12,
+  textColor,
   containerClassName = '',
   textClassName = '',
   style,
@@ -69,6 +73,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
   });
 
   const words = typeof children === 'string' ? children.trim().split(/\s+/) : [];
+  const effectiveColor = textColor || (style?.color as string) || '#ffffff';
 
   return (
     <p
@@ -90,6 +95,7 @@ const ScrollReveal: React.FC<ScrollRevealProps> = ({
             progress={scrollYProgress}
             baseOpacity={baseOpacity}
             enableBlur={enableBlur}
+            textColor={effectiveColor}
           />
         ))}
       </span>

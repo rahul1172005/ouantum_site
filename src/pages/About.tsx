@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { User } from 'lucide-react';
 import useSEO from '../hooks/useSEO';
 import GlowCard from '../components/GlowCard';
+import ScrollReveal from '../components/common/ScrollReveal';
 
 const BASE_URL = 'https://ouantum.com';
 
@@ -398,30 +399,34 @@ const About: React.FC = () => {
 
           {/* OVERVIEW INTRO */}
           <section style={{ marginBottom: '80px' }} aria-label="OUANTUM Overview">
-            <p style={{
-              fontFamily: 'var(--font-main)',
-              fontSize: 'clamp(1.2rem, 2.2vw, 1.45rem)',
-              lineHeight: 1.85,
-              color: 'rgba(255, 255, 255, 0.75)',
-              margin: 0,
-            }}>
+            <ScrollReveal
+              style={{
+                fontFamily: 'var(--font-main)',
+                fontSize: 'clamp(1.2rem, 2.2vw, 1.45rem)',
+                lineHeight: 1.85,
+                color: 'rgba(255, 255, 255, 0.75)',
+                margin: 0,
+              }}
+            >
               The organisation works to improve how infrastructure projects are inspected, monitored, and documented by providing practical digital tools that support engineering teams, consultants, contractors, and public sector organisations throughout the quality assurance process.
-            </p>
+            </ScrollReveal>
           </section>
 
           {/* OUR EXPERTISE */}
           <section style={{ marginBottom: '80px' }} aria-label="Our Expertise">
             <h2 className="about-team-heading">Our Expertise</h2>
             <div className="about-team-rule" aria-hidden="true" />
-            <p style={{
-              fontFamily: 'var(--font-main)',
-              fontSize: 'clamp(1.2rem, 2.2vw, 1.45rem)',
-              lineHeight: 1.8,
-              color: 'rgba(255, 255, 255, 0.7)',
-              margin: 0,
-            }}>
+            <ScrollReveal
+              style={{
+                fontFamily: 'var(--font-main)',
+                fontSize: 'clamp(1.2rem, 2.2vw, 1.45rem)',
+                lineHeight: 1.8,
+                color: 'rgba(255, 255, 255, 0.7)',
+                margin: 0,
+              }}
+            >
               OUANTUM focuses on improving quality assurance processes within the civil infrastructure sector through practical digital technologies. The organisation's work centres on inspection workflows, structural assessments, quality monitoring, engineering documentation, and standards-based reporting, helping organisations manage quality assurance activities more efficiently and consistently. By combining engineering knowledge with digital solutions, OUANTUM aims to simplify complex quality assurance processes while supporting informed decision-making across infrastructure projects.
-            </p>
+            </ScrollReveal>
           </section>
 
           {/* CORE CAPABILITIES */}

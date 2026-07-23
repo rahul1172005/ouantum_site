@@ -5046,6 +5046,22 @@ section {
   color: #ffffff !important;
 }
 
+/* Light / White Background Sections — Word Hover turns text PURE BLACK (#000000) */
+.light-bg .word-hover-span:hover,
+.light-theme .word-hover-span:hover,
+.difference .word-hover-span:hover,
+#difference .word-hover-span:hover,
+[style*="background: #f5f5f7"] .word-hover-span:hover,
+[style*="background:#f5f5f7"] .word-hover-span:hover,
+[style*="background: white"] .word-hover-span:hover,
+[style*="background:#ffffff"] .word-hover-span:hover,
+[style*="background: #ffffff"] .word-hover-span:hover,
+[style*="background: rgb(245, 245, 247)"] .word-hover-span:hover,
+[style*="background-color: #f5f5f7"] .word-hover-span:hover,
+[style*="background-color: #ffffff"] .word-hover-span:hover {
+  color: #000000 !important;
+}
+
 /* GPU Hardware Acceleration for Smooth 60FPS Scrolling */
 html {
   scroll-behavior: smooth;

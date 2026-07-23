@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowUpRight, ArrowDown } from 'lucide-react'
+import ScrollReveal from '@/components/common/ScrollReveal'
 
 interface DifferenceItem {
   id: string;
@@ -143,18 +144,19 @@ const Difference = () => {
                       style={{ overflow: 'hidden' }}
                     >
                       <div style={{ paddingTop: '20px', paddingLeft: 'clamp(0px, 4vw, 54px)' }}>
-                        <p
+                        <ScrollReveal
+                          textColor="#000000"
+                          baseOpacity={0.25}
                           style={{
                             fontFamily: 'var(--font-main)',
                             fontSize: 'clamp(1rem, 1.8vw, 1.25rem)',
                             lineHeight: 1.6,
-                            color: 'rgba(0, 0, 0, 0.65)',
                             maxWidth: '720px',
                             marginBottom: '32px',
                           }}
                         >
                           {item.description}
-                        </p>
+                        </ScrollReveal>
 
                         <div
                           style={{
