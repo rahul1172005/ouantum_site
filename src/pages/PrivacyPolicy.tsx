@@ -50,14 +50,12 @@ const PrivacyPolicy: React.FC = () => {
 
             <motion.div className="hero-right-content hero-right">
               <h1
+                className="section-title"
                 style={{
-                  fontFamily: 'var(--font-adieu)',
-                  fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
-                  lineHeight: 1.1,
                   marginBottom: '2rem',
                 }}
               >
-                PRIVACY<br/>PROTOCOL
+                Privacy<br />Policy
               </h1>
             </motion.div>
           </div>
@@ -74,16 +72,16 @@ const PrivacyPolicy: React.FC = () => {
           style={{ height: '60vh' }}
         >
           <img
-            src="./assets/images/privacy-and-security-page-hero.jpg"
-            alt="Secure data infrastructure — OUANTUM privacy and data compliance for civil engineering AI platform"
+            src="/assets/images/privacy_bg.png"
+            alt="Data security and compliance visual background for OUANTUM Privacy Policy"
             className="subpage-hero-image"
           />
-          <div className="overlay-gradient" aria-hidden="true"></div>
+          <div className="overlay-gradient" aria-hidden="true" />
         </motion.div>
       </section>
 
-      {/* Content Section */}
-      <div className="container" style={{ paddingTop: '4rem' }}>
+      {/* Main Content */}
+      <div className="container" style={{ paddingTop: '5rem' }}>
         <div
           style={{
             fontFamily: 'var(--font-mono)',
@@ -103,10 +101,11 @@ const PrivacyPolicy: React.FC = () => {
                 fontSize: '1.5rem',
                 color: '#fff',
                 marginBottom: '1rem',
-                letterSpacing: '0.1em',
+                letterSpacing: '0.05em',
+                textTransform: 'none',
               }}
             >
-              1. DATA COLLECTION ARCHITECTURE
+              1. Data Collection Architecture
             </h2>
             <ScrollReveal style={{ color: 'rgba(255, 255, 255, 0.75)' }}>
               OUANTUM operates as a deterministic AI platform for civil infrastructure QA. We collect technical field data, structural readings, and geolocation metadata necessary for generating government-format compliance reports. Personal data is limited to user authentication and audit trails for digital sign-offs.
@@ -120,10 +119,11 @@ const PrivacyPolicy: React.FC = () => {
                 fontSize: '1.5rem',
                 color: '#fff',
                 marginBottom: '1rem',
-                letterSpacing: '0.1em',
+                letterSpacing: '0.05em',
+                textTransform: 'none',
               }}
             >
-              2. PROCESSING & MULTI-MODEL VALIDATION
+              2. Processing & Multi-Model Validation
             </h2>
             <ScrollReveal style={{ color: 'rgba(255, 255, 255, 0.75)' }}>
               Field data (e.g., rebound hammer readings, UPV transit times) is processed securely through our proprietary SonReb correlation models and evaluated against Indian Standards (IS 456, IS 13311). The AI inference layer does not use project-specific data to train foundational models outside of your organization's isolated tenant space.
@@ -137,10 +137,11 @@ const PrivacyPolicy: React.FC = () => {
                 fontSize: '1.5rem',
                 color: '#fff',
                 marginBottom: '1rem',
-                letterSpacing: '0.1em',
+                letterSpacing: '0.05em',
+                textTransform: 'none',
               }}
             >
-              3. DATA RETENTION & AUDITABILITY
+              3. Data Retention & Auditability
             </h2>
             <ScrollReveal style={{ color: 'rgba(255, 255, 255, 0.75)' }}>
               To support Third-Party Quality Monitoring (TPQM) mandates, all project data, anomaly detections, and multi-model consensus logs are retained securely on PostgreSQL databases with immutable audit trails. Data is stored within the Republic of India in compliance with domestic data sovereignty regulations.
@@ -154,10 +155,11 @@ const PrivacyPolicy: React.FC = () => {
                 fontSize: '1.5rem',
                 color: '#fff',
                 marginBottom: '1rem',
-                letterSpacing: '0.1em',
+                letterSpacing: '0.05em',
+                textTransform: 'none',
               }}
             >
-              4. CONTACT FOR COMPLIANCE
+              4. Contact for Compliance
             </h2>
             <p>
               For data inquiries, audit requests, or to review our information security practices, reach out to our compliance node at{' '}
