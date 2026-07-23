@@ -119,7 +119,7 @@ const Capabilities: React.FC = () => {
           style={{ height: '50vh' }}
         >
           <img
-            src="./assets/images/image.png"
+            src="/assets/images/image.png"
             alt="OUANTUM Platform capabilities hero visual representation"
             className="subpage-hero-image"
             style={{ width: '100%', height: '100%', objectFit: 'cover' }}

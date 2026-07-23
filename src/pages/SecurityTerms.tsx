@@ -72,7 +72,7 @@ const SecurityTerms: React.FC = () => {
           style={{ height: '60vh' }}
         >
           <img
-            src="./assets/images/privacy-and-security-page-hero.jpg"
+            src="/assets/images/privacy-and-security-page-hero.jpg"
             alt="Security protocols visual representation for OUANTUM terms page"
             className="subpage-hero-image"
           />

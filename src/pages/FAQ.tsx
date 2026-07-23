@@ -441,7 +441,7 @@ const FAQ: React.FC = () => {
           style={{ height: '60vh' }}
         >
           <img
-            src="./assets/images/faq_page_bg.png"
+            src="/assets/images/faq_page_bg.png"
             alt="Civil infrastructure engineering site background image for OUANTUM FAQ page"
             className="subpage-hero-image"
           />

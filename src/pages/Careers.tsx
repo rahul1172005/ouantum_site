@@ -75,8 +75,8 @@ const Careers: React.FC = () => {
           style={{ height: '60vh' }}
         >
           <img
-            src="./assets/images/careers-about.jpg"
-            alt="Team collaborating on AI infrastructure project at OUANTUM — careers at OUANTUM"
+            src="/assets/images/careers-about.jpg"
+            alt="Civil engineering infrastructure team background for OUANTUM Careers page"
             className="subpage-hero-image"
           />
           <div className="overlay-gradient" aria-hidden="true"></div>

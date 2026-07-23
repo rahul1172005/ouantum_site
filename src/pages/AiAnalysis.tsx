@@ -80,7 +80,7 @@ const AiAnalysis: React.FC = () => {
           style={{ marginBottom: '4rem', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}
         >
           <img
-            src="./assets/images/df6e20f2-a007-43fa-8723-8944b53f30b6.png"
+            src="/assets/images/df6e20f2-a007-43fa-8723-8944b53f30b6.png"
             alt="AI Analysis"
             style={{ width: '100%', height: '420px', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
           />

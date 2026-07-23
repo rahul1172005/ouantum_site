@@ -147,8 +147,8 @@ const Contact: React.FC = () => {
           style={{ height: '60vh' }}
         >
           <img
-            src="./assets/images/contact-us-hero.jpg"
-            alt="OUANTUM headquarters in Chennai — contact our civil engineering AI platform team"
+            src="/assets/images/contact-us-hero.jpg"
+            alt="OUANTUM Chennai headquarters contact background"
             className="subpage-hero-image"
           />
           <div className="overlay-gradient" aria-hidden="true"></div>

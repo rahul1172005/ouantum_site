@@ -274,7 +274,7 @@ const Hero: React.FC = () => {
         transition={{ duration: 1.5 }}
       >
         <motion.img
-          src="./assets/images/0deda3f3-08be-4515-af7b-2e1b6c2d97d8.png"
+          src="/assets/images/0deda3f3-08be-4515-af7b-2e1b6c2d97d8.png"
           alt="OUANTUM Architecture"
           style={{
             width: '100%',
