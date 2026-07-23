@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import useSEO from '../hooks/useSEO';
 import GlowCard from '../components/GlowCard';
+import ScrollReveal from '../components/common/ScrollReveal';
 
 const BASE_URL = 'https://ouantum.com';
 
@@ -150,17 +151,17 @@ const Capabilities: React.FC = () => {
                 <h3 style={{ fontFamily: 'var(--font-adieu)', color: '#fff', fontSize: '1.1rem', marginBottom: '1rem' }}>
                   Deterministic Quality Assurance
                 </h3>
-                <p style={{ color: 'rgba(255,255,255,0.65)' }}>
+                <ScrollReveal style={{ color: 'rgba(255,255,255,0.75)' }}>
                   We replace slow, subjective, and error-prone manual structural auditing with real-time, deterministic, and compliance-guaranteed computational checks. The platform digitizes the complete workflow, from the initial raw non-destructive testing (NDT) readings to final government-standard compliance certification.
-                </p>
+                </ScrollReveal>
               </div>
               <div>
                 <h3 style={{ fontFamily: 'var(--font-adieu)', color: '#fff', fontSize: '1.1rem', marginBottom: '1rem' }}>
                   On-Site Civil Validation
                 </h3>
-                <p style={{ color: 'rgba(255,255,255,0.65)' }}>
+                <ScrollReveal style={{ color: 'rgba(255,255,255,0.75)' }}>
                   OUANTUM demands rigorous input variables including structural age, curing cycles, cement grades, and exposure parameters. We prevent the submission of isolated, meaningless test metrics, ensuring every structural reading has the necessary context to determine true load-bearing strength and safety.
-                </p>
+                </ScrollReveal>
               </div>
             </div>
           </section>

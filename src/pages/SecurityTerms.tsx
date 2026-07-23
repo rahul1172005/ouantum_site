@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import useSEO from '../hooks/useSEO';
+import ScrollReveal from '../components/common/ScrollReveal';
 
 const BASE_URL = 'https://ouantum.com';
 
@@ -107,9 +108,9 @@ const SecurityTerms: React.FC = () => {
             >
               1. PLATFORM UTILIZATION
             </h2>
-            <p>
+            <ScrollReveal style={{ color: 'rgba(255, 255, 255, 0.75)' }}>
               Access to the OUANTUM AI platform is restricted to authorized civil engineers, Third-Party Quality Monitors (TPQM), and structural audit consultants. The platform is designed to augment, not replace, professional engineering judgment.
-            </p>
+            </ScrollReveal>
           </section>
 
           <section aria-label="Multi-model liability framework">
@@ -124,9 +125,9 @@ const SecurityTerms: React.FC = () => {
             >
               2. MULTI-MODEL LIABILITY FRAMEWORK
             </h2>
-            <p>
+            <ScrollReveal style={{ color: 'rgba(255, 255, 255, 0.75)' }}>
               While OUANTUM utilizes deterministic calculations and multi-model AI consensus for IS code compliance (e.g., IS 456, IS 13311), final sign-off and liability for structural integrity reports rest strictly with the authorizing Senior Engineer. OUANTUM provides the intelligence layer; the human expert provides the structural guarantee.
-            </p>
+            </ScrollReveal>
           </section>
 
           <section aria-label="Encryption and integrity standards">
@@ -141,9 +142,9 @@ const SecurityTerms: React.FC = () => {
             >
               3. ENCRYPTION & INTEGRITY
             </h2>
-            <p>
+            <ScrollReveal style={{ color: 'rgba(255, 255, 255, 0.75)' }}>
               All data in transit is secured via TLS 1.3. Data at rest is encrypted using AES-256 standards. Our architecture prevents manual tampering of timestamped field inputs to maintain absolute integrity for government and ADB-funded project audits.
-            </p>
+            </ScrollReveal>
           </section>
 
           <section aria-label="Service level agreement">
@@ -158,9 +159,9 @@ const SecurityTerms: React.FC = () => {
             >
               4. SERVICE LEVEL AGREEMENT (SLA)
             </h2>
-            <p>
+            <ScrollReveal style={{ color: 'rgba(255, 255, 255, 0.75)' }}>
               OUANTUM guarantees 99.9% uptime for the field data intake API to ensure continuous operation on remote construction sites. Offline capabilities are built-in, syncing automatically upon network restoration.
-            </p>
+            </ScrollReveal>
           </section>
 
         </div>

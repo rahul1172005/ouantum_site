@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Minus } from 'lucide-react';
 import useSEO from '../hooks/useSEO';
+import ScrollReveal from '../components/common/ScrollReveal';
 
 const BASE_URL = 'https://ouantum.com';
 
@@ -341,16 +342,16 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ item, isOpen, onToggle, a
                 paddingRight: '2.5rem',
               }}
             >
-              <p
+              <ScrollReveal
                 style={{
                   fontFamily: 'var(--font-mono)',
                   fontSize: '0.88rem',
                   lineHeight: 1.85,
-                  color: 'rgba(255, 255, 255, 0.55)',
+                  color: 'rgba(255, 255, 255, 0.75)',
                 }}
               >
                 {item.answer}
-              </p>
+              </ScrollReveal>
             </div>
           </motion.div>
         )}

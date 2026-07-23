@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import useSEO from '../hooks/useSEO';
+import ScrollReveal from '../components/common/ScrollReveal';
 
 const BASE_URL = 'https://ouantum.com';
 
@@ -107,9 +108,9 @@ const PrivacyPolicy: React.FC = () => {
             >
               1. DATA COLLECTION ARCHITECTURE
             </h2>
-            <p>
+            <ScrollReveal style={{ color: 'rgba(255, 255, 255, 0.75)' }}>
               OUANTUM operates as a deterministic AI platform for civil infrastructure QA. We collect technical field data, structural readings, and geolocation metadata necessary for generating government-format compliance reports. Personal data is limited to user authentication and audit trails for digital sign-offs.
-            </p>
+            </ScrollReveal>
           </section>
 
           <section aria-label="Processing and multi-model validation">
@@ -124,9 +125,9 @@ const PrivacyPolicy: React.FC = () => {
             >
               2. PROCESSING & MULTI-MODEL VALIDATION
             </h2>
-            <p>
+            <ScrollReveal style={{ color: 'rgba(255, 255, 255, 0.75)' }}>
               Field data (e.g., rebound hammer readings, UPV transit times) is processed securely through our proprietary SonReb correlation models and evaluated against Indian Standards (IS 456, IS 13311). The AI inference layer does not use project-specific data to train foundational models outside of your organization's isolated tenant space.
-            </p>
+            </ScrollReveal>
           </section>
 
           <section aria-label="Data retention and auditability">
@@ -141,9 +142,9 @@ const PrivacyPolicy: React.FC = () => {
             >
               3. DATA RETENTION & AUDITABILITY
             </h2>
-            <p>
+            <ScrollReveal style={{ color: 'rgba(255, 255, 255, 0.75)' }}>
               To support Third-Party Quality Monitoring (TPQM) mandates, all project data, anomaly detections, and multi-model consensus logs are retained securely on PostgreSQL databases with immutable audit trails. Data is stored within the Republic of India in compliance with domestic data sovereignty regulations.
-            </p>
+            </ScrollReveal>
           </section>
 
           <section aria-label="Contact for compliance">
