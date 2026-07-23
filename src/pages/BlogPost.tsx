@@ -492,7 +492,7 @@ const BlogPost: React.FC = () => {
                       <div
                         style={{
                           display: 'flex',
-                          justify: 'flex-end',
+                          justifyContent: 'flex-end',
                           alignItems: 'center',
                           marginTop: 'auto',
                         }}

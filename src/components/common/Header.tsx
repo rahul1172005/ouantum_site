@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 
 const Header: React.FC = () => {
@@ -8,7 +7,6 @@ const Header: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
