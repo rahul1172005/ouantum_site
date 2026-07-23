@@ -5034,4 +5034,31 @@ section {
   }
 }
 
+/* Performance & Smooth Rendering Optimizations */
+.word-hover-span {
+  display: inline-block;
+  color: inherit;
+  transition: color 0.25s ease;
+  cursor: default;
+}
+
+.word-hover-span:hover {
+  color: #ffffff !important;
+}
+
+/* GPU Hardware Acceleration for Smooth 60FPS Scrolling */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+.gpu-accelerate {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+
 

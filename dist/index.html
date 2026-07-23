@@ -5,22 +5,28 @@
     <link rel="icon" type="image/png" href="./assets/images/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XVXJYL311Z"></script>
+    <!-- Deferred Non-Critical Analytics -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XVXJYL311Z');
-    </script>
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          // Google Analytics
+          var gaScript = document.createElement('script');
+          gaScript.async = true;
+          gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-XVXJYL311Z';
+          document.head.appendChild(gaScript);
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-XVXJYL311Z');
 
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-      (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "x3p7v4kzcc");
+          // Microsoft Clarity
+          (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "x3p7v4kzcc");
+        }, 1000);
+      });
     </script>
 
     <!-- Primary SEO -->
@@ -147,8 +153,12 @@
     <link rel="preload" as="image" href="./assets/images/fullstack-developers/fs-dev-1.webp" type="image/webp">
     <link rel="preload" as="image" href="./assets/images/fullstack-developers/fs-dev-poster-1.webp" type="image/webp">
     <link rel="preload" as="image" href="./assets/images/fullstack-developers/fs-dev-poster.webp" type="image/webp">
-    <script type="module" crossorigin src="./assets/index-z194nwxd.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-G5nP1jnw.css">
+    <script type="module" crossorigin src="./assets/index-VeAw4Pot.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/rolldown-runtime-Cyuzqnbw.js">
+    <link rel="modulepreload" crossorigin href="./assets/vendor-framer-wKhEcHeU.js">
+    <link rel="modulepreload" crossorigin href="./assets/vendor-lucide-aFldOtVK.js">
+    <link rel="modulepreload" crossorigin href="./assets/vendor-react-Dt-Np_EI.js">
+    <link rel="stylesheet" crossorigin href="./assets/index-D9dNGYsH.css">
   </head>
   <body>
     <div id="root"></div>
