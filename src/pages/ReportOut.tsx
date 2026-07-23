@@ -80,7 +80,7 @@ const ReportOut: React.FC = () => {
           style={{ marginBottom: '4rem', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}
         >
           <img
-            src="/assets/images/47766f42-6372-4a45-8a66-6043acfde415.png"
+            src="./assets/images/47766f42-6372-4a45-8a66-6043acfde415.png"
             alt="Report Output"
             style={{ width: '100%', height: '420px', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
           />

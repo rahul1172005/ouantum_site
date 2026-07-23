@@ -78,7 +78,7 @@ const Header: React.FC = () => {
         <div className="logo">
           <a href="/" style={{ display: 'flex', alignItems: 'center' }}>
             <img
-              src="/assets/images/logo_horizontal.png"
+              src="./assets/images/logo_horizontal.png"
               alt="OUANTUM Logo"
               style={{
                 height: '24px',

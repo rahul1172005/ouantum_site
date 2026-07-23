@@ -75,7 +75,7 @@ const Careers: React.FC = () => {
           style={{ height: '60vh' }}
         >
           <img
-            src="/assets/images/careers-about.jpg"
+            src="./assets/images/careers-about.jpg"
             alt="Team collaborating on AI infrastructure project at OUANTUM — careers at OUANTUM"
             className="subpage-hero-image"
           />

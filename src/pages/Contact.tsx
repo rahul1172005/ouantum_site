@@ -147,7 +147,7 @@ const Contact: React.FC = () => {
           style={{ height: '60vh' }}
         >
           <img
-            src="/assets/images/contact-us-hero.jpg"
+            src="./assets/images/contact-us-hero.jpg"
             alt="OUANTUM headquarters in Chennai — contact our civil engineering AI platform team"
             className="subpage-hero-image"
           />

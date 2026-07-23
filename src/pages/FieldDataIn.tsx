@@ -80,7 +80,7 @@ const FieldDataIn: React.FC = () => {
           style={{ marginBottom: '4rem', borderRadius: '16px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}
         >
           <img
-            src="/assets/images/c55952a9-3cc9-47ba-be6d-62e56e0cee61.png"
+            src="./assets/images/c55952a9-3cc9-47ba-be6d-62e56e0cee61.png"
             alt="Field Data Entry"
             style={{ width: '100%', height: '420px', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
           />

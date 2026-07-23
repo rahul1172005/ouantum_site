@@ -73,7 +73,7 @@ const PrivacyPolicy: React.FC = () => {
           style={{ height: '60vh' }}
         >
           <img
-            src="/assets/images/privacy-and-security-page-hero.jpg"
+            src="./assets/images/privacy-and-security-page-hero.jpg"
             alt="Secure data infrastructure — OUANTUM privacy and data compliance for civil engineering AI platform"
             className="subpage-hero-image"
           />

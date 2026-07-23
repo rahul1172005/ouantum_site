@@ -108,7 +108,7 @@ const Blog: React.FC = () => {
           style={{ height: '60vh' }}
         >
           <img
-            src="/assets/images/blog_page_bg.png"
+            src="./assets/images/blog_page_bg.png"
             alt="Construction analysis engineering background image for OUANTUM Knowledge Centre"
             className="subpage-hero-image"
           />
