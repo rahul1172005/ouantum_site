@@ -138,20 +138,34 @@ const LoaderOverlay: React.FC<LoaderOverlayProps> = ({ forceShow }) => {
           user-select: none;
         }
         .loader-logo-image {
-          width: 7rem;
-          height: 7rem;
+          width: 14rem;
+          height: 14rem;
           object-fit: contain;
         }
         @media (max-width: 768px) {
           .loader-logo-text {
-            font-size: 4rem;
-            letter-spacing: -0.02em;
+            font-size: 3.2rem;
+            letter-spacing: -0.01em;
+          }
+          .loader-logo-image {
+            width: 14rem;
+            height: 14rem;
           }
         }
-        @media (min-width: 768px) {
+        @media (max-width: 480px) {
+          .loader-logo-text {
+            font-size: 2.2rem;
+            letter-spacing: 0;
+          }
           .loader-logo-image {
-            width: 10rem;
-            height: 10rem;
+            width: 6.5rem;
+            height: 6.5rem;
+          }
+        }
+        @media (min-width: 769px) {
+          .loader-logo-image {
+            width: 18rem;
+            height: 18rem;
           }
         }
       `}</style>

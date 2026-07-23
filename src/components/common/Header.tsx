@@ -1,17 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const location = useLocation();
+
+  // Close mobile menu when location changes
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
 
     const handleScroll = () => {
+      if (isMenuOpen) {
+        setIsVisible(true);
+        return;
+      }
+
       const currentScrollY = window.scrollY;
       const scrolledDown = currentScrollY > lastScrollY;
       const pastThreshold = currentScrollY > 60;
@@ -32,7 +56,13 @@ const Header: React.FC = () => {
       lastScrollY = currentScrollY;
     };
 
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    const handleResize = () => {
+      const mobile = window.innerWidth <= 768;
+      setIsMobile(mobile);
+      if (window.innerWidth > 1400) {
+        setIsMenuOpen(false);
+      }
+    };
 
     handleScroll();
     handleResize();
@@ -44,7 +74,7 @@ const Header: React.FC = () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [isMenuOpen]);
 
   const navLinks = [
     { name: 'Capabilities', href: '/capabilities' },
@@ -64,7 +94,7 @@ const Header: React.FC = () => {
     <header
       className={`main-header ${isScrolled ? 'scrolled' : ''}`}
       style={{
-        transform: isVisible ? 'translateY(0)' : 'translateY(-100%)',
+        transform: isMenuOpen ? 'translateY(0)' : (isVisible ? 'translateY(0)' : 'translateY(-100%)'),
         transition: 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)',
         ...(isMenuOpen ? {
           backgroundColor: '#000000',
@@ -76,9 +106,9 @@ const Header: React.FC = () => {
 
       <div className="container header-container">
         <div className="logo">
-          <a href="/" style={{ display: 'flex', alignItems: 'center' }}>
+          <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
             <img
-              src="./assets/images/logo_horizontal.png"
+              src="/assets/images/logo_horizontal.png"
               alt="OUANTUM Logo"
               style={{
                 height: '24px',
@@ -89,16 +119,30 @@ const Header: React.FC = () => {
                 filter: 'invert(1)'
               }}
             />
-          </a>
+          </Link>
         </div>
 
         <nav className="desktop-nav">
           <ul>
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <a href={link.href} style={{ fontFamily: 'var(--font-adieu)' }}>{link.name}</a>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.href || (link.href !== '/' && location.pathname.startsWith(link.href));
+              return (
+                <li key={link.name}>
+                  <Link
+                    to={link.href}
+                    style={{
+                      fontFamily: 'var(--font-adieu)',
+                      color: isActive ? '#ffffff' : undefined,
+                      borderBottom: isActive ? '2px solid #ffffff' : '2px solid transparent',
+                      paddingBottom: '4px',
+                      transition: 'all 0.2s ease',
+                    }}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
@@ -148,13 +192,23 @@ const Header: React.FC = () => {
           >
             <nav style={{ width: '100%' }}>
               <ul>
-                {navLinks.map((link) => (
-                  <li key={link.name}>
-                    <a href={link.href} onClick={() => setIsMenuOpen(false)} style={{ fontFamily: 'var(--font-adieu)' }}>
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
+                {navLinks.map((link) => {
+                  const isActive = location.pathname === link.href || (link.href !== '/' && location.pathname.startsWith(link.href));
+                  return (
+                    <li key={link.name}>
+                      <Link
+                        to={link.href}
+                        onClick={() => setIsMenuOpen(false)}
+                        style={{
+                          fontFamily: 'var(--font-adieu)',
+                          color: isActive ? '#ffffff' : undefined,
+                        }}
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </nav>
             <div style={{ marginTop: 'auto', width: '100%', paddingTop: '2rem' }}>
@@ -200,5 +254,3 @@ const Header: React.FC = () => {
 };
 
 export default Header;
-
-
