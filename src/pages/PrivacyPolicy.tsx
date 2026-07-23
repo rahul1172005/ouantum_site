@@ -162,7 +162,7 @@ const PrivacyPolicy: React.FC = () => {
               For data inquiries, audit requests, or to review our information security practices, reach out to our compliance node at{' '}
               <a
                 href="mailto:contact@ouantum.com"
-                style={{ color: '#fff', textDecoration: 'underline', opacity: 0.8, transition: 'opacity 0.2s' }}
+                style={{ color: '#fff', textDecoration: 'none', opacity: 0.8, transition: 'opacity 0.2s' }}
                 onMouseOver={(e) => (e.currentTarget.style.opacity = '1')}
                 onMouseOut={(e) => (e.currentTarget.style.opacity = '0.8')}
                 aria-label="Send email to contact@ouantum.com for compliance inquiries"

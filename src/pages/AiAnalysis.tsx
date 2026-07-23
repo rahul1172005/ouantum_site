@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
+import GlowCard from '../components/GlowCard';
 
 const AiAnalysis: React.FC = () => {
   const navigate = useNavigate();
@@ -52,7 +53,7 @@ const AiAnalysis: React.FC = () => {
             letterSpacing: '0.25em', color: 'rgba(255,255,255,0.3)',
             display: 'block', marginBottom: '1rem',
           }}>
-            STEP 02 · IS CODE · MULTI-MODEL CONSENSUS
+            STEP 02 · IS CODE · MULTI MODEL CONSENSUS
           </span>
           <h1 style={{
             fontFamily: 'var(--font-adieu)',
@@ -67,7 +68,7 @@ const AiAnalysis: React.FC = () => {
             color: 'rgba(255,255,255,0.55)', lineHeight: 1.75,
             maxWidth: '680px', margin: 0,
           }}>
-            The moment field data is submitted, OUANTUM's analysis engine engages. Deterministic IS-code calculations run first. Then three independent AI models validate the results — and they must all agree before any finding is finalised.
+            The moment field data is submitted, OUANTUM's analysis engine engages. Deterministic IS code calculations run first. Then three independent AI models validate the results, and they must all agree before any finding is finalised.
           </p>
         </motion.div>
 
@@ -90,7 +91,7 @@ const AiAnalysis: React.FC = () => {
           {[
             {
               label: 'DETERMINISTIC FIRST',
-              body: 'Before any AI is involved, OUANTUM runs deterministic calculations: SonReb correlation for combined rebound-UPV strength estimation, carbonation service-life modelling, and chloride diffusion front prediction — all under IS 13311, IS 456, and IS 516.',
+              body: 'Before any AI is involved, OUANTUM runs deterministic calculations: SonReb correlation for combined rebound UPV strength estimation, carbonation service life modelling, and chloride diffusion front prediction, all under IS 13311, IS 456, and IS 516.',
             },
             {
               label: 'THREE-MODEL CONSENSUS',
@@ -98,11 +99,11 @@ const AiAnalysis: React.FC = () => {
             },
             {
               label: 'DISAGREEMENT PROTOCOL',
-              body: 'When models disagree — due to anomalous readings, edge-case conditions, or structural ambiguity — the system does not guess. It flags the item for expert review with a full audit trail, so a qualified engineer makes the call.',
+              body: 'When models disagree due to anomalous readings, edge case conditions, or structural ambiguity, the system does not guess. It flags the item for expert review with a full audit trail, so a qualified engineer makes the call.',
             },
             {
               label: 'IS CODE TRACEABILITY',
-              body: 'Every calculated value is linked to its IS code clause. The system shows which standard was applied, which formula was used, and how the raw readings translate into the output — fully explainable, fully auditable.',
+              body: 'Every calculated value is linked to its IS code clause. The system shows which standard was applied, which formula was used, and how the raw readings translate into the output, fully explainable, fully auditable.',
             },
           ].map(({ label, body }, i) => (
             <motion.div
@@ -110,25 +111,22 @@ const AiAnalysis: React.FC = () => {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 + i * 0.08 }}
-              style={{
-                border: '1px solid rgba(255,255,255,0.08)',
-                borderRadius: '12px',
-                padding: '2rem',
-              }}
             >
-              <span style={{
-                fontFamily: 'var(--font-mono)', fontSize: '0.65rem',
-                letterSpacing: '0.2em', color: 'rgba(255,255,255,0.3)',
-                display: 'block', marginBottom: '1rem',
-              }}>
-                {label}
-              </span>
-              <p style={{
-                fontFamily: 'var(--font-mono)', fontSize: '0.88rem',
-                color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, margin: 0,
-              }}>
-                {body}
-              </p>
+              <GlowCard borderRadius={12} style={{ padding: '2rem', height: '100%' }}>
+                <span style={{
+                  fontFamily: 'var(--font-mono)', fontSize: '0.65rem',
+                  letterSpacing: '0.2em', color: 'rgba(255,255,255,0.3)',
+                  display: 'block', marginBottom: '1rem',
+                }}>
+                  {label}
+                </span>
+                <p style={{
+                  fontFamily: 'var(--font-mono)', fontSize: '0.88rem',
+                  color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, margin: 0,
+                }}>
+                  {body}
+                </p>
+              </GlowCard>
             </motion.div>
           ))}
         </div>
@@ -139,8 +137,7 @@ const AiAnalysis: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
           style={{
-            display: 'flex', flexWrap: 'wrap', gap: '0',
-            border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', overflow: 'hidden',
+            display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem',
           }}
         >
           {[
@@ -149,12 +146,7 @@ const AiAnalysis: React.FC = () => {
             { stat: 'Instant', label: 'Deterministic calculation' },
             { stat: '100%', label: 'Findings are explainable' },
           ].map(({ stat, label }, i) => (
-            <div key={i} style={{
-              flex: '1 1 200px',
-              padding: '2rem',
-              borderRight: i < 3 ? '1px solid rgba(255,255,255,0.08)' : 'none',
-              textAlign: 'center',
-            }}>
+            <GlowCard key={i} borderRadius={12} style={{ padding: '2rem', textAlign: 'center' }}>
               <div style={{
                 fontFamily: 'var(--font-adieu)', fontSize: '1.8rem',
                 color: '#fff', marginBottom: '0.4rem',
@@ -163,7 +155,7 @@ const AiAnalysis: React.FC = () => {
                 fontFamily: 'var(--font-mono)', fontSize: '0.7rem',
                 color: 'rgba(255,255,255,0.35)', letterSpacing: '0.1em',
               }}>{label}</div>
-            </div>
+            </GlowCard>
           ))}
         </motion.div>
 

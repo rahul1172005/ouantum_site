@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { WordHover } from '../common/WordHover';
+import GlowCard from '../GlowCard';
 
 const partners = [
   {
@@ -48,52 +49,51 @@ const Partners = () => {
           {partners.map((partner, i) => (
             <motion.div
               key={i}
-              className="animated-silver-bg"
               initial={{ opacity: 1, y: 0 }}
-              style={{
-                padding: '3rem',
-                borderRadius: '24px',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1.25rem',
-                position: 'relative',
-                minHeight: '280px',
-              }}
+              style={{ minHeight: '280px' }}
             >
-              {/* Role label */}
-              <span style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.65rem',
-                letterSpacing: '0.2em',
-                color: 'rgba(255,255,255,0.35)',
-                textTransform: 'uppercase',
-              }}>
-                {partner.role}
-              </span>
+              <GlowCard style={{ padding: '3rem' }}>
+                <div style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '1.25rem',
+                  height: '100%',
+                }}>
+                  {/* Role label */}
+                  <span style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.65rem',
+                    letterSpacing: '0.2em',
+                    color: 'rgba(255,255,255,0.35)',
+                    textTransform: 'uppercase',
+                  }}>
+                    {partner.role}
+                  </span>
 
-              {/* Partner name — sized to always show in full */}
-              <h3 style={{
-                fontFamily: 'var(--font-adieu)',
-                fontSize: 'clamp(1rem, 1.8vw, 1.3rem)',
-                color: '#fff',
-                lineHeight: 1.45,
-                textTransform: 'uppercase',
-                margin: 0,
-              }}>
-                {partner.name}
-              </h3>
+                  {/* Partner name */}
+                  <h3 style={{
+                    fontFamily: 'var(--font-adieu)',
+                    fontSize: 'clamp(1rem, 1.8vw, 1.3rem)',
+                    color: '#fff',
+                    lineHeight: 1.45,
+                    textTransform: 'uppercase',
+                    margin: 0,
+                  }}>
+                    {partner.name}
+                  </h3>
 
-              <p style={{
-                fontFamily: 'var(--font-mono)',
-                fontSize: '0.8rem',
-                color: 'rgba(255, 255, 255, 0.4)',
-                lineHeight: 1.7,
-                letterSpacing: '0.03em',
-                marginTop: 'auto',
-              }}>
-                <WordHover text={partner.description} />
-              </p>
+                  <p style={{
+                    fontFamily: 'var(--font-mono)',
+                    fontSize: '0.8rem',
+                    color: 'rgba(255, 255, 255, 0.4)',
+                    lineHeight: 1.7,
+                    letterSpacing: '0.03em',
+                    marginTop: 'auto',
+                  }}>
+                    <WordHover text={partner.description} />
+                  </p>
+                </div>
+              </GlowCard>
             </motion.div>
           ))}
         </div>

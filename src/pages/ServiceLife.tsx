@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, BookOpen, ShieldCheck, CheckCircle2, ChevronRight, MapPin } from 'lucide-react';
 import useSEO from '../hooks/useSEO';
+import GlowCard from '../components/GlowCard';
 
 const ServiceLife: React.FC = () => {
   const navigate = useNavigate();
@@ -12,8 +13,8 @@ const ServiceLife: React.FC = () => {
   }, []);
 
   useSEO({
-    title: 'Service Life Prediction | Concrete Durability Corrosion Audits India | OUANTUM AI',
-    description: 'Predictive modeling of reinforced concrete deterioration. Models chloride diffusion and carbonation depths under IS 456 environmental exposure categories.',
+    title: 'Service Life Prediction Engine | Concrete Durability Modeling | OUANTUM AI',
+    description: 'Fickian chloride diffusion and carbonation front rate modeling. Predicts residual life (years) for reinforced concrete in coastal Indian zones.',
     canonicalPath: '/capabilities/service-life-prediction',
   });
 
@@ -71,7 +72,7 @@ const ServiceLife: React.FC = () => {
               display: 'block',
               marginBottom: '1rem'
             }}>
-              PREDICTIVE · ENGINE NODE 04
+              PREDICTION · ENGINE NODE 04
             </span>
             <h1 style={{
               fontFamily: 'var(--font-adieu)',
@@ -91,7 +92,7 @@ const ServiceLife: React.FC = () => {
               lineHeight: 1.65,
               maxWidth: '800px',
             }}>
-              Predictive Durability Modeling & Concrete Corrosion Progression Analysis
+              Fickian Diffusion & Carbonation Front Degradation Modeling for Concrete Asset Longevity
             </p>
           </motion.div>
         </div>
@@ -107,7 +108,7 @@ const ServiceLife: React.FC = () => {
           >
             <h2 style={{ fontFamily: 'var(--font-adieu)', fontSize: '1.25rem', marginBottom: '1.25rem', borderBottom: '1px solid rgba(255, 255, 255, 0.1)', paddingBottom: '0.5rem' }}>OVERVIEW SUMMARY</h2>
             <p style={{ fontSize: '1.1rem', lineHeight: 1.8, color: 'rgba(255, 255, 255, 0.75)', margin: 0 }}>
-              Designed specifically for structural audits and condition monitoring, the Service Life Prediction Engine provides quantitative forecasting of structural durability. By combining carbonation depth measurements, chloride concentration profiles, and half-cell potential grid mapping, it models the progression rate of reinforcement corrosion to predict concrete service life.
+              The Service Life Prediction Engine projects structural degradation over 10, 25, and 50 year horizons. Utilizing Fickian chloride diffusion mathematics and square root time carbonation kinetics, the engine determines when environmental degradation fronts will reach rebar depth, triggering active corrosion.
             </p>
           </motion.section>
 
@@ -123,63 +124,65 @@ const ServiceLife: React.FC = () => {
               <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.85rem', margin: 0, letterSpacing: '0.05em' }}>REGIONAL & GEOGRAPHIC CONTEXT (INDIA)</h3>
             </div>
             <p style={{ fontSize: '0.95rem', lineHeight: 1.7, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>
-              Reinforced concrete structures in coastal regions of Tamil Nadu, Kerala, Maharashtra, and Gujarat suffer from accelerated chloride-induced corrosion due to marine spray and high temperature. In inland cities like Bengaluru, Hyderabad, and Delhi, carbonation-induced corrosion dominates due to elevated CO2 levels. OUANTUM's Service Life Prediction Engine models these environmental exposure levels per IS 456 and Tuutti durability standards, estimating remaining lifespan for infrastructure.
+              Structures in Indian coastal belts (such as marine bridges in Ennore, port jetties in Tuticorin, and high rise towers along ECR Chennai) experience severe chloride ingress and high temperature carbonation. OUANTUM's engine factors in local humidity, marine splash zones, and regional fly ash slag concrete mix coefficients to predict remaining service life (years to rebar depassivation) under Indian exposure classes (Severe, Very Severe, Extreme under IS 456).
             </p>
           </motion.section>
 
           {/* Grid: Standards & Benefits */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
-            <motion.section
+            <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              style={{ border: '1px solid rgba(255, 255, 255, 0.08)', background: 'rgba(0, 0, 0, 0.01)', borderRadius: '16px', padding: '2rem' }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
-                <BookOpen size={20} color="#ffffff" />
-                <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.9rem', margin: 0, letterSpacing: '0.05em' }}>IS CODE STANDARDS</h3>
-              </div>
-              <ul style={{ padding: 0, margin: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                  <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
-                  <span>IS 456 (Clause 8): Concrete exposure conditions (Mild, Moderate, Severe, Very Severe, Extreme).</span>
-                </li>
-                <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                  <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
-                  <span>ASTM C876: Standard Test Method for Corrosion Potentials of Uncoated Reinforcing Steel.</span>
-                </li>
-                <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                  <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
-                  <span>RILEM TC 130-CSL: Concrete durability modeling and reinforcement service life prediction.</span>
-                </li>
-              </ul>
-            </motion.section>
+              <GlowCard borderRadius={16} style={{ padding: '2rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
+                  <BookOpen size={20} color="#ffffff" />
+                  <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.9rem', margin: 0, letterSpacing: '0.05em' }}>IS CODE STANDARDS</h3>
+                </div>
+                <ul style={{ padding: 0, margin: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                    <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <span>IS 456 (Table 3, 4, & 5): Exposure conditions, nominal cover, and cement content.</span>
+                  </li>
+                  <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                    <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <span>IS 516 (Part 8): Determination of carbonation depth in hardened concrete.</span>
+                  </li>
+                  <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                    <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <span>fib Model Code 2010: Service life design models for chloride diffusion.</span>
+                  </li>
+                </ul>
+              </GlowCard>
+            </motion.div>
 
-            <motion.section
+            <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              style={{ border: '1px solid rgba(255, 255, 255, 0.08)', background: 'rgba(0, 0, 0, 0.01)', borderRadius: '16px', padding: '2rem' }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
-                <ShieldCheck size={20} color="#ffffff" />
-                <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.9rem', margin: 0, letterSpacing: '0.05em' }}>KEY BENEFITS</h3>
-              </div>
-              <ul style={{ padding: 0, margin: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
-                  <span>Identifies hidden reinforcement deterioration years before visible cracks or spalling appear.</span>
-                </li>
-                <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
-                  <span>Calculates remaining years to active corrosion, allowing target repair scheduling.</span>
-                </li>
-                <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
-                  <span>Optimizes lifecycle maintenance budgets on bridges, flyovers, and large housing complexes.</span>
-                </li>
-              </ul>
-            </motion.section>
+              <GlowCard borderRadius={16} style={{ padding: '2rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
+                  <ShieldCheck size={20} color="#ffffff" />
+                  <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.9rem', margin: 0, letterSpacing: '0.05em' }}>KEY BENEFITS</h3>
+                </div>
+                <ul style={{ padding: 0, margin: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                    <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
+                    <span>Quantifies remaining years before major structural repair or cathodic protection is required.</span>
+                  </li>
+                  <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                    <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
+                    <span>Optimizes preventive maintenance scheduling, saving up to 40% in long term life cycle costs.</span>
+                  </li>
+                  <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                    <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
+                    <span>Enables proactive asset management for government infrastructure agencies and private developers.</span>
+                  </li>
+                </ul>
+              </GlowCard>
+            </motion.div>
           </div>
 
           {/* Process Flow */}
@@ -190,27 +193,33 @@ const ServiceLife: React.FC = () => {
           >
             <h2 style={{ fontFamily: 'var(--font-adieu)', fontSize: '1.25rem', marginBottom: '2rem', borderBottom: '1px solid rgba(255, 255, 255, 0.1)', paddingBottom: '0.5rem' }}>PIPELINE FLOW</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              <div style={{ display: 'flex', gap: '24px', padding: '1.5rem', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', background: '#000000' }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>01</div>
-                <div>
-                  <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>Corrosion Initiation Modeling</h4>
-                  <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Calculates the rate at which carbonation fronts or chloride ions will penetrate the concrete cover and reach reinforcing steel bars.</p>
+              <GlowCard borderRadius={12} style={{ padding: '1.5rem' }}>
+                <div style={{ display: 'flex', gap: '24px' }}>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>01</div>
+                  <div>
+                    <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>Environmental Parameter Mapping</h4>
+                    <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Calculates surface chloride concentration, atmospheric CO2 levels, and relative humidity history for the specific site location.</p>
+                  </div>
                 </div>
-              </div>
-              <div style={{ display: 'flex', gap: '24px', padding: '1.5rem', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', background: '#000000' }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>02</div>
-                <div>
-                  <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>Electrochemical Condition Analysis</h4>
-                  <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Processes half-cell potential voltages to map probability zones of active galvanic corrosion across structural surfaces.</p>
+              </GlowCard>
+              <GlowCard borderRadius={12} style={{ padding: '1.5rem' }}>
+                <div style={{ display: 'flex', gap: '24px' }}>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>02</div>
+                  <div>
+                    <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>Diffusion & Front Rate Calculation</h4>
+                    <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Runs Fickian second law equations to compute the time required for critical chloride threshold concentrations to reach internal rebar depth.</p>
+                  </div>
                 </div>
-              </div>
-              <div style={{ display: 'flex', gap: '24px', padding: '1.5rem', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', background: '#000000' }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>03</div>
-                <div>
-                  <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>Tuutti Durability Modeling</h4>
-                  <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Simulates initiation and propagation phases of corrosion under local climate, exposure conditions, and design mix constraints.</p>
+              </GlowCard>
+              <GlowCard borderRadius={12} style={{ padding: '1.5rem' }}>
+                <div style={{ display: 'flex', gap: '24px' }}>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>03</div>
+                  <div>
+                    <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>Residual Life & Repair Curve Generation</h4>
+                    <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Plots remaining service life curves, pinpointing expected corrosion initiation year and recommended preventative maintenance windows.</p>
+                  </div>
                 </div>
-              </div>
+              </GlowCard>
             </div>
           </motion.section>
 

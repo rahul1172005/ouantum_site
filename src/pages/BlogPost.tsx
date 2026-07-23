@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, Calendar, ArrowUpRight } from 'lucide-react';
 import { blogPosts } from '../data/blogPosts';
 import useSEO from '../hooks/useSEO';
+import GlowCard from '../components/GlowCard';
 
 const BASE_URL = 'https://ouantum.com';
 
@@ -291,91 +292,79 @@ const BlogPost: React.FC = () => {
           
           {/* Key Takeaways */}
           {post.takeaways && post.takeaways.length > 0 && (
-            <div
-              style={{
-                marginTop: '4rem',
-                padding: '2.5rem',
-                borderRadius: '24px',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                background: 'rgba(255, 255, 255, 0.02)',
-              }}
-            >
-              <h3 style={{
-                fontFamily: 'var(--font-adieu)',
-                fontSize: '1rem',
-                color: '#ffffff',
-                marginBottom: '1.5rem',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em'
-              }}>
-                Key Takeaways
-              </h3>
-              <ul style={{
-                margin: 0,
-                paddingLeft: '1.25rem',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1rem',
-              }}>
-                {post.takeaways.map((takeaway, tIdx) => (
-                  <li key={tIdx} style={{
-                    fontFamily: 'var(--font-main)',
-                    fontSize: '0.9rem',
-                    lineHeight: 1.6,
-                    color: 'rgba(255, 255, 255, 0.65)',
-                  }}>
-                    {takeaway}
-                  </li>
-                ))}
-              </ul>
+            <div style={{ marginTop: '4rem' }}>
+              <GlowCard borderRadius={24} style={{ padding: '2.5rem' }}>
+                <h3 style={{
+                  fontFamily: 'var(--font-adieu)',
+                  fontSize: '1rem',
+                  color: '#ffffff',
+                  marginBottom: '1.5rem',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em'
+                }}>
+                  Key Takeaways
+                </h3>
+                <ul style={{
+                  margin: 0,
+                  paddingLeft: '1.25rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '1rem',
+                }}>
+                  {post.takeaways.map((takeaway, tIdx) => (
+                    <li key={tIdx} style={{
+                      fontFamily: 'var(--font-main)',
+                      fontSize: '0.9rem',
+                      lineHeight: 1.6,
+                      color: 'rgba(255, 255, 255, 0.65)',
+                    }}>
+                      {takeaway}
+                    </li>
+                  ))}
+                </ul>
+              </GlowCard>
             </div>
           )}
 
           {/* References */}
           {post.references && post.references.length > 0 && (
-            <div
-              style={{
-                marginTop: '2.5rem',
-                padding: '2.5rem',
-                borderRadius: '24px',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                background: 'rgba(0, 0, 0, 0.3)',
-              }}
-            >
-              <h3 style={{
-                fontFamily: 'var(--font-adieu)',
-                fontSize: '1rem',
-                color: '#ffffff',
-                marginBottom: '1.5rem',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em'
-              }}>
-                Technical References
-              </h3>
-              <ul style={{
-                margin: 0,
-                paddingLeft: '1.25rem',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '0.75rem',
-              }}>
-                {post.references.map((ref, rIdx) => (
-                  <li key={rIdx} style={{
-                    fontFamily: 'var(--font-main)',
-                    fontSize: '0.88rem',
-                    lineHeight: 1.6,
-                    color: 'rgba(255, 255, 255, 0.65)',
-                  }}>
-                    {ref.url ? (
-                      <a href={ref.url} target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255, 255, 255, 0.85)', textDecoration: 'underline' }}>
-                        {ref.name} ↗
-                      </a>
-                    ) : (
-                      ref.name
-                    )}
-                  </li>
-                ))}
-              </ul>
+            <div style={{ marginTop: '2.5rem' }}>
+              <GlowCard borderRadius={24} style={{ padding: '2.5rem' }}>
+                <h3 style={{
+                  fontFamily: 'var(--font-adieu)',
+                  fontSize: '1rem',
+                  color: '#ffffff',
+                  marginBottom: '1.5rem',
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.05em'
+                }}>
+                  Technical References
+                </h3>
+                <ul style={{
+                  margin: 0,
+                  paddingLeft: '1.25rem',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.75rem',
+                }}>
+                  {post.references.map((ref, rIdx) => (
+                    <li key={rIdx} style={{
+                      fontFamily: 'var(--font-main)',
+                      fontSize: '0.88rem',
+                      lineHeight: 1.6,
+                      color: 'rgba(255, 255, 255, 0.65)',
+                    }}>
+                      {ref.url ? (
+                        <a href={ref.url} target="_blank" rel="noopener noreferrer" style={{ color: 'rgba(255, 255, 255, 0.85)', textDecoration: 'none' }}>
+                          {ref.name} ↗
+                        </a>
+                      ) : (
+                        ref.name
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </GlowCard>
             </div>
           )}
 
@@ -460,90 +449,78 @@ const BlogPost: React.FC = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   style={{
-                    borderRadius: '16px',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
-                    background: 'rgba(0, 0, 0, 0.02)',
-                    overflow: 'hidden',
                     display: 'flex',
                     flexDirection: 'column',
-                    transition: 'border-color 0.25s ease, transform 0.25s ease',
-                  }}
-                  onMouseOver={(e) => {
-                    const el = e.currentTarget as HTMLElement;
-                    el.style.borderColor = `${catColor}35`;
-                    el.style.transform = 'translateY(-4px)';
-                  }}
-                  onMouseOut={(e) => {
-                    const el = e.currentTarget as HTMLElement;
-                    el.style.borderColor = 'rgba(255, 255, 255, 0.08)';
-                    el.style.transform = 'translateY(0)';
                   }}
                 >
-                  <div style={{ height: '180px', width: '100%', overflow: 'hidden' }}>
-                    <img
-                      src={related.coverImage}
-                      alt={related.coverImageAlt}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                    />
-                  </div>
-                  <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
-                    <h3
-                    style={{
-                      fontFamily: 'var(--font-adieu)',
-                      fontSize: '1.1rem',
-                      lineHeight: 1.3,
-                      color: '#fff',
-                      marginBottom: '0.85rem',
-                      fontWeight: 400,
-                    }}
-                  >
-                    {related.title}
-                  </h3>
-                  <p
-                    style={{
-                      fontFamily: 'var(--font-mono)',
-                      fontSize: '0.78rem',
-                      lineHeight: 1.7,
-                      color: 'rgba(255, 255, 255, 0.45)',
-                      marginBottom: '1.25rem',
-                      display: '-webkit-box',
-                      WebkitLineClamp: 2,
-                      WebkitBoxOrient: 'vertical',
-                      overflow: 'hidden',
-                    }}
-                  >
-                    {related.excerpt}
-                  </p>
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'flex-end',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <Link
-                      to={`/blog/${related.slug}`}
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        gap: '4px',
-                        color: '#fff',
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: '0.68rem',
-                        letterSpacing: '0.1em',
-                        textDecoration: 'none',
-                        fontWeight: 600,
-                        opacity: 0.85,
-                        transition: 'opacity 0.2s',
-                      }}
-                      onMouseOver={(e) => (e.currentTarget.style.opacity = '1')}
-                      onMouseOut={(e) => (e.currentTarget.style.opacity = '0.85')}
-                      aria-label={`Read: ${related.title}`}
-                    >
-                      READ <ArrowUpRight size={12} aria-hidden="true" />
-                    </Link>
-                  </div>
-                  </div>
+                  <GlowCard borderRadius={16} style={{ padding: 0, height: '100%', display: 'flex', flexDirection: 'column' }}>
+                    <div style={{ height: '180px', width: '100%', overflow: 'hidden' }}>
+                      <img
+                        src={related.coverImage}
+                        alt={related.coverImageAlt}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                      />
+                    </div>
+                    <div style={{ padding: '1.5rem', display: 'flex', flexDirection: 'column', flex: 1 }}>
+                      <h3
+                        style={{
+                          fontFamily: 'var(--font-adieu)',
+                          fontSize: '1.1rem',
+                          lineHeight: 1.3,
+                          color: '#fff',
+                          marginBottom: '0.85rem',
+                          fontWeight: 400,
+                        }}
+                      >
+                        {related.title}
+                      </h3>
+                      <p
+                        style={{
+                          fontFamily: 'var(--font-mono)',
+                          fontSize: '0.78rem',
+                          lineHeight: 1.7,
+                          color: 'rgba(255, 255, 255, 0.45)',
+                          marginBottom: '1.25rem',
+                          display: '-webkit-box',
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: 'vertical',
+                          overflow: 'hidden',
+                        }}
+                      >
+                        {related.excerpt}
+                      </p>
+                      <div
+                        style={{
+                          display: 'flex',
+                          justify: 'flex-end',
+                          alignItems: 'center',
+                          marginTop: 'auto',
+                        }}
+                      >
+                        <Link
+                          to={`/blog/${related.slug}`}
+                          style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '4px',
+                            color: '#fff',
+                            fontFamily: 'var(--font-mono)',
+                            fontSize: '0.68rem',
+                            letterSpacing: '0.1em',
+                            textDecoration: 'none',
+                            fontWeight: 600,
+                            opacity: 0.85,
+                            transition: 'opacity 0.2s',
+                          }}
+                          onMouseOver={(e) => (e.currentTarget.style.opacity = '1')}
+                          onMouseOut={(e) => (e.currentTarget.style.opacity = '0.85')}
+                          aria-label={`Read: ${related.title}`}
+                        >
+                          READ <ArrowUpRight size={12} aria-hidden="true" />
+                        </Link>
+                      </div>
+                    </div>
+                  </GlowCard>
                 </motion.article>
               ))}
             </div>

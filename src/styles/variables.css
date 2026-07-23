@@ -13,8 +13,8 @@
   /* Fonts */
   --font-main: 'Inter', sans-serif;
   --font-mono: 'Inter', sans-serif;
-  --font-adieu: 'Geist', sans-serif;
-  --font-brand: 'Adieu', 'Montserrat', sans-serif;
+  --font-adieu: 'Adieu', sans-serif;
+  --font-brand: 'Adieu', sans-serif;
 
   /* Spacing */
   --container-width: 1600px;

@@ -45,17 +45,57 @@ const Chatbot: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [showQuickPrompts, setShowQuickPrompts] = useState(true);
   const [leadFired, setLeadFired] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Adjust logo scale, X-axis position, and Y-axis position directly here
-  const logoScale = 11.0;
-  const logoX = -1.; // in pixels
-  const logoY = 2.5; // in pixels
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
-  // Adjust mascot scale, X-axis position, and Y-axis position directly here
-  const mascotScale = 2.70;
-  const mascotX = 0; // in pixels
-  const mascotY = -1; // in pixels
+  // Adjust desktop logo scale, X-axis position, and Y-axis position directly here
+  const desktopLogoScale = 11.0;
+  const desktopLogoX = -1; // in pixels
+  const desktopLogoY = 2.5; // in pixels
+
+  // Adjust mobile logo scale, X-axis position, and Y-axis position directly here
+  const mobileLogoScale = 11.0;
+  const mobileLogoX = -1; // in pixels
+  const mobileLogoY = 2.5; // in pixels
+
+  // Adjust desktop mascot scale, X-axis, Y-axis, max-width, height, and margin directly here
+  const desktopMascotScale = 2.70;
+  const desktopMascotX = 0; // in pixels
+  const desktopMascotY = -1; // in pixels
+  const desktopMascotMaxWidth = '50px';
+  const desktopMascotHeight = 'auto';
+  const desktopMascotMargin = '1.5rem auto 2rem auto';
+
+  // Adjust mobile mascot scale, X-axis, Y-axis, max-width, height, and margin directly here (separately for mobile view users)
+  const mobileMascotScale = 1.0;
+  const mobileMascotX = 0; // in pixels
+  const mobileMascotY = -1; // in pixels
+  const mobileMascotMaxWidth = '10px';
+  const mobileMascotHeight = '270px'; // reduced height for mobile view users
+  const mobileMascotMargin = '0.5rem auto 0.8rem auto'; // reduced spacing for mobile view users
+
+  // Adjust chatbar window width & max-width separately for desktop and mobile view users
+  const desktopChatbarMaxWidth = '380px';
+  const mobileChatbarMaxWidth = 'calc(90vw - 2rem)';
+
+  const logoScale = isMobile ? mobileLogoScale : desktopLogoScale;
+  const logoX = isMobile ? mobileLogoX : desktopLogoX;
+  const logoY = isMobile ? mobileLogoY : desktopLogoY;
+
+  const mascotScale = isMobile ? mobileMascotScale : desktopMascotScale;
+  const mascotX = isMobile ? mobileMascotX : desktopMascotX;
+  const mascotY = isMobile ? mobileMascotY : desktopMascotY;
+  const mascotMaxWidth = isMobile ? mobileMascotMaxWidth : desktopMascotMaxWidth;
+  const mascotHeight = isMobile ? mobileMascotHeight : desktopMascotHeight;
+  const mascotMargin = isMobile ? mobileMascotMargin : desktopMascotMargin;
+  const chatbarMaxWidth = isMobile ? mobileChatbarMaxWidth : desktopChatbarMaxWidth;
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -195,7 +235,7 @@ const Chatbot: React.FC = () => {
               bottom: '2rem',
               right: '2rem',
               width: '380px',
-              maxWidth: 'calc(100vw - 2rem)',
+              maxWidth: chatbarMaxWidth,
               height: '700px',
               maxHeight: '85vh',
               background: '#000000',
@@ -267,10 +307,10 @@ const Chatbot: React.FC = () => {
                 alt="Mascot Avatar"
                 style={{
                   alignSelf: 'center',
-                  margin: '1.5rem auto 2rem auto',
+                  margin: mascotMargin,
                   width: '100%',
-                  maxWidth: '50px',
-                  height: 'auto',
+                  maxWidth: mascotMaxWidth,
+                  height: mascotHeight,
                   objectFit: 'contain',
                   transform: `scale(${mascotScale}) translate(${mascotX}px, ${mascotY}px)`,
                   display: 'block',

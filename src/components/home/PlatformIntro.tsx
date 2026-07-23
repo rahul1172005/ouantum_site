@@ -45,7 +45,7 @@ const PlatformIntro: React.FC = () => {
                 textTransform: 'uppercase',
                 fontWeight: 600,
                 color: '#ffffff',
-                textDecoration: 'underline',
+                textDecoration: 'none',
                 transition: 'opacity 0.2s',
                 display: 'inline-flex',
                 alignItems: 'center',

@@ -6,6 +6,7 @@ import aiEngineerImages from '../data/aiEngineerImages';
 import dataEngineerImages from '../data/dataEngineerImages';
 import fullStackDeveloperImages from '../data/fullStackDeveloperImages';
 import { CanvasMarquee } from '../components/CanvasMarquee';
+import GlowCard from '../components/GlowCard';
 
 const BASE_URL = 'https://ouantum.com';
 
@@ -341,58 +342,56 @@ const About: React.FC = () => {
                   link: null,
                 },
               ].map((cap, i) => (
-                <div
-                  key={i}
-                  className="animated-silver-bg"
-                  style={{
-                    padding: '2rem',
-                    borderRadius: '24px',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
-                    background: '#070707',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                  }}
-                >
-                  <div>
-                    <h3 style={{
-                      fontFamily: 'var(--font-adieu)',
-                      fontSize: '0.95rem',
-                      color: '#ffffff',
-                      marginBottom: '1rem',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.05em',
+                <div key={i}>
+                  <GlowCard borderRadius={24} style={{ padding: '2rem' }}>
+                    <div style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      height: '100%',
+                      minHeight: '180px',
                     }}>
-                      {cap.title}
-                    </h3>
-                    <p style={{
-                      fontFamily: 'var(--font-main)',
-                      fontSize: '0.88rem',
-                      lineHeight: 1.6,
-                      color: 'rgba(255, 255, 255, 0.55)',
-                      margin: 0,
-                    }}>
-                      {cap.desc}
-                    </p>
-                  </div>
-                  {cap.link && (
-                    <div style={{ marginTop: '1.5rem' }}>
-                      <Link
-                        to={cap.link}
-                        style={{
-                          fontFamily: 'var(--font-mono)',
-                          fontSize: '0.72rem',
+                      <div>
+                        <h3 style={{
+                          fontFamily: 'var(--font-adieu)',
+                          fontSize: '0.95rem',
                           color: '#ffffff',
-                          textDecoration: 'underline',
+                          marginBottom: '1rem',
                           textTransform: 'uppercase',
                           letterSpacing: '0.05em',
-                          fontWeight: 600,
-                        }}
-                      >
-                        Explore Capability →
-                      </Link>
+                        }}>
+                          {cap.title}
+                        </h3>
+                        <p style={{
+                          fontFamily: 'var(--font-main)',
+                          fontSize: '0.88rem',
+                          lineHeight: 1.6,
+                          color: 'rgba(255, 255, 255, 0.55)',
+                          margin: 0,
+                        }}>
+                          {cap.desc}
+                        </p>
+                      </div>
+                      {cap.link && (
+                        <div style={{ marginTop: '1.5rem' }}>
+                          <Link
+                            to={cap.link}
+                            style={{
+                              fontFamily: 'var(--font-mono)',
+                              fontSize: '0.72rem',
+                              color: '#ffffff',
+                              textDecoration: 'none',
+                              textTransform: 'uppercase',
+                              letterSpacing: '0.05em',
+                              fontWeight: 600,
+                            }}
+                          >
+                            Explore Capability →
+                          </Link>
+                        </div>
+                      )}
                     </div>
-                  )}
+                  </GlowCard>
                 </div>
               ))}
             </div>
@@ -422,34 +421,30 @@ const About: React.FC = () => {
                   desc: 'Helps quality engineers monitor concrete strength development, check aggregate grading instantly, and resolve deviations before they turn into costly rework.',
                 },
               ].map((target, i) => (
-                <div
-                  key={i}
-                  style={{
-                    padding: '2rem',
-                    borderRadius: '24px',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
-                    background: '#070707',
-                  }}
-                >
-                  <h3 style={{
-                    fontFamily: 'var(--font-adieu)',
-                    fontSize: '0.95rem',
-                    color: '#ffffff',
-                    marginBottom: '1rem',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.05em',
-                  }}>
-                    {target.title}
-                  </h3>
-                  <p style={{
-                    fontFamily: 'var(--font-main)',
-                    fontSize: '0.88rem',
-                    lineHeight: 1.6,
-                    color: 'rgba(255, 255, 255, 0.55)',
-                    margin: 0,
-                  }}>
-                    {target.desc}
-                  </p>
+                <div key={i}>
+                  <GlowCard borderRadius={24} style={{ padding: '2rem' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                      <h3 style={{
+                        fontFamily: 'var(--font-adieu)',
+                        fontSize: '0.95rem',
+                        color: '#ffffff',
+                        marginBottom: '1rem',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.05em',
+                      }}>
+                        {target.title}
+                      </h3>
+                      <p style={{
+                        fontFamily: 'var(--font-main)',
+                        fontSize: '0.88rem',
+                        lineHeight: 1.6,
+                        color: 'rgba(255, 255, 255, 0.55)',
+                        margin: 0,
+                      }}>
+                        {target.desc}
+                      </p>
+                    </div>
+                  </GlowCard>
                 </div>
               ))}
             </div>
@@ -523,13 +518,16 @@ const About: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="about-partner-link"
+                  style={{ textDecoration: 'none', display: 'block' }}
                   aria-label={`Visit ${p.name} — ${p.desc} partner of OUANTUM`}
                 >
-                  <div className="animated-silver-bg about-partner-card">
-                    <h3 className="about-partner-name">{p.name}</h3>
-                    <p className="about-partner-desc">{p.desc}</p>
-                    <span className="about-partner-url">{p.label} ↗</span>
-                  </div>
+                  <GlowCard borderRadius={24} style={{ padding: '2.5rem' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', gap: '0.75rem' }}>
+                      <h3 className="about-partner-name" style={{ margin: 0 }}>{p.name}</h3>
+                      <p className="about-partner-desc" style={{ margin: 0 }}>{p.desc}</p>
+                      <span className="about-partner-url" style={{ marginTop: 'auto', paddingTop: '1rem' }}>{p.label} ↗</span>
+                    </div>
+                  </GlowCard>
                 </a>
               ))}
             </div>

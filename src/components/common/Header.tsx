@@ -54,6 +54,7 @@ const Header: React.FC = () => {
     { name: 'FAQ', href: '/faq' },
     { name: 'About', href: '/about' },
     { name: 'Careers', href: '/careers' },
+    { name: 'Contact Us', href: '/contact' },
   ];
 
   // Adjust logo scale, X-axis position, and Y-axis position directly here
@@ -104,29 +105,30 @@ const Header: React.FC = () => {
         </nav>
 
         <div className="header-actions">
-          <button
-            onClick={() => navigate('/contact')}
-            style={{
-              fontFamily: 'var(--font-brand)',
-              fontSize: '0.75rem',
-              textTransform: 'uppercase',
-              letterSpacing: '0.1em',
-              padding: isMobile ? '10px' : '10px 24px',
-              fontWeight: 600,
-              backgroundColor: '#ffffff',
-              color: '#000000',
-              border: 'none',
-              borderRadius: isMobile ? '50%' : '30px',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: isMobile ? '38px' : 'auto',
-              height: isMobile ? '38px' : 'auto',
-            }}
-          >
-            {isMobile ? <Phone size={16} /> : 'Contact Us'}
-          </button>
+          {!isMobile && (
+            <a
+              href="tel:+918610805559"
+              style={{
+                fontFamily: 'var(--font-adieu)',
+                fontSize: '0.75rem',
+                textTransform: 'uppercase',
+                letterSpacing: '0.1em',
+                padding: '10px 24px',
+                fontWeight: 600,
+                backgroundColor: '#ffffff',
+                color: '#000000',
+                border: 'none',
+                borderRadius: '30px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                textDecoration: 'none',
+              }}
+            >
+              CALL US
+            </a>
+          )}
           <button
             className="menu-toggle"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -158,13 +160,11 @@ const Header: React.FC = () => {
               </ul>
             </nav>
             <div style={{ marginTop: 'auto', width: '100%', paddingTop: '2rem' }}>
-              <button
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  navigate('/contact');
-                }}
+              <a
+                href="tel:+918610805559"
+                onClick={() => setIsMenuOpen(false)}
                 style={{
-                  fontFamily: 'var(--font-brand)',
+                  fontFamily: 'var(--font-adieu)',
                   fontSize: '0.9rem',
                   textTransform: 'uppercase',
                   letterSpacing: '0.1em',
@@ -179,7 +179,9 @@ const Header: React.FC = () => {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
+                  gap: '0.6rem',
                   transition: 'opacity 0.25s ease',
+                  textDecoration: 'none',
                 }}
                 onMouseOver={(e) => {
                   e.currentTarget.style.opacity = '0.9';
@@ -188,8 +190,9 @@ const Header: React.FC = () => {
                   e.currentTarget.style.opacity = '1';
                 }}
               >
-                Contact Us
-              </button>
+                <Phone size={18} />
+                CALL US
+              </a>
             </div>
           </motion.div>
         )}

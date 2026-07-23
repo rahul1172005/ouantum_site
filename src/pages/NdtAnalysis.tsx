@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, BookOpen, ShieldCheck, CheckCircle2, ChevronRight, MapPin } from 'lucide-react';
 import useSEO from '../hooks/useSEO';
+import GlowCard from '../components/GlowCard';
 
 const NdtAnalysis: React.FC = () => {
   const navigate = useNavigate();
@@ -91,7 +92,7 @@ const NdtAnalysis: React.FC = () => {
               lineHeight: 1.65,
               maxWidth: '800px',
             }}>
-              Automated Sonic-Rebound (SonReb) Strength Ingestion & Quality Grading
+              Automated Sonic Rebound SonReb Strength Ingestion & Quality Grading
             </p>
           </motion.div>
         </div>
@@ -129,57 +130,59 @@ const NdtAnalysis: React.FC = () => {
 
           {/* Grid: Standards & Benefits */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
-            <motion.section
+            <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              style={{ border: '1px solid rgba(255, 255, 255, 0.08)', background: 'rgba(0, 0, 0, 0.01)', borderRadius: '16px', padding: '2rem' }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
-                <BookOpen size={20} color="#ffffff" />
-                <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.9rem', margin: 0, letterSpacing: '0.05em' }}>IS CODE STANDARDS</h3>
-              </div>
-              <ul style={{ padding: 0, margin: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                  <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
-                  <span>IS 13311 (Part 1): Non-Destructive Testing of Concrete - Ultrasonic Pulse Velocity.</span>
-                </li>
-                <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                  <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
-                  <span>IS 13311 (Part 2): Non-Destructive Testing of Concrete - Rebound Hammer.</span>
-                </li>
-                <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                  <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
-                  <span>IS 456 (Clause 15 & 16): Concrete sampling, testing, and acceptance criteria.</span>
-                </li>
-              </ul>
-            </motion.section>
+              <GlowCard borderRadius={16} style={{ padding: '2rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
+                  <BookOpen size={20} color="#ffffff" />
+                  <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.9rem', margin: 0, letterSpacing: '0.05em' }}>IS CODE STANDARDS</h3>
+                </div>
+                <ul style={{ padding: 0, margin: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                    <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <span>IS 13311 (Part 1): Non Destructive Testing of Concrete Ultrasonic Pulse Velocity.</span>
+                  </li>
+                  <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                    <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <span>IS 13311 (Part 2): Non Destructive Testing of Concrete Rebound Hammer.</span>
+                  </li>
+                  <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                    <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <span>IS 456 (Clause 15 & 16): Concrete sampling, testing, and acceptance criteria.</span>
+                  </li>
+                </ul>
+              </GlowCard>
+            </motion.div>
 
-            <motion.section
+            <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              style={{ border: '1px solid rgba(255, 255, 255, 0.08)', background: 'rgba(0, 0, 0, 0.01)', borderRadius: '16px', padding: '2rem' }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
-                <ShieldCheck size={20} color="#ffffff" />
-                <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.9rem', margin: 0, letterSpacing: '0.05em' }}>KEY BENEFITS</h3>
-              </div>
-              <ul style={{ padding: 0, margin: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
-                  <span>Concrete strength estimation error is reduced from ±25% (single test) to under ±10% (correlated).</span>
-                </li>
-                <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
-                  <span>Instantaneous quality grading (Excellent, Good, Medium, Doubtful) plotted on structural zone maps.</span>
-                </li>
-                <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
-                  <span>Prevents manual calibration and curve-fitting mistakes in laboratory post-processing.</span>
-                </li>
-              </ul>
-            </motion.section>
+              <GlowCard borderRadius={16} style={{ padding: '2rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
+                  <ShieldCheck size={20} color="#ffffff" />
+                  <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.9rem', margin: 0, letterSpacing: '0.05em' }}>KEY BENEFITS</h3>
+                </div>
+                <ul style={{ padding: 0, margin: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                    <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
+                    <span>Concrete strength estimation error is reduced from ±25% (single test) to under ±10% (correlated).</span>
+                  </li>
+                  <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                    <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
+                    <span>Instantaneous quality grading (Excellent, Good, Medium, Doubtful) plotted on structural zone maps.</span>
+                  </li>
+                  <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                    <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
+                    <span>Prevents manual calibration and curve fitting mistakes in laboratory post processing.</span>
+                  </li>
+                </ul>
+              </GlowCard>
+            </motion.div>
           </div>
 
           {/* Process Flow */}
@@ -190,27 +193,33 @@ const NdtAnalysis: React.FC = () => {
           >
             <h2 style={{ fontFamily: 'var(--font-adieu)', fontSize: '1.25rem', marginBottom: '2rem', borderBottom: '1px solid rgba(255, 255, 255, 0.1)', paddingBottom: '0.5rem' }}>PIPELINE FLOW</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              <div style={{ display: 'flex', gap: '24px', padding: '1.5rem', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', background: '#000000' }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>01</div>
-                <div>
-                  <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>Raw Field Ingestion</h4>
-                  <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Field engineers enter concrete rebound numbers (minimum 9 points per test location) and UPV transit times on-site via our offline-first mobile app.</p>
+              <GlowCard borderRadius={12} style={{ padding: '1.5rem' }}>
+                <div style={{ display: 'flex', gap: '24px' }}>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>01</div>
+                  <div>
+                    <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>Raw Field Ingestion</h4>
+                    <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Field engineers enter concrete rebound numbers (minimum 9 points per test location) and UPV transit times on site via our offline first mobile app.</p>
+                  </div>
                 </div>
-              </div>
-              <div style={{ display: 'flex', gap: '24px', padding: '1.5rem', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', background: '#000000' }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>02</div>
-                <div>
-                  <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>SonReb Regression Analysis</h4>
-                  <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>The engine applies custom empirical correlation formulas calibrated for Indian aggregates to compute estimated true compressive strength (MPa) of the element.</p>
+              </GlowCard>
+              <GlowCard borderRadius={12} style={{ padding: '1.5rem' }}>
+                <div style={{ display: 'flex', gap: '24px' }}>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>02</div>
+                  <div>
+                    <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>SonReb Regression Analysis</h4>
+                    <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>The engine applies custom empirical correlation formulas calibrated for Indian aggregates to compute estimated true compressive strength (MPa) of the element.</p>
+                  </div>
                 </div>
-              </div>
-              <div style={{ display: 'flex', gap: '24px', padding: '1.5rem', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', background: '#000000' }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>03</div>
-                <div>
-                  <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>Statistical Outlier Filtering</h4>
-                  <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>The algorithm checks rebound numbers for high variance (e.g. hitting aggregate or void space) and flags anomalous values according to IS 13311 provisions.</p>
+              </GlowCard>
+              <GlowCard borderRadius={12} style={{ padding: '1.5rem' }}>
+                <div style={{ display: 'flex', gap: '24px' }}>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>03</div>
+                  <div>
+                    <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>Statistical Outlier Filtering</h4>
+                    <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>The algorithm checks rebound numbers for high variance (e.g. hitting aggregate or void space) and flags anomalous values according to IS 13311 provisions.</p>
+                  </div>
                 </div>
-              </div>
+              </GlowCard>
             </div>
           </motion.section>
 

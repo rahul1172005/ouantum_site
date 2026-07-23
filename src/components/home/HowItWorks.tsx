@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ScrollReveal from '@/components/common/ScrollReveal';
 
@@ -12,6 +12,14 @@ const steps = [
     avatar: '/assets/images/ox1_avatar/1.png',
     anim: { x: -45, y: 25, scale: 0.78 },
     route: '/how-it-works/field-data-in',
+    // Desktop layout parameters
+    desktopScale: 2.0,
+    desktopX: 50, // in pixels
+    desktopY: 10, // in pixels
+    // Mobile layout parameters (adjust scale, x, y axis separately for mobile view users)
+    mobileScale: 1.6,
+    mobileX: 40, // in pixels
+    mobileY: 10, // in pixels
   },
   {
     num: '02',
@@ -22,6 +30,14 @@ const steps = [
     avatar: '/assets/images/ox1_avatar/2.png',
     anim: { x: 0, y: -45, scale: 0.78 },
     route: '/how-it-works/ai-analysis',
+    // Desktop layout parameters
+    desktopScale: 2.0,
+    desktopX: 50, // in pixels
+    desktopY: 15, // in pixels
+    // Mobile layout parameters (adjust scale, x, y axis separately for mobile view users)
+    mobileScale: 1.6,
+    mobileX: 45, // in pixels
+    mobileY: 15, // in pixels
   },
   {
     num: '03',
@@ -32,6 +48,14 @@ const steps = [
     avatar: '/assets/images/ox1_avatar/3.png',
     anim: { x: 45, y: 25, scale: 0.78 },
     route: '/how-it-works/report-out',
+    // Desktop layout parameters
+    desktopScale: 2.3,
+    desktopX: 42, // in pixels
+    desktopY: 15, // in pixels
+    // Mobile layout parameters (adjust scale, x, y axis separately for mobile view users)
+    mobileScale: 1.9,
+    mobileX: 32, // in pixels
+    mobileY: 15, // in pixels
   },
 ];
 
@@ -44,8 +68,18 @@ const steps = [
 const StepCard = ({ step }: { step: typeof steps[0] }) => {
   const navigate = useNavigate();
   const [expanded, setExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Clip-path origin (top-right corner of card, reserved for future use)
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const scale = isMobile ? step.mobileScale : step.desktopScale;
+  const x = isMobile ? step.mobileX : step.desktopX;
+  const y = isMobile ? step.mobileY : step.desktopY;
 
   return (
     <div
@@ -159,56 +193,20 @@ const StepCard = ({ step }: { step: typeof steps[0] }) => {
           padding: '2rem',
         }}
       >
-        {/* CARD 01 IMAGE: Adjust scale, translate X (x), and translate Y (y) statically */}
-        {step.num === '01' && (
-          <img
-            src={step.avatar}
-            alt={step.title}
-            style={{
-              position: 'absolute',
-              top: '2.5rem',
-              left: '2.5rem',
-              width: '150px',
-              height: '150px',
-              objectFit: 'contain',
-              transform: 'scale(2.0) translate(50px, 10px)',
-            }}
-          />
-        )}
-
-        {/* CARD 02 IMAGE: Adjust scale, translate X (x), and translate Y (y) statically */}
-        {step.num === '02' && (
-          <img
-            src={step.avatar}
-            alt={step.title}
-            style={{
-              position: 'absolute',
-              top: '2.5rem',
-              left: '2.5rem',
-              width: '150px',
-              height: '150px',
-              objectFit: 'contain',
-              transform: 'scale(2.0) translate(50px, 15px)',
-            }}
-          />
-        )}
-
-        {/* CARD 03 IMAGE: Adjust scale, translate X (x), and translate Y (y) statically */}
-        {step.num === '03' && (
-          <img
-            src={step.avatar}
-            alt={step.title}
-            style={{
-              position: 'absolute',
-              top: '2.5rem',
-              left: '2.5rem',
-              width: '150px',
-              height: '150px',
-              objectFit: 'contain',
-              transform: 'scale(2.3) translate(42px, 15px)',
-            }}
-          />
-        )}
+        {/* CARD AVATAR IMAGE: Adjust scale, translate X (x), and translate Y (y) for desktop & mobile separately */}
+        <img
+          src={step.avatar}
+          alt={step.title}
+          style={{
+            position: 'absolute',
+            top: '2.5rem',
+            left: '2.5rem',
+            width: '150px',
+            height: '150px',
+            objectFit: 'contain',
+            transform: `scale(${scale}) translate(${x}px, ${y}px)`,
+          }}
+        />
 
         {/* Detail content inside the expanded circle */}
         <div

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, BookOpen, ShieldCheck, CheckCircle2, ChevronRight, MapPin } from 'lucide-react';
 import useSEO from '../hooks/useSEO';
+import GlowCard from '../components/GlowCard';
 
 const IsCompliance: React.FC = () => {
   const navigate = useNavigate();
@@ -12,8 +13,8 @@ const IsCompliance: React.FC = () => {
   }, []);
 
   useSEO({
-    title: 'IS Code Compliance | Bureau of Indian Standards Civil QA | OUANTUM AI',
-    description: 'Automated concrete, aggregate, and reinforcement testing audit against IS 456, IS 383, and IS 1786 standards. Real-time PWD compliance verification.',
+    title: 'IS Code Compliance Engine | BIS Structural Standards Verification | OUANTUM AI',
+    description: 'Automated codal checking under IS 456, IS 383, IS 1786, and IS 2386. Verifies concrete mix, rebar yield, and aggregate grading against BIS standards.',
     canonicalPath: '/capabilities/is-code-compliance',
   });
 
@@ -71,7 +72,7 @@ const IsCompliance: React.FC = () => {
               display: 'block',
               marginBottom: '1rem'
             }}>
-              VALIDATION · ENGINE NODE 02
+              VERIFICATION · ENGINE NODE 02
             </span>
             <h1 style={{
               fontFamily: 'var(--font-adieu)',
@@ -91,7 +92,7 @@ const IsCompliance: React.FC = () => {
               lineHeight: 1.65,
               maxWidth: '800px',
             }}>
-              Real-Time Civil Engineering Regulatory Validation & Auditing
+              Automated Codal Verification Engine for Bureau of Indian Standards (BIS) Construction Norms
             </p>
           </motion.div>
         </div>
@@ -107,7 +108,7 @@ const IsCompliance: React.FC = () => {
           >
             <h2 style={{ fontFamily: 'var(--font-adieu)', fontSize: '1.25rem', marginBottom: '1.25rem', borderBottom: '1px solid rgba(255, 255, 255, 0.1)', paddingBottom: '0.5rem' }}>OVERVIEW SUMMARY</h2>
             <p style={{ fontSize: '1.1rem', lineHeight: 1.8, color: 'rgba(255, 255, 255, 0.75)', margin: 0 }}>
-              The IS Code Compliance Engine acts as an automated regulatory auditor, immediately evaluating all aggregate, concrete, and steel test readings against Indian Standards (IS codes). Instead of manually looking up tables, field data is dynamically checked for compliance bounds, automatically highlighting zones that fall below minimum limits.
+              The IS Code Compliance Engine digitizes Indian Standard civil engineering codes into deterministic rule sets. Every material test result, concrete mix proportion, rebar grade, and structural dimension logged in OUANTUM is automatically evaluated against the exact formulas and threshold tables published by the Bureau of Indian Standards (BIS).
             </p>
           </motion.section>
 
@@ -129,61 +130,63 @@ const IsCompliance: React.FC = () => {
 
           {/* Grid: Standards & Benefits */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
-            <motion.section
+            <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              style={{ border: '1px solid rgba(255, 255, 255, 0.08)', background: 'rgba(0, 0, 0, 0.01)', borderRadius: '16px', padding: '2rem' }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
-                <BookOpen size={20} color="#ffffff" />
-                <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.9rem', margin: 0, letterSpacing: '0.05em' }}>IS CODE STANDARDS</h3>
-              </div>
-              <ul style={{ padding: 0, margin: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                  <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
-                  <span>IS 456: Code of practice for plain and reinforced concrete (Durability and cover limits).</span>
-                </li>
-                <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                  <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
-                  <span>IS 383: Coarse and fine aggregate grading zones and physical specifications.</span>
-                </li>
-                <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                  <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
-                  <span>IS 1786: High-strength deformed steel bars for concrete reinforcement validation.</span>
-                </li>
-                <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                  <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
-                  <span>IS 2386 (Parts I-VIII): Test methods for aggregate properties and compliance criteria.</span>
-                </li>
-              </ul>
-            </motion.section>
+              <GlowCard borderRadius={16} style={{ padding: '2rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
+                  <BookOpen size={20} color="#ffffff" />
+                  <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.9rem', margin: 0, letterSpacing: '0.05em' }}>IS CODE STANDARDS</h3>
+                </div>
+                <ul style={{ padding: 0, margin: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                    <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <span>IS 456: Code of practice for plain and reinforced concrete (Durability and cover limits).</span>
+                  </li>
+                  <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                    <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <span>IS 383: Coarse and fine aggregate grading zones and physical specifications.</span>
+                  </li>
+                  <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                    <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <span>IS 1786: High strength deformed steel bars for concrete reinforcement validation.</span>
+                  </li>
+                  <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                    <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <span>IS 2386 (Parts I-VIII): Test methods for aggregate properties and compliance criteria.</span>
+                  </li>
+                </ul>
+              </GlowCard>
+            </motion.div>
 
-            <motion.section
+            <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              style={{ border: '1px solid rgba(255, 255, 255, 0.08)', background: 'rgba(0, 0, 0, 0.01)', borderRadius: '16px', padding: '2rem' }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
-                <ShieldCheck size={20} color="#ffffff" />
-                <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.9rem', margin: 0, letterSpacing: '0.05em' }}>KEY BENEFITS</h3>
-              </div>
-              <ul style={{ padding: 0, margin: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
-                  <span>Guarantees 100% regulatory auditing across all structural and material testing logs.</span>
-                </li>
-                <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
-                  <span>Accelerates TPQM (Third Party Quality Monitoring) audits, compressing days of code lookup into seconds.</span>
-                </li>
-                <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
-                  <span>Prevents project delays and structural audit disputes through clear, standardized compliance reports.</span>
-                </li>
-              </ul>
-            </motion.section>
+              <GlowCard borderRadius={16} style={{ padding: '2rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
+                  <ShieldCheck size={20} color="#ffffff" />
+                  <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.9rem', margin: 0, letterSpacing: '0.05em' }}>KEY BENEFITS</h3>
+                </div>
+                <ul style={{ padding: 0, margin: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                    <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
+                    <span>Guarantees 100% regulatory auditing across all structural and material testing logs.</span>
+                  </li>
+                  <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                    <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
+                    <span>Accelerates TPQM (Third Party Quality Monitoring) audits, compressing days of code lookup into seconds.</span>
+                  </li>
+                  <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                    <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
+                    <span>Prevents project delays and structural audit disputes through clear, standardized compliance reports.</span>
+                  </li>
+                </ul>
+              </GlowCard>
+            </motion.div>
           </div>
 
           {/* Process Flow */}
@@ -194,27 +197,33 @@ const IsCompliance: React.FC = () => {
           >
             <h2 style={{ fontFamily: 'var(--font-adieu)', fontSize: '1.25rem', marginBottom: '2rem', borderBottom: '1px solid rgba(255, 255, 255, 0.1)', paddingBottom: '0.5rem' }}>PIPELINE FLOW</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              <div style={{ display: 'flex', gap: '24px', padding: '1.5rem', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', background: '#000000' }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>01</div>
-                <div>
-                  <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>Data Parsing & Extraction</h4>
-                  <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Testing data (slump, sieve analysis, cube compressive strength, steel elongation) is extracted and mapped to design criteria.</p>
+              <GlowCard borderRadius={12} style={{ padding: '1.5rem' }}>
+                <div style={{ display: 'flex', gap: '24px' }}>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>01</div>
+                  <div>
+                    <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>Data Parsing & Extraction</h4>
+                    <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Testing data (slump, sieve analysis, cube compressive strength, steel elongation) is extracted and mapped to design criteria.</p>
+                  </div>
                 </div>
-              </div>
-              <div style={{ display: 'flex', gap: '24px', padding: '1.5rem', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', background: '#000000' }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>02</div>
-                <div>
-                  <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>Codal Constraint Auditing</h4>
-                  <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Every parameter is cross-referenced with relevant IS code threshold equations (e.g., target strength variables, exposure durability, maximum limits).</p>
+              </GlowCard>
+              <GlowCard borderRadius={12} style={{ padding: '1.5rem' }}>
+                <div style={{ display: 'flex', gap: '24px' }}>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>02</div>
+                  <div>
+                    <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>Codal Constraint Auditing</h4>
+                    <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Every parameter is cross-referenced with relevant IS code threshold equations (e.g., target strength variables, exposure durability, maximum limits).</p>
+                  </div>
                 </div>
-              </div>
-              <div style={{ display: 'flex', gap: '24px', padding: '1.5rem', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', background: '#000000' }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>03</div>
-                <div>
-                  <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>Compliance Verdict Mapping</h4>
-                  <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Generates a strict compliance classification: PASS (complying), CONCERN (borderline or non-compliant under specific tolerances), or FAIL (violating limits).</p>
+              </GlowCard>
+              <GlowCard borderRadius={12} style={{ padding: '1.5rem' }}>
+                <div style={{ display: 'flex', gap: '24px' }}>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>03</div>
+                  <div>
+                    <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>Compliance Verdict Mapping</h4>
+                    <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Generates a strict compliance classification: PASS (complying), CONCERN (borderline or non-compliant under specific tolerances), or FAIL (violating limits).</p>
+                  </div>
                 </div>
-              </div>
+              </GlowCard>
             </div>
           </motion.section>
 

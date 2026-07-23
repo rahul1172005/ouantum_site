@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import GlowCard from '../GlowCard';
 
 const Contact: React.FC = () => {
   const [activeCard, setActiveCard] = useState<number | null>(null);
@@ -34,56 +35,70 @@ const Contact: React.FC = () => {
           <motion.div
             animate={{ opacity: 1, y: 0 }}
             onClick={() => setActiveCard(isActive(0) ? null : 0)}
-            className={`contact-card animated-silver-bg ${isActive(0) ? 'active' : ''}`}
+            style={{ cursor: 'pointer' }}
           >
-            <a
-              href="mailto:contact@ouantum.com"
-              onClick={e => e.stopPropagation()}
-              className="contact-link"
-            >
-              contact@ouantum.com
-            </a>
-            <p className="contact-label">
-              RESPONSE WITHIN 12H
-            </p>
+            <GlowCard style={{ padding: '2.5rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%', minHeight: '160px' }}>
+                <a
+                  href="mailto:contact@ouantum.com"
+                  onClick={e => e.stopPropagation()}
+                  className="contact-link"
+                >
+                  contact@ouantum.com
+                </a>
+                <p className="contact-label" style={{ marginTop: 'auto' }}>
+                  RESPONSE WITHIN 12H
+                </p>
+              </div>
+            </GlowCard>
           </motion.div>
 
           {/* Phone */}
           <motion.div
             animate={{ opacity: 1, y: 0 }}
             onClick={() => setActiveCard(isActive(1) ? null : 1)}
-            className={`contact-card animated-silver-bg ${isActive(1) ? 'active' : ''}`}
+            style={{ cursor: 'pointer' }}
           >
-            <a
-              href="tel:+917695827158"
-              onClick={e => e.stopPropagation()}
-              className="contact-link"
-              style={{ fontSize: '1rem', marginBottom: '8px', display: 'block' }}
-            >
-              +91 7695827158
-            </a>
-            <a
-              href="tel:+918610805559"
-              onClick={e => e.stopPropagation()}
-              className="contact-link"
-              style={{ fontSize: '1rem', display: 'block' }}
-            >
-              +91 8610805559
-            </a>
-            <p className="contact-label">
-              OPERATIONAL: 24/7
-            </p>
+            <GlowCard style={{ padding: '2.5rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%', minHeight: '160px' }}>
+                <div>
+                  <a
+                    href="tel:+917695827158"
+                    onClick={e => e.stopPropagation()}
+                    className="contact-link"
+                    style={{ fontSize: '1rem', marginBottom: '8px', display: 'block' }}
+                  >
+                    +91 7695827158
+                  </a>
+                  <a
+                    href="tel:+918610805559"
+                    onClick={e => e.stopPropagation()}
+                    className="contact-link"
+                    style={{ fontSize: '1rem', display: 'block' }}
+                  >
+                    +91 8610805559
+                  </a>
+                </div>
+                <p className="contact-label" style={{ marginTop: 'auto' }}>
+                  OPERATIONAL: 24/7
+                </p>
+              </div>
+            </GlowCard>
           </motion.div>
 
           {/* Address */}
           <motion.div
             animate={{ opacity: 1, y: 0 }}
             onClick={() => setActiveCard(isActive(2) ? null : 2)}
-            className={`contact-card animated-silver-bg ${isActive(2) ? 'active' : ''}`}
+            style={{ cursor: 'pointer' }}
           >
-            <p className="contact-address">
-              25, SILAMBU ST,<br />PADMANABHA NAGAR, CHOOLAIMEDU,<br />CHENNAI, TAMIL NADU 600094
-            </p>
+            <GlowCard style={{ padding: '2.5rem' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', height: '100%', minHeight: '160px' }}>
+                <p className="contact-address" style={{ margin: 0 }}>
+                  25, SILAMBU ST,<br />PADMANABHA NAGAR, CHOOLAIMEDU,<br />CHENNAI, TAMIL NADU 600094
+                </p>
+              </div>
+            </GlowCard>
           </motion.div>
 
         </div>

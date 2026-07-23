@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
+import GlowCard from '../components/GlowCard';
 
 const FieldDataIn: React.FC = () => {
   const navigate = useNavigate();
@@ -67,7 +68,7 @@ const FieldDataIn: React.FC = () => {
             color: 'rgba(255,255,255,0.55)', lineHeight: 1.75,
             maxWidth: '680px', margin: 0,
           }}>
-            Every structural assessment begins in the field. OUANTUM replaces clipboards, spreadsheets, and WhatsApp photos with a structured, location-aware mobile intake — built for the pace and conditions of real construction sites.
+            Every structural assessment begins in the field. OUANTUM replaces clipboards, spreadsheets, and WhatsApp photos with a structured, location-aware mobile intake built for the pace and conditions of real construction sites.
           </p>
         </motion.div>
 
@@ -90,7 +91,7 @@ const FieldDataIn: React.FC = () => {
           {[
             {
               label: 'HOW IT STARTS',
-              body: 'The field engineer opens the OUANTUM app on-site — no login delay, no loading. The project hierarchy is already pre-loaded: project → block → floor → structural element. No free-text. Every entry is a structured selection.',
+              body: 'The field engineer opens the OUANTUM app on-site with zero loading delay. The project hierarchy is pre-loaded: project, block, floor, structural element. No free-text. Every entry is a structured selection.',
             },
             {
               label: 'WHAT GETS ENTERED',
@@ -102,7 +103,7 @@ const FieldDataIn: React.FC = () => {
             },
             {
               label: 'ZERO TRANSCRIPTION',
-              body: 'There is no paper form to retype. No WhatsApp photo to decode. No spreadsheet to update. The data entered in the field is the data used in analysis — unmodified, auditable, traceable.',
+              body: 'There is no paper form to retype. No WhatsApp photo to decode. No spreadsheet to update. The data entered in the field is the data used in analysis: unmodified, auditable, traceable.',
             },
           ].map(({ label, body }, i) => (
             <motion.div
@@ -110,25 +111,22 @@ const FieldDataIn: React.FC = () => {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 + i * 0.08 }}
-              style={{
-                border: '1px solid rgba(255,255,255,0.08)',
-                borderRadius: '12px',
-                padding: '2rem',
-              }}
             >
-              <span style={{
-                fontFamily: 'var(--font-mono)', fontSize: '0.65rem',
-                letterSpacing: '0.2em', color: 'rgba(255,255,255,0.3)',
-                display: 'block', marginBottom: '1rem',
-              }}>
-                {label}
-              </span>
-              <p style={{
-                fontFamily: 'var(--font-mono)', fontSize: '0.88rem',
-                color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, margin: 0,
-              }}>
-                {body}
-              </p>
+              <GlowCard borderRadius={12} style={{ padding: '2rem', height: '100%' }}>
+                <span style={{
+                  fontFamily: 'var(--font-mono)', fontSize: '0.65rem',
+                  letterSpacing: '0.2em', color: 'rgba(255,255,255,0.3)',
+                  display: 'block', marginBottom: '1rem',
+                }}>
+                  {label}
+                </span>
+                <p style={{
+                  fontFamily: 'var(--font-mono)', fontSize: '0.88rem',
+                  color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, margin: 0,
+                }}>
+                  {body}
+                </p>
+              </GlowCard>
             </motion.div>
           ))}
         </div>
@@ -139,8 +137,7 @@ const FieldDataIn: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
           style={{
-            display: 'flex', flexWrap: 'wrap', gap: '0',
-            border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', overflow: 'hidden',
+            display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem',
           }}
         >
           {[
@@ -149,12 +146,7 @@ const FieldDataIn: React.FC = () => {
             { stat: 'GPS-tagged', label: 'Every reading' },
             { stat: 'Zero paper', label: 'No transcription ever' },
           ].map(({ stat, label }, i) => (
-            <div key={i} style={{
-              flex: '1 1 200px',
-              padding: '2rem',
-              borderRight: i < 3 ? '1px solid rgba(255,255,255,0.08)' : 'none',
-              textAlign: 'center',
-            }}>
+            <GlowCard key={i} borderRadius={12} style={{ padding: '2rem', textAlign: 'center' }}>
               <div style={{
                 fontFamily: 'var(--font-adieu)', fontSize: '1.8rem',
                 color: '#fff', marginBottom: '0.4rem',
@@ -163,7 +155,7 @@ const FieldDataIn: React.FC = () => {
                 fontFamily: 'var(--font-mono)', fontSize: '0.7rem',
                 color: 'rgba(255,255,255,0.35)', letterSpacing: '0.1em',
               }}>{label}</div>
-            </div>
+            </GlowCard>
           ))}
         </motion.div>
 

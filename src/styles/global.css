@@ -12,6 +12,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none !important;
 }
 
 html {
@@ -63,11 +64,23 @@ ul {
   list-style: none;
 }
 
-button {
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+.btn,
+.button,
+.cta-button,
+.contact-cta-text,
+.hero-cta,
+a.btn,
+a.button,
+a[class*="btn"],
+a[class*="cta"] {
+  font-family: var(--font-adieu) !important;
   background: none;
   border: none;
   cursor: pointer;
-  font-family: inherit;
   color: inherit;
 }
 

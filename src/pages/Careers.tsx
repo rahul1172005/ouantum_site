@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import useSEO from '../hooks/useSEO';
+import GlowCard from '../components/GlowCard';
 
 const BASE_URL = 'https://ouantum.com';
 
@@ -103,279 +104,274 @@ const Careers: React.FC = () => {
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem' }}>
 
-              <article
-                style={{
-                  background: 'rgba(255, 255, 255, 0.02)',
-                  padding: '2rem',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: '20px',
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  gap: '1rem',
-                }}
-              >
-                <div>
-                  <h3
-                    style={{
-                      color: '#fff',
-                      margin: '0 0 0.5rem 0',
-                      fontSize: '1.1rem',
-                      letterSpacing: '0.1em',
-                    }}
-                  >
-                    AI ENGINEER / ML RESEARCHER
-                  </h3>
-                  <p
-                    style={{
-                      color: 'rgba(255, 255, 255, 0.5)',
-                      margin: '0',
-                      fontSize: '0.8rem',
-                      letterSpacing: '0.1em',
-                    }}
-                  >
-                    CHENNAI, IN (HYBRID) · FULL-TIME
-                  </p>
-                </div>
-                <a
-                  href="mailto:contact@ouantum.com?subject=Application: AI Engineer"
-                  style={{
-                    background: '#000000',
-                    border: '1px solid rgba(255, 255, 255, 0.15)',
-                    color: '#ffffff',
-                    textDecoration: 'none',
-                    padding: '0.75rem 1.5rem',
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.8rem',
-                    letterSpacing: '0.1em',
-                    borderRadius: '100px',
-                    transition: 'all 0.3s',
-                  }}
-                  aria-label="Apply for AI Engineer / ML Researcher position at OUANTUM"
-                >
-                  APPLY NOW
-                </a>
+              <article>
+                <GlowCard borderRadius={20} style={{ padding: '2rem' }}>
+                  <div style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    gap: '1rem',
+                    width: '100%',
+                  }}>
+                    <div>
+                      <h3
+                        style={{
+                          color: '#fff',
+                          margin: '0 0 0.5rem 0',
+                          fontSize: '1.1rem',
+                          letterSpacing: '0.1em',
+                        }}
+                      >
+                        AI ENGINEER / ML RESEARCHER
+                      </h3>
+                      <p
+                        style={{
+                          color: 'rgba(255, 255, 255, 0.5)',
+                          margin: '0',
+                          fontSize: '0.8rem',
+                          letterSpacing: '0.1em',
+                        }}
+                      >
+                        CHENNAI, IN (HYBRID) · FULL-TIME
+                      </p>
+                    </div>
+                    <a
+                      href="mailto:contact@ouantum.com?subject=Application: AI Engineer"
+                      style={{
+                        background: '#000000',
+                        border: '1px solid rgba(255, 255, 255, 0.15)',
+                        color: '#ffffff',
+                        textDecoration: 'none',
+                        padding: '0.75rem 1.5rem',
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.8rem',
+                        letterSpacing: '0.1em',
+                        borderRadius: '100px',
+                        transition: 'all 0.3s',
+                      }}
+                      aria-label="Apply for AI Engineer / ML Researcher position at OUANTUM"
+                    >
+                      APPLY NOW
+                    </a>
+                  </div>
+                </GlowCard>
               </article>
 
-              <article
-                style={{
-                  background: 'rgba(255, 255, 255, 0.02)',
-                  padding: '2rem',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: '20px',
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  gap: '1rem',
-                }}
-              >
-                <div>
-                  <h3
-                    style={{
-                      color: '#fff',
-                      margin: '0 0 0.5rem 0',
-                      fontSize: '1.1rem',
-                      letterSpacing: '0.1em',
-                    }}
-                  >
-                    STRUCTURAL AUDIT ENGINEER
-                  </h3>
-                  <p
-                    style={{
-                      color: 'rgba(255, 255, 255, 0.5)',
-                      margin: '0',
-                      fontSize: '0.8rem',
-                      letterSpacing: '0.1em',
-                    }}
-                  >
-                    FIELD/REMOTE · FULL-TIME
-                  </p>
-                </div>
-                <a
-                  href="mailto:contact@ouantum.com?subject=Application: Structural Audit Engineer"
-                  style={{
-                    background: '#000000',
-                    border: '1px solid rgba(255, 255, 255, 0.15)',
-                    color: '#ffffff',
-                    textDecoration: 'none',
-                    padding: '0.75rem 1.5rem',
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.8rem',
-                    letterSpacing: '0.1em',
-                    borderRadius: '100px',
-                    transition: 'all 0.3s',
-                  }}
-                  aria-label="Apply for Structural Audit Engineer position at OUANTUM"
-                >
-                  APPLY NOW
-                </a>
+              <article>
+                <GlowCard borderRadius={20} style={{ padding: '2rem' }}>
+                  <div style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    gap: '1rem',
+                    width: '100%',
+                  }}>
+                    <div>
+                      <h3
+                        style={{
+                          color: '#fff',
+                          margin: '0 0 0.5rem 0',
+                          fontSize: '1.1rem',
+                          letterSpacing: '0.1em',
+                        }}
+                      >
+                        STRUCTURAL AUDIT ENGINEER
+                      </h3>
+                      <p
+                        style={{
+                          color: 'rgba(255, 255, 255, 0.5)',
+                          margin: '0',
+                          fontSize: '0.8rem',
+                          letterSpacing: '0.1em',
+                        }}
+                      >
+                        FIELD/REMOTE · FULL-TIME
+                      </p>
+                    </div>
+                    <a
+                      href="mailto:contact@ouantum.com?subject=Application: Structural Audit Engineer"
+                      style={{
+                        background: '#000000',
+                        border: '1px solid rgba(255, 255, 255, 0.15)',
+                        color: '#ffffff',
+                        textDecoration: 'none',
+                        padding: '0.75rem 1.5rem',
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.8rem',
+                        letterSpacing: '0.1em',
+                        borderRadius: '100px',
+                        transition: 'all 0.3s',
+                      }}
+                      aria-label="Apply for Structural Audit Engineer position at OUANTUM"
+                    >
+                      APPLY NOW
+                    </a>
+                  </div>
+                </GlowCard>
               </article>
 
-              <article
-                style={{
-                  background: 'rgba(255, 255, 255, 0.02)',
-                  padding: '2rem',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: '20px',
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  gap: '1rem',
-                }}
-              >
-                <div>
-                  <h3
-                    style={{
-                      color: '#fff',
-                      margin: '0 0 0.5rem 0',
-                      fontSize: '1.1rem',
-                      letterSpacing: '0.1em',
-                    }}
-                  >
-                    FRONTEND / UI DEVELOPER
-                  </h3>
-                  <p
-                    style={{
-                      color: 'rgba(255, 255, 255, 0.5)',
-                      margin: '0',
-                      fontSize: '0.8rem',
-                      letterSpacing: '0.1em',
-                    }}
-                  >
-                    CHENNAI, IN (HYBRID) · FULL-TIME
-                  </p>
-                </div>
-                <a
-                  href="mailto:contact@ouantum.com?subject=Application: Frontend Developer"
-                  style={{
-                    background: '#000000',
-                    border: '1px solid rgba(255, 255, 255, 0.15)',
-                    color: '#ffffff',
-                    textDecoration: 'none',
-                    padding: '0.75rem 1.5rem',
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.8rem',
-                    letterSpacing: '0.1em',
-                    borderRadius: '100px',
-                    transition: 'all 0.3s',
-                  }}
-                  aria-label="Apply for Frontend / UI Developer position at OUANTUM"
-                >
-                  APPLY NOW
-                </a>
+              <article>
+                <GlowCard borderRadius={20} style={{ padding: '2rem' }}>
+                  <div style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    gap: '1rem',
+                    width: '100%',
+                  }}>
+                    <div>
+                      <h3
+                        style={{
+                          color: '#fff',
+                          margin: '0 0 0.5rem 0',
+                          fontSize: '1.1rem',
+                          letterSpacing: '0.1em',
+                        }}
+                      >
+                        FRONTEND / UI DEVELOPER
+                      </h3>
+                      <p
+                        style={{
+                          color: 'rgba(255, 255, 255, 0.5)',
+                          margin: '0',
+                          fontSize: '0.8rem',
+                          letterSpacing: '0.1em',
+                        }}
+                      >
+                        CHENNAI, IN (HYBRID) · FULL-TIME
+                      </p>
+                    </div>
+                    <a
+                      href="mailto:contact@ouantum.com?subject=Application: Frontend Developer"
+                      style={{
+                        background: '#000000',
+                        border: '1px solid rgba(255, 255, 255, 0.15)',
+                        color: '#ffffff',
+                        textDecoration: 'none',
+                        padding: '0.75rem 1.5rem',
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.8rem',
+                        letterSpacing: '0.1em',
+                        borderRadius: '100px',
+                        transition: 'all 0.3s',
+                      }}
+                      aria-label="Apply for Frontend / UI Developer position at OUANTUM"
+                    >
+                      APPLY NOW
+                    </a>
+                  </div>
+                </GlowCard>
               </article>
 
-              <article
-                style={{
-                  background: 'rgba(255, 255, 255, 0.02)',
-                  padding: '2rem',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: '20px',
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  gap: '1rem',
-                }}
-              >
-                <div>
-                  <h3
-                    style={{
-                      color: '#fff',
-                      margin: '0 0 0.5rem 0',
-                      fontSize: '1.1rem',
-                      letterSpacing: '0.1em',
-                    }}
-                  >
-                    CIVIL ENGINEER
-                  </h3>
-                  <p
-                    style={{
-                      color: 'rgba(255, 255, 255, 0.5)',
-                      margin: '0',
-                      fontSize: '0.8rem',
-                      letterSpacing: '0.1em',
-                    }}
-                  >
-                    CHENNAI, IN (HYBRID/FIELD) · FULL-TIME
-                  </p>
-                </div>
-                <a
-                  href="mailto:contact@ouantum.com?subject=Application: Civil Engineer"
-                  style={{
-                    background: '#000000',
-                    border: '1px solid rgba(255, 255, 255, 0.15)',
-                    color: '#ffffff',
-                    textDecoration: 'none',
-                    padding: '0.75rem 1.5rem',
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.8rem',
-                    letterSpacing: '0.1em',
-                    borderRadius: '100px',
-                    transition: 'all 0.3s',
-                  }}
-                  aria-label="Apply for Civil Engineer position at OUANTUM"
-                >
-                  APPLY NOW
-                </a>
+              <article>
+                <GlowCard borderRadius={20} style={{ padding: '2rem' }}>
+                  <div style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    gap: '1rem',
+                    width: '100%',
+                  }}>
+                    <div>
+                      <h3
+                        style={{
+                          color: '#fff',
+                          margin: '0 0 0.5rem 0',
+                          fontSize: '1.1rem',
+                          letterSpacing: '0.1em',
+                        }}
+                      >
+                        CIVIL ENGINEER
+                      </h3>
+                      <p
+                        style={{
+                          color: 'rgba(255, 255, 255, 0.5)',
+                          margin: '0',
+                          fontSize: '0.8rem',
+                          letterSpacing: '0.1em',
+                        }}
+                      >
+                        CHENNAI, IN (HYBRID/FIELD) · FULL-TIME
+                      </p>
+                    </div>
+                    <a
+                      href="mailto:contact@ouantum.com?subject=Application: Civil Engineer"
+                      style={{
+                        background: '#000000',
+                        border: '1px solid rgba(255, 255, 255, 0.15)',
+                        color: '#ffffff',
+                        textDecoration: 'none',
+                        padding: '0.75rem 1.5rem',
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.8rem',
+                        letterSpacing: '0.1em',
+                        borderRadius: '100px',
+                        transition: 'all 0.3s',
+                      }}
+                      aria-label="Apply for Civil Engineer position at OUANTUM"
+                    >
+                      APPLY NOW
+                    </a>
+                  </div>
+                </GlowCard>
               </article>
 
-              <article
-                style={{
-                  background: 'rgba(255, 255, 255, 0.02)',
-                  padding: '2rem',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: '20px',
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  gap: '1rem',
-                }}
-              >
-                <div>
-                  <h3
-                    style={{
-                      color: '#fff',
-                      margin: '0 0 0.5rem 0',
-                      fontSize: '1.1rem',
-                      letterSpacing: '0.1em',
-                    }}
-                  >
-                    DEVOPS ENGINEER
-                  </h3>
-                  <p
-                    style={{
-                      color: 'rgba(255, 255, 255, 0.5)',
-                      margin: '0',
-                      fontSize: '0.8rem',
-                      letterSpacing: '0.1em',
-                    }}
-                  >
-                    REMOTE (INDIA) · FULL-TIME
-                  </p>
-                </div>
-                <a
-                  href="mailto:contact@ouantum.com?subject=Application: DevOps Engineer"
-                  style={{
-                    background: '#000000',
-                    border: '1px solid rgba(255, 255, 255, 0.15)',
-                    color: '#ffffff',
-                    textDecoration: 'none',
-                    padding: '0.75rem 1.5rem',
-                    fontFamily: 'var(--font-mono)',
-                    fontSize: '0.8rem',
-                    letterSpacing: '0.1em',
-                    borderRadius: '100px',
-                    transition: 'all 0.3s',
-                  }}
-                  aria-label="Apply for DevOps Engineer position at OUANTUM"
-                >
-                  APPLY NOW
-                </a>
+              <article>
+                <GlowCard borderRadius={20} style={{ padding: '2rem' }}>
+                  <div style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    gap: '1rem',
+                    width: '100%',
+                  }}>
+                    <div>
+                      <h3
+                        style={{
+                          color: '#fff',
+                          margin: '0 0 0.5rem 0',
+                          fontSize: '1.1rem',
+                          letterSpacing: '0.1em',
+                        }}
+                      >
+                        DEVOPS ENGINEER
+                      </h3>
+                      <p
+                        style={{
+                          color: 'rgba(255, 255, 255, 0.5)',
+                          margin: '0',
+                          fontSize: '0.8rem',
+                          letterSpacing: '0.1em',
+                        }}
+                      >
+                        REMOTE (INDIA) · FULL-TIME
+                      </p>
+                    </div>
+                    <a
+                      href="mailto:contact@ouantum.com?subject=Application: DevOps Engineer"
+                      style={{
+                        background: '#000000',
+                        border: '1px solid rgba(255, 255, 255, 0.15)',
+                        color: '#ffffff',
+                        textDecoration: 'none',
+                        padding: '0.75rem 1.5rem',
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.8rem',
+                        letterSpacing: '0.1em',
+                        borderRadius: '100px',
+                        transition: 'all 0.3s',
+                      }}
+                      aria-label="Apply for DevOps Engineer position at OUANTUM"
+                    >
+                      APPLY NOW
+                    </a>
+                  </div>
+                </GlowCard>
               </article>
 
             </div>

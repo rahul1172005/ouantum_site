@@ -130,7 +130,7 @@ const LoaderOverlay: React.FC<LoaderOverlayProps> = ({ forceShow }) => {
     <>
       <style>{`
         .loader-logo-text {
-          font-family: var(--font-adieu);
+          font-family: 'Adieu', var(--font-adieu), sans-serif;
           font-weight: 400;
           font-size: 4rem;
           letter-spacing: -0.02em;
@@ -144,7 +144,8 @@ const LoaderOverlay: React.FC<LoaderOverlayProps> = ({ forceShow }) => {
         }
         @media (max-width: 768px) {
           .loader-logo-text {
-            font-size: 2.5rem;
+            font-size: 4rem;
+            letter-spacing: -0.02em;
           }
         }
         @media (min-width: 768px) {

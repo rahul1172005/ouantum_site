@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { blogPosts, CATEGORIES, type Category } from '../data/blogPosts';
 import useSEO from '../hooks/useSEO';
+import GlowCard from '../components/GlowCard';
 
 const BASE_URL = 'https://ouantum.com';
 
@@ -190,129 +191,120 @@ const Blog: React.FC = () => {
               }}
             >
               {filteredPosts.map((post, idx) => {
-                const catColor = CATEGORY_COLORS[post.category] ?? '#000000';
                 return (
-                  <article key={post.slug} aria-label={post.title}>
+                  <article key={post.slug} aria-label={post.title} style={{ height: '100%' }}>
                     <motion.div
                       initial={{ opacity: 0, y: 24 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: idx * 0.06 }}
                       style={{
-                        borderRadius: '20px',
-                        border: '1px solid rgba(255, 255, 255, 0.1)',
-                        background: 'rgba(0, 0, 0, 0.02)',
-                        overflow: 'hidden',
-                        display: 'flex',
-                        flexDirection: 'column',
                         height: '100%',
-                        transition: 'border-color 0.25s ease, transform 0.25s ease',
+                        transition: 'transform 0.25s ease',
                       }}
                       onMouseOver={(e) => {
-                        const el = e.currentTarget as HTMLElement;
-                        el.style.borderColor = `${catColor}35`;
-                        el.style.transform = 'translateY(-4px)';
+                        (e.currentTarget as HTMLElement).style.transform = 'translateY(-4px)';
                       }}
                       onMouseOut={(e) => {
-                        const el = e.currentTarget as HTMLElement;
-                        el.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                        el.style.transform = 'translateY(0)';
+                        (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
                       }}
                     >
-                      <div style={{ height: '200px', width: '100%', overflow: 'hidden' }}>
-                        <img
-                          src={post.coverImage}
-                          alt={post.coverImageAlt}
-                          style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                        />
-                      </div>
-                      <div
-                        style={{
-                          padding: '1.5rem 2rem 2rem',
-                          display: 'flex',
-                          flexDirection: 'column',
-                          flex: 1,
-                        }}
-                      >
-                        {/* Title */}
-                        <h2
-                          className="blog-card-title"
-                          style={{
-                            fontFamily: 'var(--font-adieu)',
-                            fontSize: '1.25rem',
-                            lineHeight: 1.3,
-                            color: '#fff',
-                            marginBottom: '1rem',
-                            fontWeight: 400,
-                          }}
-                        >
-                          {post.title}
-                        </h2>
-
-                        {/* Excerpt */}
-                        <p
-                          className="blog-card-excerpt"
-                          style={{
-                            fontFamily: 'var(--font-mono)',
-                            fontSize: '0.88rem !important',
-                            lineHeight: '1.6 !important',
-                            color: 'rgba(255, 255, 255, 0.6)',
-                            marginBottom: '1.75rem',
-                            flex: 1,
-                            display: '-webkit-box',
-                            WebkitLineClamp: 3,
-                            WebkitBoxOrient: 'vertical',
-                            overflow: 'hidden',
-                          }}
-                        >
-                          {post.excerpt}
-                        </p>
-
-                        {/* Footer row */}
+                      <GlowCard borderRadius={20} style={{ padding: 0 }}>
+                        <div style={{ height: '200px', width: '100%', overflow: 'hidden' }}>
+                          <img
+                            src={post.coverImage}
+                            alt={post.coverImageAlt}
+                            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                          />
+                        </div>
                         <div
                           style={{
+                            padding: '1.5rem 2rem 2rem',
                             display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center',
-                            borderTop: '1px solid rgba(0, 0, 0, 0.07)',
-                            paddingTop: '1.25rem',
-                            gap: '0.75rem',
-                            flexWrap: 'wrap',
+                            flexDirection: 'column',
+                            flex: 1,
                           }}
                         >
-                          <span
+                          {/* Title */}
+                          <h2
+                            className="blog-card-title"
                             style={{
-                              fontFamily: 'var(--font-mono)',
-                              fontSize: '0.65rem',
-                              color: 'rgba(255, 255, 255, 0.35)',
-                              textTransform: 'uppercase',
-                              letterSpacing: '0.05em',
-                            }}
-                          >
-                            BY {post.author}
-                          </span>
-                          <Link
-                            to={`/blog/${post.slug}`}
-                            style={{
-                              display: 'inline-flex',
-                              alignItems: 'center',
-                              gap: '0.4rem',
+                              fontFamily: 'var(--font-adieu)',
+                              fontSize: '1.25rem',
+                              lineHeight: 1.3,
                               color: '#fff',
-                              fontFamily: 'var(--font-mono)',
-                              fontSize: '0.72rem',
-                              letterSpacing: '0.1em',
-                              textDecoration: 'none',
-                              fontWeight: 600,
-                              opacity: 0.9,
-                              transition: 'opacity 0.2s',
+                              marginBottom: '1rem',
+                              fontWeight: 400,
                             }}
-                            onMouseOver={(e) => (e.currentTarget.style.opacity = '1')}
-                            onMouseOut={(e) => (e.currentTarget.style.opacity = '0.9')}
-                            aria-label={`Read full article: ${post.title}`}
                           >
-                            READ MORE <ArrowUpRight size={13} aria-hidden="true" />
-                          </Link>
+                            {post.title}
+                          </h2>
+
+                          {/* Excerpt */}
+                          <p
+                            className="blog-card-excerpt"
+                            style={{
+                              fontFamily: 'var(--font-mono)',
+                              fontSize: '0.88rem',
+                              lineHeight: 1.6,
+                              color: 'rgba(255, 255, 255, 0.6)',
+                              marginBottom: '1.75rem',
+                              flex: 1,
+                              display: '-webkit-box',
+                              WebkitLineClamp: 3,
+                              WebkitBoxOrient: 'vertical',
+                              overflow: 'hidden',
+                            }}
+                          >
+                            {post.excerpt}
+                          </p>
+
+                          {/* Footer row */}
+                          <div
+                            style={{
+                              display: 'flex',
+                              justifyContent: 'space-between',
+                              alignItems: 'center',
+                              borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+                              paddingTop: '1.25rem',
+                              gap: '0.75rem',
+                              flexWrap: 'wrap',
+                            }}
+                          >
+                            <span
+                              style={{
+                                fontFamily: 'var(--font-mono)',
+                                fontSize: '0.65rem',
+                                color: 'rgba(255, 255, 255, 0.35)',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.05em',
+                              }}
+                            >
+                              BY {post.author}
+                            </span>
+                            <Link
+                              to={`/blog/${post.slug}`}
+                              style={{
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                gap: '0.4rem',
+                                color: '#fff',
+                                fontFamily: 'var(--font-mono)',
+                                fontSize: '0.72rem',
+                                letterSpacing: '0.1em',
+                                textDecoration: 'none',
+                                fontWeight: 600,
+                                opacity: 0.9,
+                                transition: 'opacity 0.2s',
+                              }}
+                              onMouseOver={(e) => (e.currentTarget.style.opacity = '1')}
+                              onMouseOut={(e) => (e.currentTarget.style.opacity = '0.9')}
+                              aria-label={`Read full article: ${post.title}`}
+                            >
+                              READ MORE <ArrowUpRight size={13} aria-hidden="true" />
+                            </Link>
+                          </div>
                         </div>
-                      </div>
+                      </GlowCard>
                     </motion.div>
                   </article>
                 );

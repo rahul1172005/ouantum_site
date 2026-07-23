@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft } from 'lucide-react';
+import GlowCard from '../components/GlowCard';
 
 const ReportOut: React.FC = () => {
   const navigate = useNavigate();
@@ -52,7 +53,7 @@ const ReportOut: React.FC = () => {
             letterSpacing: '0.25em', color: 'rgba(255,255,255,0.3)',
             display: 'block', marginBottom: '1rem',
           }}>
-            STEP 03 · GOVERNMENT-FORMAT · SAME DAY
+            STEP 03 · GOVERNMENT FORMAT · SAME DAY
           </span>
           <h1 style={{
             fontFamily: 'var(--font-adieu)',
@@ -67,7 +68,7 @@ const ReportOut: React.FC = () => {
             color: 'rgba(255,255,255,0.55)', lineHeight: 1.75,
             maxWidth: '680px', margin: 0,
           }}>
-            Once analysis is complete, OUANTUM auto-generates the full government-format PDF — element findings, IS code compliance status, condition grading, and remediation recommendations. Ready for senior engineer review within the hour.
+            Once analysis is complete, OUANTUM auto-generates the full government-format PDF: element findings, IS code compliance status, condition grading, and remediation recommendations. Ready for senior engineer review within the hour.
           </p>
         </motion.div>
 
@@ -90,15 +91,15 @@ const ReportOut: React.FC = () => {
           {[
             {
               label: 'WHAT THE REPORT CONTAINS',
-              body: 'Each report includes: element-level test findings, calculated concrete strength values with confidence ranges, carbonation depth and chloride penetration status, IS code compliance verdict, condition grading (A–E), and specific remediation recommendations per element.',
+              body: 'Each report includes: element level test findings, calculated concrete strength values with confidence ranges, carbonation depth and chloride penetration status, IS code compliance verdict, condition grading (A to E), and specific remediation recommendations per element.',
             },
             {
-              label: 'GOVERNMENT-FORMAT OUTPUT',
+              label: 'GOVERNMENT FORMAT OUTPUT',
               body: 'Reports are auto-formatted to match the submission standard required by the relevant authority. Amaravati Capital Region format, TNHB format, and ADB infrastructure assessment format are auto-selected based on the project jurisdiction.',
             },
             {
-              label: 'DIGITAL SIGN-OFF',
-              body: 'The senior engineer receives the report in their OUANTUM dashboard for review. They can annotate, adjust recommendations, and apply their digital signature — all within the platform. The signed PDF is then ready for submission.',
+              label: 'DIGITAL SIGN OFF',
+              body: 'The senior engineer receives the report in their OUANTUM dashboard for review. They can annotate, adjust recommendations, and apply their digital signature, all within the platform. The signed PDF is then ready for submission.',
             },
             {
               label: 'SAME DAY DELIVERY',
@@ -110,25 +111,22 @@ const ReportOut: React.FC = () => {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 + i * 0.08 }}
-              style={{
-                border: '1px solid rgba(255,255,255,0.08)',
-                borderRadius: '12px',
-                padding: '2rem',
-              }}
             >
-              <span style={{
-                fontFamily: 'var(--font-mono)', fontSize: '0.65rem',
-                letterSpacing: '0.2em', color: 'rgba(255,255,255,0.3)',
-                display: 'block', marginBottom: '1rem',
-              }}>
-                {label}
-              </span>
-              <p style={{
-                fontFamily: 'var(--font-mono)', fontSize: '0.88rem',
-                color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, margin: 0,
-              }}>
-                {body}
-              </p>
+              <GlowCard borderRadius={12} style={{ padding: '2rem', height: '100%' }}>
+                <span style={{
+                  fontFamily: 'var(--font-mono)', fontSize: '0.65rem',
+                  letterSpacing: '0.2em', color: 'rgba(255,255,255,0.3)',
+                  display: 'block', marginBottom: '1rem',
+                }}>
+                  {label}
+                </span>
+                <p style={{
+                  fontFamily: 'var(--font-mono)', fontSize: '0.88rem',
+                  color: 'rgba(255,255,255,0.65)', lineHeight: 1.75, margin: 0,
+                }}>
+                  {body}
+                </p>
+              </GlowCard>
             </motion.div>
           ))}
         </div>
@@ -139,8 +137,7 @@ const ReportOut: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
           style={{
-            display: 'flex', flexWrap: 'wrap', gap: '0',
-            border: '1px solid rgba(255,255,255,0.08)', borderRadius: '12px', overflow: 'hidden',
+            display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem',
           }}
         >
           {[
@@ -149,12 +146,7 @@ const ReportOut: React.FC = () => {
             { stat: 'IS 456', label: 'Compliance grading standard' },
             { stat: 'Digitally signed', label: 'Ready for submission' },
           ].map(({ stat, label }, i) => (
-            <div key={i} style={{
-              flex: '1 1 200px',
-              padding: '2rem',
-              borderRight: i < 3 ? '1px solid rgba(255,255,255,0.08)' : 'none',
-              textAlign: 'center',
-            }}>
+            <GlowCard key={i} borderRadius={12} style={{ padding: '2rem', textAlign: 'center' }}>
               <div style={{
                 fontFamily: 'var(--font-adieu)', fontSize: '1.8rem',
                 color: '#fff', marginBottom: '0.4rem',
@@ -163,7 +155,7 @@ const ReportOut: React.FC = () => {
                 fontFamily: 'var(--font-mono)', fontSize: '0.7rem',
                 color: 'rgba(255,255,255,0.35)', letterSpacing: '0.1em',
               }}>{label}</div>
-            </div>
+            </GlowCard>
           ))}
         </motion.div>
 

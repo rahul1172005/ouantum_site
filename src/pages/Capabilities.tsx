@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import useSEO from '../hooks/useSEO';
+import GlowCard from '../components/GlowCard';
 
 const BASE_URL = 'https://ouantum.com';
 
@@ -177,43 +178,35 @@ const Capabilities: React.FC = () => {
               }}
             >
               {coreModules.map((module, i) => (
-                <div
-                  key={i}
-                  className="animated-silver-bg"
-                  style={{
-                    padding: '2.5rem',
-                    borderRadius: '20px',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    justifyContent: 'space-between',
-                    minHeight: '340px',
-                  }}
-                >
-                  <div>
-                    <span style={{ fontSize: '0.7rem', color: '#b0b0b0', letterSpacing: '0.15em', display: 'block', marginBottom: '0.5rem' }}>
-                      {module.subtitle}
-                    </span>
-                    <h3 style={{ fontFamily: 'var(--font-adieu)', color: '#fff', fontSize: '1.25rem', marginBottom: '1.25rem', marginTop: '0.5rem' }}>
-                      {module.title}
-                    </h3>
-                    <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', lineHeight: '1.6' }}>
-                      {module.description}
-                    </p>
-                  </div>
-                  <Link
-                    to={module.path}
-                    style={{
-                      fontFamily: 'var(--font-adieu)',
-                      fontSize: '0.75rem',
-                      color: '#fff',
-                      textDecoration: 'underline',
-                      marginTop: '2rem',
-                      display: 'inline-block',
-                    }}
-                  >
-                    EXPLORE ENGINE →
-                  </Link>
+                <div key={i} style={{ minHeight: '340px' }}>
+                  <GlowCard style={{ padding: '2.5rem' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}>
+                      <div>
+                        <span style={{ fontSize: '0.7rem', color: '#b0b0b0', letterSpacing: '0.15em', display: 'block', marginBottom: '0.5rem' }}>
+                          {module.subtitle}
+                        </span>
+                        <h3 style={{ fontFamily: 'var(--font-adieu)', color: '#fff', fontSize: '1.25rem', marginBottom: '1.25rem', marginTop: '0.5rem' }}>
+                          {module.title}
+                        </h3>
+                        <p style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', lineHeight: '1.6' }}>
+                          {module.description}
+                        </p>
+                      </div>
+                      <Link
+                        to={module.path}
+                        style={{
+                          fontFamily: 'var(--font-adieu)',
+                          fontSize: '0.75rem',
+                          color: '#fff',
+                          textDecoration: 'none',
+                          marginTop: '2rem',
+                          display: 'inline-block',
+                        }}
+                      >
+                        EXPLORE ENGINE →
+                      </Link>
+                    </div>
+                  </GlowCard>
                 </div>
               ))}
             </div>

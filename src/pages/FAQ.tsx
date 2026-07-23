@@ -292,8 +292,8 @@ const AccordionItem: React.FC<AccordionItemProps> = ({ item, isOpen, onToggle, a
         <span
           style={{
             fontFamily: 'var(--font-adieu)',
-            fontSize: 'clamp(0.95rem, 2vw, 1.15rem)',
-            lineHeight: 1.35,
+            fontSize: 'clamp(1.1rem, 2.2vw, 1.35rem)',
+            lineHeight: 1.4,
             color: isOpen ? accentColor : 'rgba(255, 255, 255, 0.85)',
             fontWeight: 400,
             transition: 'color 0.2s ease',
@@ -419,13 +419,9 @@ const FAQ: React.FC = () => {
             </motion.div>
             <motion.div className="hero-right-content hero-right">
               <h1
+                className="section-title"
                 style={{
-                  fontFamily: 'var(--font-adieu)',
-                  fontSize: 'clamp(2.5rem, 6vw, 4.5rem)',
-                  lineHeight: 1.1,
                   marginBottom: '2rem',
-                  textTransform: 'none',
-                  color: '#ffffff',
                 }}
               >
                 Frequently<br />Asked Questions
@@ -479,13 +475,9 @@ const FAQ: React.FC = () => {
               >
                 <h2
                   id={`faq-heading-${sectionIdx}`}
+                  className="section-title"
                   style={{
-                    fontFamily: 'var(--font-adieu)',
-                    fontSize: 'clamp(1.25rem, 3vw, 1.75rem)',
-                    color: '#fff',
-                    fontWeight: 400,
-                    textTransform: 'none',
-                    letterSpacing: '-0.01em',
+                    marginBottom: '0.5rem',
                   }}
                 >
                   {section.title}

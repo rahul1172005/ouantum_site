@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import ScrollReveal from '@/components/common/ScrollReveal';
+import GlowCard from '@/components/GlowCard';
 
 const stats = [
   {
@@ -98,193 +99,174 @@ const Problem = () => {
           {/* Top Wide Card (Stat 01) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0 }}
             style={{
               gridColumn: '1 / -1',
-              backgroundColor: 'rgba(255, 255, 255, 0.03)',
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              borderRadius: '24px',
-              padding: 'clamp(2rem, 4vw, 3.5rem)',
-              position: 'relative',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              gap: '2rem',
-              flexWrap: 'wrap',
               transition: 'all 0.3s ease',
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255, 255, 255, 0.25)';
               (e.currentTarget as HTMLElement).style.transform = 'translateY(-4px)';
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255, 255, 255, 0.12)';
               (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
             }}
           >
-            <div>
-              <span style={{
-                fontFamily: 'var(--font-adieu)',
-                fontSize: 'clamp(2.5rem, 6vw, 4rem)',
-                fontWeight: 400,
-                lineHeight: 0.9,
-                color: '#fff',
-                display: 'block',
+            <GlowCard style={{ padding: 'clamp(2rem, 4vw, 3.5rem)' }}>
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: '2rem',
+                flexWrap: 'wrap',
+                width: '100%',
               }}>
-                {stats[0].value}
-              </span>
-              <span style={{
-                fontFamily: 'var(--font-adieu)',
-                fontSize: '0.8rem',
-                fontWeight: 'bold',
-                letterSpacing: '0.15em',
-                color: 'rgba(255, 255, 255, 0.5)',
-                textTransform: 'uppercase',
-                display: 'block',
-                marginTop: '0.5rem',
-              }}>
-                {stats[0].unit}
-              </span>
-            </div>
+                <div>
+                  <span style={{
+                    fontFamily: 'var(--font-adieu)',
+                    fontSize: 'clamp(2.5rem, 6vw, 4rem)',
+                    fontWeight: 400,
+                    lineHeight: 0.9,
+                    color: '#fff',
+                    display: 'block',
+                  }}>
+                    {stats[0].value}
+                  </span>
+                  <span style={{
+                    fontFamily: 'var(--font-adieu)',
+                    fontSize: '0.8rem',
+                    fontWeight: 'bold',
+                    letterSpacing: '0.15em',
+                    color: 'rgba(255, 255, 255, 0.5)',
+                    textTransform: 'uppercase',
+                    display: 'block',
+                    marginTop: '0.5rem',
+                  }}>
+                    {stats[0].unit}
+                  </span>
+                </div>
 
-            <p style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)',
-              color: 'rgba(255, 255, 255, 0.75)',
-              lineHeight: 1.6,
-              margin: 0,
-              maxWidth: '420px',
-            }}>
-              {stats[0].label}
-            </p>
+                <p style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)',
+                  color: 'rgba(255, 255, 255, 0.75)',
+                  lineHeight: 1.6,
+                  margin: 0,
+                  maxWidth: '420px',
+                }}>
+                  {stats[0].label}
+                </p>
+              </div>
+            </GlowCard>
           </motion.div>
 
           {/* Bottom Card 1 (Stat 02) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.12 }}
             style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.03)',
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              borderRadius: '24px',
-              padding: 'clamp(2rem, 4vw, 3rem)',
-              position: 'relative',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              minHeight: '260px',
               transition: 'all 0.3s ease',
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255, 255, 255, 0.25)';
               (e.currentTarget as HTMLElement).style.transform = 'translateY(-4px)';
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255, 255, 255, 0.12)';
               (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
             }}
           >
-            <div>
-              <span style={{
-                fontFamily: 'var(--font-adieu)',
-                fontSize: 'clamp(2.2rem, 5vw, 3.2rem)',
-                fontWeight: 400,
-                lineHeight: 0.9,
-                color: '#fff',
-                display: 'block',
-              }}>
-                {stats[1].value}
-              </span>
-              <span style={{
-                fontFamily: 'var(--font-adieu)',
-                fontSize: '0.75rem',
-                fontWeight: 'bold',
-                letterSpacing: '0.15em',
-                color: 'rgba(255, 255, 255, 0.5)',
-                textTransform: 'uppercase',
-                display: 'block',
-                marginTop: '0.5rem',
-              }}>
-                {stats[1].unit}
-              </span>
-            </div>
+            <GlowCard style={{ padding: 'clamp(2rem, 4vw, 3rem)', minHeight: '260px' }}>
+              <div>
+                <span style={{
+                  fontFamily: 'var(--font-adieu)',
+                  fontSize: 'clamp(2.2rem, 5vw, 3.2rem)',
+                  fontWeight: 400,
+                  lineHeight: 0.9,
+                  color: '#fff',
+                  display: 'block',
+                }}>
+                  {stats[1].value}
+                </span>
+                <span style={{
+                  fontFamily: 'var(--font-adieu)',
+                  fontSize: '0.75rem',
+                  fontWeight: 'bold',
+                  letterSpacing: '0.15em',
+                  color: 'rgba(255, 255, 255, 0.5)',
+                  textTransform: 'uppercase',
+                  display: 'block',
+                  marginTop: '0.5rem',
+                }}>
+                  {stats[1].unit}
+                </span>
+              </div>
 
-            <p style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.85rem',
-              color: 'rgba(255, 255, 255, 0.65)',
-              lineHeight: 1.6,
-              margin: '1.5rem 0 0 0',
-            }}>
-              {stats[1].label}
-            </p>
+              <p style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.85rem',
+                color: 'rgba(255, 255, 255, 0.65)',
+                lineHeight: 1.6,
+                margin: '1.5rem 0 0 0',
+              }}>
+                {stats[1].label}
+              </p>
+            </GlowCard>
           </motion.div>
 
           {/* Bottom Card 2 (Stat 03) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.24 }}
             style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.03)',
-              border: '1px solid rgba(255, 255, 255, 0.12)',
-              borderRadius: '24px',
-              padding: 'clamp(2rem, 4vw, 3rem)',
-              position: 'relative',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-              minHeight: '260px',
               transition: 'all 0.3s ease',
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255, 255, 255, 0.25)';
               (e.currentTarget as HTMLElement).style.transform = 'translateY(-4px)';
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.borderColor = 'rgba(255, 255, 255, 0.12)';
               (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
             }}
           >
-            <div>
-              <span style={{
-                fontFamily: 'var(--font-adieu)',
-                fontSize: 'clamp(2.2rem, 5vw, 3.2rem)',
-                fontWeight: 400,
-                lineHeight: 0.9,
-                color: '#fff',
-                display: 'block',
-              }}>
-                {stats[2].value}
-              </span>
-              <span style={{
-                fontFamily: 'var(--font-adieu)',
-                fontSize: '0.75rem',
-                fontWeight: 'bold',
-                letterSpacing: '0.15em',
-                color: 'rgba(255, 255, 255, 0.5)',
-                textTransform: 'uppercase',
-                display: 'block',
-                marginTop: '0.5rem',
-              }}>
-                {stats[2].unit}
-              </span>
-            </div>
+            <GlowCard style={{ padding: 'clamp(2rem, 4vw, 3rem)', minHeight: '260px' }}>
+              <div>
+                <span style={{
+                  fontFamily: 'var(--font-adieu)',
+                  fontSize: 'clamp(2.2rem, 5vw, 3.2rem)',
+                  fontWeight: 400,
+                  lineHeight: 0.9,
+                  color: '#fff',
+                  display: 'block',
+                }}>
+                  {stats[2].value}
+                </span>
+                <span style={{
+                  fontFamily: 'var(--font-adieu)',
+                  fontSize: '0.75rem',
+                  fontWeight: 'bold',
+                  letterSpacing: '0.15em',
+                  color: 'rgba(255, 255, 255, 0.5)',
+                  textTransform: 'uppercase',
+                  display: 'block',
+                  marginTop: '0.5rem',
+                }}>
+                  {stats[2].unit}
+                </span>
+              </div>
 
-            <p style={{
-              fontFamily: 'var(--font-mono)',
-              fontSize: '0.85rem',
-              color: 'rgba(255, 255, 255, 0.65)',
-              lineHeight: 1.6,
-              margin: '1.5rem 0 0 0',
-            }}>
-              {stats[2].label}
-            </p>
+              <p style={{
+                fontFamily: 'var(--font-mono)',
+                fontSize: '0.85rem',
+                color: 'rgba(255, 255, 255, 0.65)',
+                lineHeight: 1.6,
+                margin: '1.5rem 0 0 0',
+              }}>
+                {stats[2].label}
+              </p>
+            </GlowCard>
           </motion.div>
         </div>
 

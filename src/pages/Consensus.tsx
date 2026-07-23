@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, BookOpen, ShieldCheck, CheckCircle2, ChevronRight, MapPin } from 'lucide-react';
 import useSEO from '../hooks/useSEO';
+import GlowCard from '../components/GlowCard';
 
 const Consensus: React.FC = () => {
   const navigate = useNavigate();
@@ -91,7 +92,7 @@ const Consensus: React.FC = () => {
               lineHeight: 1.65,
               maxWidth: '800px',
             }}>
-              Triple-Validation AI Consensus Engine for Structural Integrity Decisions
+              Triple Validation AI Consensus Engine for Structural Integrity Decisions
             </p>
           </motion.div>
         </div>
@@ -129,57 +130,59 @@ const Consensus: React.FC = () => {
 
           {/* Grid: Standards & Benefits */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2.5rem' }}>
-            <motion.section
+            <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              style={{ border: '1px solid rgba(255, 255, 255, 0.08)', background: 'rgba(0, 0, 0, 0.01)', borderRadius: '16px', padding: '2rem' }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
-                <BookOpen size={20} color="#ffffff" />
-                <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.9rem', margin: 0, letterSpacing: '0.05em' }}>IS CODE STANDARDS</h3>
-              </div>
-              <ul style={{ padding: 0, margin: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                  <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
-                  <span>IS 456 (Section 4): Structural design and durability safety factors.</span>
-                </li>
-                <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                  <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
-                  <span>IS 13311: Correlation of NDT values and structural loading safety margins.</span>
-                </li>
-                <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                  <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
-                  <span>ISO 9001 (Section 8.2.4): Monitoring and measurement of product compliance.</span>
-                </li>
-              </ul>
-            </motion.section>
+              <GlowCard borderRadius={16} style={{ padding: '2rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
+                  <BookOpen size={20} color="#ffffff" />
+                  <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.9rem', margin: 0, letterSpacing: '0.05em' }}>IS CODE STANDARDS</h3>
+                </div>
+                <ul style={{ padding: 0, margin: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                    <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <span>IS 456 (Section 4): Structural design and durability safety factors.</span>
+                  </li>
+                  <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                    <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <span>IS 13311: Correlation of NDT values and structural loading safety margins.</span>
+                  </li>
+                  <li style={{ fontFamily: 'var(--font-mono)', fontSize: '0.85rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.65)', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                    <ChevronRight size={14} style={{ marginTop: '3px', flexShrink: 0 }} />
+                    <span>ISO 9001 (Section 8.2.4): Monitoring and measurement of product compliance.</span>
+                  </li>
+                </ul>
+              </GlowCard>
+            </motion.div>
 
-            <motion.section
+            <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              style={{ border: '1px solid rgba(255, 255, 255, 0.08)', background: 'rgba(0, 0, 0, 0.01)', borderRadius: '16px', padding: '2rem' }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
-                <ShieldCheck size={20} color="#ffffff" />
-                <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.9rem', margin: 0, letterSpacing: '0.05em' }}>KEY BENEFITS</h3>
-              </div>
-              <ul style={{ padding: 0, margin: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
-                  <span>Virtually eliminates false-positive failures due to minor sensor noise or calibration drift.</span>
-                </li>
-                <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
-                  <span>Ensures senior engineers only review critical discrepancies where models disagree.</span>
-                </li>
-                <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-                  <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
-                  <span>Provides clear explainability logs for every decision, citing code references and safety margins.</span>
-                </li>
-              </ul>
-            </motion.section>
+              <GlowCard borderRadius={16} style={{ padding: '2rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '1.5rem' }}>
+                  <ShieldCheck size={20} color="#ffffff" />
+                  <h3 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.9rem', margin: 0, letterSpacing: '0.05em' }}>KEY BENEFITS</h3>
+                </div>
+                <ul style={{ padding: 0, margin: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                    <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
+                    <span>Virtually eliminates false-positive failures due to minor sensor noise or calibration drift.</span>
+                  </li>
+                  <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                    <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
+                    <span>Ensures senior engineers only review critical discrepancies where models disagree.</span>
+                  </li>
+                  <li style={{ fontSize: '0.9rem', lineHeight: 1.5, color: 'rgba(255, 255, 255, 0.75)', display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                    <CheckCircle2 size={16} color="#ffffff" style={{ marginTop: '2px', flexShrink: 0 }} />
+                    <span>Provides clear explainability logs for every decision, citing code references and safety margins.</span>
+                  </li>
+                </ul>
+              </GlowCard>
+            </motion.div>
           </div>
 
           {/* Process Flow */}
@@ -190,27 +193,33 @@ const Consensus: React.FC = () => {
           >
             <h2 style={{ fontFamily: 'var(--font-adieu)', fontSize: '1.25rem', marginBottom: '2rem', borderBottom: '1px solid rgba(255, 255, 255, 0.1)', paddingBottom: '0.5rem' }}>PIPELINE FLOW</h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-              <div style={{ display: 'flex', gap: '24px', padding: '1.5rem', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', background: '#000000' }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>01</div>
-                <div>
-                  <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>Model A Analysis: IS Code Specialist</h4>
-                  <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Reviews data strictly against deterministic code requirements and physical threshold values defined by Bureau of Indian Standards.</p>
+              <GlowCard borderRadius={12} style={{ padding: '1.5rem' }}>
+                <div style={{ display: 'flex', gap: '24px' }}>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>01</div>
+                  <div>
+                    <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>Model A Analysis: IS Code Specialist</h4>
+                    <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Reviews data strictly against deterministic code requirements and physical threshold values defined by Bureau of Indian Standards.</p>
+                  </div>
                 </div>
-              </div>
-              <div style={{ display: 'flex', gap: '24px', padding: '1.5rem', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', background: '#000000' }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>02</div>
-                <div>
-                  <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>Model B Analysis: Structural Safety Analyst</h4>
-                  <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Evaluates the reading relative to structural safety margins, surrounding load-bearing concrete zones, and failure mode risks.</p>
+              </GlowCard>
+              <GlowCard borderRadius={12} style={{ padding: '1.5rem' }}>
+                <div style={{ display: 'flex', gap: '24px' }}>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>02</div>
+                  <div>
+                    <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>Model B Analysis: Structural Safety Analyst</h4>
+                    <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Evaluates the reading relative to structural safety margins, surrounding load bearing concrete zones, and failure mode risks.</p>
+                  </div>
                 </div>
-              </div>
-              <div style={{ display: 'flex', gap: '24px', padding: '1.5rem', border: '1px solid rgba(255, 255, 255, 0.08)', borderRadius: '12px', background: '#000000' }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>03</div>
-                <div>
-                  <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>Model C Analysis: Pattern Intelligence</h4>
-                  <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Cross-references current test readings with historical trends from the same material supplier, contractor team, and batch history.</p>
+              </GlowCard>
+              <GlowCard borderRadius={12} style={{ padding: '1.5rem' }}>
+                <div style={{ display: 'flex', gap: '24px' }}>
+                  <div style={{ fontFamily: 'var(--font-mono)', fontSize: '1.25rem', fontWeight: 'bold', color: 'rgba(255, 255, 255, 0.25)', width: '40px', flexShrink: 0 }}>03</div>
+                  <div>
+                    <h4 style={{ fontFamily: 'var(--font-adieu)', fontSize: '0.95rem', margin: '0 0 0.5rem 0', textTransform: 'uppercase' }}>Model C Analysis: Pattern Intelligence</h4>
+                    <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: 'rgba(255, 255, 255, 0.65)', margin: 0 }}>Cross references current test readings with historical trends from the same material supplier, contractor team, and batch history.</p>
+                  </div>
                 </div>
-              </div>
+              </GlowCard>
             </div>
           </motion.section>
 
