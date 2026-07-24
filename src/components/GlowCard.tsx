@@ -302,6 +302,7 @@ export default function GlowCard({
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
+          overflow: "hidden",
         }}
       >
         {children}

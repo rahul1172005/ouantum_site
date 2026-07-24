@@ -137,7 +137,7 @@ const Careers: React.FC = () => {
                       </p>
                     </div>
                     <a
-                      href="mailto:contact@ouantum.com?subject=Application: AI Engineer"
+                      href="mailto:founders@ouantum.com?subject=Application: AI Engineer"
                       style={{
                         background: '#000000',
                         border: '1px solid rgba(255, 255, 255, 0.15)',
@@ -191,7 +191,7 @@ const Careers: React.FC = () => {
                       </p>
                     </div>
                     <a
-                      href="mailto:contact@ouantum.com?subject=Application: Structural Audit Engineer"
+                      href="mailto:founders@ouantum.com?subject=Application: Structural Audit Engineer"
                       style={{
                         background: '#000000',
                         border: '1px solid rgba(255, 255, 255, 0.15)',
@@ -245,7 +245,7 @@ const Careers: React.FC = () => {
                       </p>
                     </div>
                     <a
-                      href="mailto:contact@ouantum.com?subject=Application: Frontend Developer"
+                      href="mailto:founders@ouantum.com?subject=Application: Frontend Developer"
                       style={{
                         background: '#000000',
                         border: '1px solid rgba(255, 255, 255, 0.15)',
@@ -299,7 +299,7 @@ const Careers: React.FC = () => {
                       </p>
                     </div>
                     <a
-                      href="mailto:contact@ouantum.com?subject=Application: Civil Engineer"
+                      href="mailto:founders@ouantum.com?subject=Application: Civil Engineer"
                       style={{
                         background: '#000000',
                         border: '1px solid rgba(255, 255, 255, 0.15)',
@@ -353,7 +353,7 @@ const Careers: React.FC = () => {
                       </p>
                     </div>
                     <a
-                      href="mailto:contact@ouantum.com?subject=Application: DevOps Engineer"
+                      href="mailto:founders@ouantum.com?subject=Application: DevOps Engineer"
                       style={{
                         background: '#000000',
                         border: '1px solid rgba(255, 255, 255, 0.15)',
@@ -394,7 +394,7 @@ const Careers: React.FC = () => {
               We are always looking for exceptional talent. If you believe your skills align with our mission to overhaul construction quality assurance, send your resume and a brief introduction.
             </p>
             <a
-              href="mailto:contact@ouantum.com?subject=General Application"
+              href="mailto:founders@ouantum.com?subject=General Application"
               style={{
                 display: 'inline-block',
                 background: '#000000',

@@ -360,7 +360,20 @@ const Hero: React.FC = () => {
                       required
                       value={formData.name}
                       onChange={e => setFormData({ ...formData, name: e.target.value })}
-                      style={{ width: '100%', boxSizing: 'border-box', background: '#111', border: '1px solid rgba(255, 255, 255, 0.12)', padding: '14px 16px', borderRadius: '8px', color: '#fff', fontFamily: 'var(--font-mono)', outline: 'none' }}
+                      style={{
+                        width: '100%',
+                        boxSizing: 'border-box',
+                        background: 'rgba(15, 12, 10, 0.85)',
+                        border: '1px solid rgba(248, 156, 82, 0.35)',
+                        padding: '14px 16px',
+                        borderRadius: '8px',
+                        color: '#fff',
+                        fontFamily: 'var(--font-mono)',
+                        outline: 'none',
+                        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4), 0 0 12px rgba(248, 156, 82, 0.1), inset 0 0 10px rgba(248, 156, 82, 0.05)',
+                        backdropFilter: 'blur(12px)',
+                        transition: 'all 0.25s ease',
+                      }}
                     />
                     <div className="contact-modal-form-row">
                       <input
@@ -369,14 +382,40 @@ const Hero: React.FC = () => {
                         required
                         value={formData.email}
                         onChange={e => setFormData({ ...formData, email: e.target.value })}
-                        style={{ width: '100%', boxSizing: 'border-box', background: '#111', border: '1px solid rgba(255, 255, 255, 0.12)', padding: '14px 16px', borderRadius: '8px', color: '#fff', fontFamily: 'var(--font-mono)', outline: 'none' }}
+                        style={{
+                          width: '100%',
+                          boxSizing: 'border-box',
+                          background: 'rgba(15, 12, 10, 0.85)',
+                          border: '1px solid rgba(248, 156, 82, 0.35)',
+                          padding: '14px 16px',
+                          borderRadius: '8px',
+                          color: '#fff',
+                          fontFamily: 'var(--font-mono)',
+                          outline: 'none',
+                          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4), 0 0 12px rgba(248, 156, 82, 0.1), inset 0 0 10px rgba(248, 156, 82, 0.05)',
+                          backdropFilter: 'blur(12px)',
+                          transition: 'all 0.25s ease',
+                        }}
                       />
                       <input
                         type="tel"
                         placeholder="Phone (Optional)"
                         value={formData.phone}
                         onChange={e => setFormData({ ...formData, phone: e.target.value })}
-                        style={{ width: '100%', boxSizing: 'border-box', background: '#111', border: '1px solid rgba(255, 255, 255, 0.12)', padding: '14px 16px', borderRadius: '8px', color: '#fff', fontFamily: 'var(--font-mono)', outline: 'none' }}
+                        style={{
+                          width: '100%',
+                          boxSizing: 'border-box',
+                          background: 'rgba(15, 12, 10, 0.85)',
+                          border: '1px solid rgba(248, 156, 82, 0.35)',
+                          padding: '14px 16px',
+                          borderRadius: '8px',
+                          color: '#fff',
+                          fontFamily: 'var(--font-mono)',
+                          outline: 'none',
+                          boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4), 0 0 12px rgba(248, 156, 82, 0.1), inset 0 0 10px rgba(248, 156, 82, 0.05)',
+                          backdropFilter: 'blur(12px)',
+                          transition: 'all 0.25s ease',
+                        }}
                       />
                     </div>
                     <textarea
@@ -384,7 +423,21 @@ const Hero: React.FC = () => {
                       rows={4}
                       value={formData.message}
                       onChange={e => setFormData({ ...formData, message: e.target.value })}
-                      style={{ width: '100%', boxSizing: 'border-box', background: '#111', border: '1px solid rgba(255, 255, 255, 0.12)', padding: '14px 16px', borderRadius: '8px', color: '#fff', fontFamily: 'var(--font-mono)', resize: 'vertical', outline: 'none' }}
+                      style={{
+                        width: '100%',
+                        boxSizing: 'border-box',
+                        background: 'rgba(15, 12, 10, 0.85)',
+                        border: '1px solid rgba(248, 156, 82, 0.35)',
+                        padding: '14px 16px',
+                        borderRadius: '8px',
+                        color: '#fff',
+                        fontFamily: 'var(--font-mono)',
+                        resize: 'vertical',
+                        outline: 'none',
+                        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4), 0 0 12px rgba(248, 156, 82, 0.1), inset 0 0 10px rgba(248, 156, 82, 0.05)',
+                        backdropFilter: 'blur(12px)',
+                        transition: 'all 0.25s ease',
+                      }}
                     />
                     <button
                       type="submit"

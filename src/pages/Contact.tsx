@@ -347,21 +347,31 @@ const Contact: React.FC = () => {
                         onChange={handleChange}
                         placeholder="Your full name"
                         style={{
-                          background: '#000000',
-                          border: errors.name ? '1px solid #ff4d4d' : '1px solid rgba(255, 255, 255, 0.15)',
+                          background: 'rgba(15, 12, 10, 0.85)',
+                          border: errors.name ? '1px solid #ff4d4d' : '1px solid rgba(248, 156, 82, 0.35)',
                           borderRadius: '8px',
                           padding: '0.75rem 1rem',
                           color: '#fff',
                           fontSize: '0.9rem',
                           fontFamily: 'var(--font-main)',
                           outline: 'none',
-                          transition: 'border-color 0.2s',
+                          boxShadow: errors.name ? '0 0 12px rgba(255, 77, 77, 0.25)' : '0 4px 20px rgba(0, 0, 0, 0.4), 0 0 12px rgba(248, 156, 82, 0.1), inset 0 0 10px rgba(248, 156, 82, 0.05)',
+                          backdropFilter: 'blur(12px)',
+                          transition: 'all 0.25s ease',
                         }}
                         onFocus={(e) => {
-                          if (!errors.name) e.currentTarget.style.borderColor = '#ffffff';
+                          if (!errors.name) {
+                            e.currentTarget.style.borderColor = 'rgba(248, 156, 82, 0.85)';
+                            e.currentTarget.style.boxShadow = '0 0 25px rgba(248, 156, 82, 0.3), inset 0 0 15px rgba(248, 156, 82, 0.15)';
+                            e.currentTarget.style.background = 'rgba(22, 17, 14, 0.95)';
+                          }
                         }}
                         onBlur={(e) => {
-                          if (!errors.name) e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
+                          if (!errors.name) {
+                            e.currentTarget.style.borderColor = 'rgba(248, 156, 82, 0.35)';
+                            e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.4), 0 0 12px rgba(248, 156, 82, 0.1), inset 0 0 10px rgba(248, 156, 82, 0.05)';
+                            e.currentTarget.style.background = 'rgba(15, 12, 10, 0.85)';
+                          }
                         }}
                       />
                       {errors.name && <span style={{ color: '#ff4d4d', fontSize: '0.75rem', fontFamily: 'var(--font-mono)' }}>{errors.name}</span>}
@@ -380,21 +390,31 @@ const Contact: React.FC = () => {
                         onChange={handleChange}
                         placeholder="you@example.com"
                         style={{
-                          background: '#000000',
-                          border: errors.email ? '1px solid #ff4d4d' : '1px solid rgba(255, 255, 255, 0.15)',
+                          background: 'rgba(15, 12, 10, 0.85)',
+                          border: errors.email ? '1px solid #ff4d4d' : '1px solid rgba(248, 156, 82, 0.35)',
                           borderRadius: '8px',
                           padding: '0.75rem 1rem',
                           color: '#fff',
                           fontSize: '0.9rem',
                           fontFamily: 'var(--font-main)',
                           outline: 'none',
-                          transition: 'border-color 0.2s',
+                          boxShadow: errors.email ? '0 0 12px rgba(255, 77, 77, 0.25)' : '0 4px 20px rgba(0, 0, 0, 0.4), 0 0 12px rgba(248, 156, 82, 0.1), inset 0 0 10px rgba(248, 156, 82, 0.05)',
+                          backdropFilter: 'blur(12px)',
+                          transition: 'all 0.25s ease',
                         }}
                         onFocus={(e) => {
-                          if (!errors.email) e.currentTarget.style.borderColor = '#ffffff';
+                          if (!errors.email) {
+                            e.currentTarget.style.borderColor = 'rgba(248, 156, 82, 0.85)';
+                            e.currentTarget.style.boxShadow = '0 0 25px rgba(248, 156, 82, 0.3), inset 0 0 15px rgba(248, 156, 82, 0.15)';
+                            e.currentTarget.style.background = 'rgba(22, 17, 14, 0.95)';
+                          }
                         }}
                         onBlur={(e) => {
-                          if (!errors.email) e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
+                          if (!errors.email) {
+                            e.currentTarget.style.borderColor = 'rgba(248, 156, 82, 0.35)';
+                            e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.4), 0 0 12px rgba(248, 156, 82, 0.1), inset 0 0 10px rgba(248, 156, 82, 0.05)';
+                            e.currentTarget.style.background = 'rgba(15, 12, 10, 0.85)';
+                          }
                         }}
                       />
                       {errors.email && <span style={{ color: '#ff4d4d', fontSize: '0.75rem', fontFamily: 'var(--font-mono)' }}>{errors.email}</span>}
@@ -414,18 +434,28 @@ const Contact: React.FC = () => {
                       onChange={handleChange}
                       placeholder="Your company name"
                       style={{
-                        background: '#000000',
-                        border: '1px solid rgba(255, 255, 255, 0.15)',
+                        background: 'rgba(15, 12, 10, 0.85)',
+                        border: '1px solid rgba(248, 156, 82, 0.35)',
                         borderRadius: '8px',
                         padding: '0.75rem 1rem',
                         color: '#fff',
                         fontSize: '0.9rem',
                         fontFamily: 'var(--font-main)',
                         outline: 'none',
-                        transition: 'border-color 0.2s',
+                        boxShadow: '0 4px 20px rgba(0, 0, 0, 0.4), 0 0 12px rgba(248, 156, 82, 0.1), inset 0 0 10px rgba(248, 156, 82, 0.05)',
+                        backdropFilter: 'blur(12px)',
+                        transition: 'all 0.25s ease',
                       }}
-                      onFocus={(e) => (e.currentTarget.style.borderColor = '#ffffff')}
-                      onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)')}
+                      onFocus={(e) => {
+                        e.currentTarget.style.borderColor = 'rgba(248, 156, 82, 0.85)';
+                        e.currentTarget.style.boxShadow = '0 0 25px rgba(248, 156, 82, 0.3), inset 0 0 15px rgba(248, 156, 82, 0.15)';
+                        e.currentTarget.style.background = 'rgba(22, 17, 14, 0.95)';
+                      }}
+                      onBlur={(e) => {
+                        e.currentTarget.style.borderColor = 'rgba(248, 156, 82, 0.35)';
+                        e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.4), 0 0 12px rgba(248, 156, 82, 0.1), inset 0 0 10px rgba(248, 156, 82, 0.05)';
+                        e.currentTarget.style.background = 'rgba(15, 12, 10, 0.85)';
+                      }}
                     />
                   </div>
 
@@ -442,8 +472,8 @@ const Contact: React.FC = () => {
                       onChange={handleChange}
                       placeholder="Please describe your project or platform inquiry..."
                       style={{
-                        background: '#000000',
-                        border: errors.message ? '1px solid #ff4d4d' : '1px solid rgba(255, 255, 255, 0.15)',
+                        background: 'rgba(15, 12, 10, 0.85)',
+                        border: errors.message ? '1px solid #ff4d4d' : '1px solid rgba(248, 156, 82, 0.35)',
                         borderRadius: '8px',
                         padding: '0.75rem 1rem',
                         color: '#fff',
@@ -451,13 +481,23 @@ const Contact: React.FC = () => {
                         fontFamily: 'var(--font-main)',
                         outline: 'none',
                         resize: 'vertical',
-                        transition: 'border-color 0.2s',
+                        boxShadow: errors.message ? '0 0 12px rgba(255, 77, 77, 0.25)' : '0 4px 20px rgba(0, 0, 0, 0.4), 0 0 12px rgba(248, 156, 82, 0.1), inset 0 0 10px rgba(248, 156, 82, 0.05)',
+                        backdropFilter: 'blur(12px)',
+                        transition: 'all 0.25s ease',
                       }}
                       onFocus={(e) => {
-                        if (!errors.message) e.currentTarget.style.borderColor = '#ffffff';
+                        if (!errors.message) {
+                          e.currentTarget.style.borderColor = 'rgba(248, 156, 82, 0.85)';
+                          e.currentTarget.style.boxShadow = '0 0 25px rgba(248, 156, 82, 0.3), inset 0 0 15px rgba(248, 156, 82, 0.15)';
+                          e.currentTarget.style.background = 'rgba(22, 17, 14, 0.95)';
+                        }
                       }}
                       onBlur={(e) => {
-                        if (!errors.message) e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.15)';
+                        if (!errors.message) {
+                          e.currentTarget.style.borderColor = 'rgba(248, 156, 82, 0.35)';
+                          e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.4), 0 0 12px rgba(248, 156, 82, 0.1), inset 0 0 10px rgba(248, 156, 82, 0.05)';
+                          e.currentTarget.style.background = 'rgba(15, 12, 10, 0.85)';
+                        }
                       }}
                     />
                     {errors.message && <span style={{ color: '#ff4d4d', fontSize: '0.75rem', fontFamily: 'var(--font-mono)' }}>{errors.message}</span>}
